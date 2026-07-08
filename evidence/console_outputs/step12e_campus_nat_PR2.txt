@@ -1,0 +1,127 @@
+Connected to Dynamips VM "FW-CAMPUS" (ID 1, type c7200) - Console port
+
+Press ENTER to get the prompt.
+
+on. All packets will be dropped
+
+%No specific protocol or access-group configured in class CM_OUT_TO_DMZ for inspection. All packets will be dropped
+
+%No specific protocol or access-group configured in class CM_DMZ_TO_OUT for inspection. All packets will be dropped
+
+% Crashinfo may not be recovered at bootflash:crashinfo
+
+% This file system device reports an error
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+!!By default, the following "voice service voip"         !!
+
+!!sub-command is enabled:                                !!
+
+!!   ip address trusted authenticate                     !!
+
+!!                                                       !!
+
+!!The command enables the ip address authentication      !!
+
+!!on incoming H.323 or SIP trunk calls for toll fraud    !!
+
+!!prevention supports.                                   !!
+
+!!                                                       !!
+
+!!Please use "show ip address trusted list" command      !!
+
+!!to display a list of valid ip addresses for incoming   !!
+
+!!H.323 or SIP trunk calls.                              !!
+
+!!                                                       !!
+
+!!Additional valid ip addresses can be added via the     !!
+
+!!following command line:                                !!
+
+!!  voice service voip                                   !!
+
+!!   ip address trusted list                             !!
+
+!!    ipv4 <ipv4-address> [<ipv4 network-mask>]          !!
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Press RETURN to get started!
+
+*May  6 16:45:52.019: %IFMGR-7-NO_IFINDEX_FILE: Unable to open nvram:/ifIndex-table No such file or directory
+
+*May  6 16:45:57.275: %LINEPROTO-5-UPDOWN: Line protocol on Interface VoIP-Null0, changed state to up
+
+*May  6 16:45:57.283: %LINK-3-UPDOWN: Interface FastEthernet0/0, changed state to up
+
+*May  6 16:45:57.291: %LINK-3-UPDOWN: Interface FastEthernet0/1, changed state to up
+
+*May  6 16:45:57.295: %LINK-3-UPDOWN: Interface FastEthernet1/0, changed state to up
+
+*May  6 16:45:57.303: %LINK-3-UPDOWN: Interface FastEthernet2/0, changed state to up
+
+*May  6 16:45:57.307: %LINK-3-UPDOWN: Interface FastEthernet3/0, changed state to up
+
+*May  6 16:45:58.299: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+*May  6 16:45:58.299: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up
+
+*May  6 16:45:58.303: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet1/0, changed state to up
+
+*May  6 16:45:58.303: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet2/0, changed state to up
+
+*May  6 16:45:58.307: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet3/0, changed state to down
+
+*May  6 16:45:59.711: %LINEPROTO-5-UPDOWN: Line protocol on Interface NVI0, changed state to up
+
+*May  6 16:45:59.711: %LINK-3-UPDOWN: Interface FastEthernet3/0, changed state to down
+
+*May  6 16:46:00.235: %SYS-5-CONFIG_I: Configured from memory by console
+
+*May  6 16:46:00.387: %SYS-5-RESTART: System restarted --
+
+Cisco IOS Software, 7200 Software (C7200-ADVENTERPRISEK9-M), Version 15.1(4)M2, RELEASE SOFTWARE (fc1)
+
+Technical Support: http://www.cisco.com/techsupport
+
+Copyright (c) 1986-2011 by Cisco Systems, Inc.
+
+Compiled Mon 26-Sep-11 21:34 by prod_rel_team
+
+*May  6 16:46:00.403: %SNMP-5-COLDSTART: SNMP agent on host FW-CAMPUS is undergoing a cold start
+
+*May  6 16:46:00.423: %SSH-5-ENABLED: SSH 2.0 has been enabled
+
+*May  6 16:46:00.431: %CRYPTO-6-ISAKMP_ON_OFF: ISAKMP is OFF
+
+*May  6 16:46:00.431: %CRYPTO-6-GDOI_ON_OFF: GDOI is OFF
+
+*May  6 16:46:02.139: %LINK-5-CHANGED: Interface FastEthernet3/0, changed state to administratively down
+
+*May  6 16:47:49.187: %FW-6-DROP_PKT: Dropping tcp session 10.2.2.10:42695 172.16.10.10:22 on zone-pair PR2_TO_DMZ class class-default due to  DROP action found in policy-map with ip ident 0
+
+*May  6 16:48:58.567: %FW-6-DROP_PKT: Dropping tcp session 10.2.2.10:35843 172.16.10.10:22 on zone-pair PR2_TO_DMZ class class-default due to  DROP action found in policy-map with ip ident 0
+
+FW-CAMPUS#
+### COMMAND: terminal length 0
+terminal length 0
+
+FW-CAMPUS#
+### COMMAND: show ip nat translations | include 10.2.2.10|203.0.113.10
+show ip nat translations | include 10.2.2.10|203.0.113.10
+
+icmp 203.0.113.254:4   10.2.2.10:4        203.0.113.10:4     203.0.113.10:4
+
+FW-CAMPUS#
+### COMMAND: show ip nat translations
+show ip nat translations
+
+Pro Inside global      Inside local       Outside local      Outside global
+
+icmp 203.0.113.254:4   10.2.2.10:4        203.0.113.10:4     203.0.113.10:4
+
+FW-CAMPUS#

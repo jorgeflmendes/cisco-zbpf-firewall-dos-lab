@@ -1,0 +1,291 @@
+��
+### COMMAND: configure terminal
+������"Connected to Dynamips VM "firewall" (ID 2, type c7200) - Console port
+
+Press ENTER to get the prompt.
+
+: %CRYPTO-6-GDOI_ON_OFF: GDOI is OFF
+
+*May  5 18:59:03.995: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to down
+
+*May  5 18:59:04.003: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to down
+
+*May  5 18:59:05.195: %LINK-5-CHANGED: Interface FastEthernet0/0, changed state to administratively down
+
+*May  5 18:59:05.203: %LINK-5-CHANGED: Interface FastEthernet0/1, changed state to administratively down
+
+firewall#
+
+firewall#terminal length 0
+
+firewall#configure terminal
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+firewall(config)#hostname firewall
+
+firewall(config)#interface FastEthernet0/0
+
+firewall(config-if)#description INSIDE_ZONE
+
+firewall(config-if)#ip address 222.10.10.254 255.255.255.0
+
+firewall(config-if)#no shutdown
+
+firewall(config-if)#exit
+
+firewall(config)#
+
+*May  5 19:01:57.139: %LINK-3-UPDOWN: Interface FastEthernet0/0, changed state to up
+
+*May  5 19:01:58.139: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+firewall(config)#interface FastEthernet0/1
+
+firewall(config-if)#description OUTSIDE_ZONE
+
+firewall(config-if)#ip address 111.10.10.254 255.255.255.0
+
+firewall(config-if)#no shutdown
+
+firewall(config-if)#exit
+
+firewall(config)#
+
+*May  5 19:02:11.143: %LINK-3-UPDOWN: Interface FastEthernet0/1, changed state to up
+
+*May  5 19:02:12.143: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up
+
+firewall(config)#end
+
+firewall#
+
+*May  5 19:02:14.763: %SYS-5-CONFIG_I: Configured from console by console
+
+firewall#show ip interface brief
+
+Interface                  IP-Address      OK? Method Status                Protocol
+
+FastEthernet0/0            222.10.10.254   YES manual up                    up
+
+FastEthernet0/1            111.10.10.254   YES manual up                    up
+
+firewall#show ip route connected
+
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+
+D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+
+N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+
+E1 - OSPF external type 1, E2 - OSPF external type 2
+
+i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+
+ia - IS-IS inter area, * - candidate default, U - per-user static route
+
+o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+
++ - replicated route, % - next hop override
+
+Gateway of last resort is not set
+
+111.0.0.0/8 is variably subnetted, 2 subnets, 2 masks
+
+C        111.10.10.0/24 is directly connected, FastEthernet0/1
+
+L        111.10.10.254/32 is directly connected, FastEthernet0/1
+
+222.10.10.0/24 is variably subnetted, 2 subnets, 2 masks
+
+C        222.10.10.0/24 is directly connected, FastEthernet0/0
+
+L        222.10.10.254/32 is directly connected, FastEthernet0/0
+
+firewall#write memory
+
+Warning: Attempting to overwrite an NVRAM configuration previously written
+
+by a different version of the system image.
+
+Overwrite the previous NVRAM configuration?[confirm]
+
+Building configuration...
+
+[OK]
+
+firewall#
+
+firewall#terminal length 0
+
+firewall#ping 222.10.10.1
+
+Type escape sequence to abort.
+
+Sending 5, 100-byte ICMP Echos to 222.10.10.1, timeout is 2 seconds:
+
+!!!!!
+
+Success rate is 100 percent (5/5), round-trip min/avg/max = 12/19/24 ms
+
+firewall#ping 222.10.10.2
+
+Type escape sequence to abort.
+
+Sending 5, 100-byte ICMP Echos to 222.10.10.2, timeout is 2 seconds:
+
+!!!!!
+
+Success rate is 100 percent (5/5), round-trip min/avg/max = 8/9/12 ms
+
+firewall#ping 111.10.10.2
+
+Type escape sequence to abort.
+
+Sending 5, 100-byte ICMP Echos to 111.10.10.2, timeout is 2 seconds:
+
+!!!!!
+
+Success rate is 100 percent (5/5), round-trip min/avg/max = 8/10/12 ms
+
+firewall#show ip interface brief
+
+Interface                  IP-Address      OK? Method Status                Protocol
+
+FastEthernet0/0            222.10.10.254   YES manual up                    up
+
+FastEthernet0/1            111.10.10.254   YES manual up                    up
+
+firewall#configure terminal
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+firewall(config)#
+### COMMAND: ip inspect name PROTOCOLS icmp
+ip inspect name PROTOCOLS icmp
+
+firewall(config)#
+### COMMAND: ip inspect name PROTOCOLS http
+ip inspect name PROTOCOLS http
+
+firewall(config)#
+### COMMAND: interface FastEthernet0/1
+interface FastEthernet0/1
+
+firewall(config-if)#
+### COMMAND: ip inspect PROTOCOLS in
+ip inspect PROTOCOLS in
+
+firewall(config-if)#
+### COMMAND: exit
+exit
+
+firewall(config)#
+### COMMAND: ip access-list extended TO_SERVER
+ip access-list extended TO_SERVER
+
+firewall(config-ext-nacl)#
+### COMMAND: permit ip any host 222.10.10.1
+permit ip any host 222.10.10.1
+
+firewall(config-ext-nacl)#
+### COMMAND: exit
+exit
+
+firewall(config)#
+### COMMAND: interface FastEthernet0/1
+interface FastEthernet0/1
+
+firewall(config-if)#
+### COMMAND: ip access-group TO_SERVER in
+ip access-group TO_SERVER in
+
+firewall(config-if)#
+### COMMAND: end
+end
+
+firewall#
+
+*May  5 19:11:52.495: %SYS-5-CONFIG_I: Configured from console by console
+
+firewall#
+### COMMAND: show running-config interface FastEthernet0/1
+show running-config interface FastEthernet0/1
+
+Building configuration...
+
+Current configuration : 179 bytes
+
+!
+
+interface FastEthernet0/1
+
+description OUTSIDE_ZONE
+
+ip address 111.10.10.254 255.255.255.0
+
+ip access-group TO_SERVER in
+
+ip inspect PROTOCOLS in
+
+duplex auto
+
+speed auto
+
+end
+
+firewall#
+### COMMAND: show ip inspect all
+show ip inspect all
+
+Session audit trail is disabled
+
+Session alert is enabled
+
+one-minute (sampling period) thresholds are [unlimited : unlimited] connections
+
+max-incomplete sessions thresholds are [unlimited : unlimited]
+
+max-incomplete tcp connections per host is unlimited. Block-time 0 minute.
+
+tcp synwait-time is 30 sec -- tcp finwait-time is 5 sec
+
+tcp idle-time is 3600 sec -- udp idle-time is 30 sec
+
+tcp reassembly queue length 16; timeout 5 sec; memory-limit 1024 kilo bytes
+
+dns-timeout is 5 sec
+
+Inspection Rule Configuration
+
+Inspection name PROTOCOLS
+
+icmp alert is on audit-trail is off timeout 10
+
+http alert is on audit-trail is off timeout 3600
+
+Interface Configuration
+
+Interface FastEthernet0/1
+
+Inbound inspection rule is PROTOCOLS
+
+icmp alert is on audit-trail is off timeout 10
+
+http alert is on audit-trail is off timeout 3600
+
+Outgoing inspection rule is not set
+
+Inbound access list is TO_SERVER
+
+Outgoing access list is not set
+
+firewall#
+### COMMAND: show access-lists TO_SERVER
+show access-lists TO_SERVER
+
+Extended IP access list TO_SERVER
+
+10 permit ip any host 222.10.10.1
+
+firewall#

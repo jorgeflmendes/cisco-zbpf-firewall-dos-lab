@@ -1,0 +1,645 @@
+Connected to Dynamips VM "FW-CAMPUS" (ID 1, type c7200) - Console port
+
+Press ENTER to get the prompt.
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+!!By default, the following "voice service voip"         !!
+
+!!sub-command is enabled:                                !!
+
+!!   ip address trusted authenticate                     !!
+
+!!                                                       !!
+
+!!The command enables the ip address authentication      !!
+
+!!on incoming H.323 or SIP trunk calls for toll fraud    !!
+
+!!prevention supports.                                   !!
+
+!!                                                       !!
+
+!!Please use "show ip address trusted list" command      !!
+
+!!to display a list of valid ip addresses for incoming   !!
+
+!!H.323 or SIP trunk calls.                              !!
+
+!!                                                       !!
+
+!!Additional valid ip addresses can be added via the     !!
+
+!!following command line:                                !!
+
+!!  voice service voip                                   !!
+
+!!   ip address trusted list                             !!
+
+!!    ipv4 <ipv4-address> [<ipv4 network-mask>]          !!
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Press RETURN to get started!
+
+*May  6 16:45:52.019: %IFMGR-7-NO_IFINDEX_FILE: Unable to open nvram:/ifIndex-table No such file or directory
+
+*May  6 16:45:57.275: %LINEPROTO-5-UPDOWN: Line protocol on Interface VoIP-Null0, changed state to up
+
+*May  6 16:45:57.283: %LINK-3-UPDOWN: Interface FastEthernet0/0, changed state to up
+
+*May  6 16:45:57.291: %LINK-3-UPDOWN: Interface FastEthernet0/1, changed state to up
+
+*May  6 16:45:57.295: %LINK-3-UPDOWN: Interface FastEthernet1/0, changed state to up
+
+*May  6 16:45:57.303: %LINK-3-UPDOWN: Interface FastEthernet2/0, changed state to up
+
+*May  6 16:45:57.307: %LINK-3-UPDOWN: Interface FastEthernet3/0, changed state to up
+
+*May  6 16:45:58.299: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+*May  6 16:45:58.299: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up
+
+*May  6 16:45:58.303: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet1/0, changed state to up
+
+*May  6 16:45:58.303: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet2/0, changed state to up
+
+*May  6 16:45:58.307: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet3/0, changed state to down
+
+*May  6 16:45:59.711: %LINEPROTO-5-UPDOWN: Line protocol on Interface NVI0, changed state to up
+
+*May  6 16:45:59.711: %LINK-3-UPDOWN: Interface FastEthernet3/0, changed state to down
+
+*May  6 16:46:00.235: %SYS-5-CONFIG_I: Configured from memory by console
+
+*May  6 16:46:00.387: %SYS-5-RESTART: System restarted --
+
+Cisco IOS Software, 7200 Software (C7200-ADVENTERPRISEK9-M), Version 15.1(4)M2, RELEASE SOFTWARE (fc1)
+
+Technical Support: http://www.cisco.com/techsupport
+
+Copyright (c) 1986-2011 by Cisco Systems, Inc.
+
+Compiled Mon 26-Sep-11 21:34 by prod_rel_team
+
+*May  6 16:46:00.403: %SNMP-5-COLDSTART: SNMP agent on host FW-CAMPUS is undergoing a cold start
+
+*May  6 16:46:00.423: %SSH-5-ENABLED: SSH 2.0 has been enabled
+
+*May  6 16:46:00.431: %CRYPTO-6-ISAKMP_ON_OFF: ISAKMP is OFF
+
+*May  6 16:46:00.431: %CRYPTO-6-GDOI_ON_OFF: GDOI is OFF
+
+*May  6 16:46:02.139: %LINK-5-CHANGED: Interface FastEthernet3/0, changed state to administratively down
+
+*May  6 16:47:49.187: %FW-6-DROP_PKT: Dropping tcp session 10.2.2.10:42695 172.16.10.10:22 on zone-pair PR2_TO_DMZ class class-default due to  DROP action found in policy-map with ip ident 0
+
+*May  6 16:48:58.567: %FW-6-DROP_PKT: Dropping tcp session 10.2.2.10:35843 172.16.10.10:22 on zone-pair PR2_TO_DMZ class class-default due to  DROP action found in policy-map with ip ident 0
+
+FW-CAMPUS#terminal length 0
+
+FW-CAMPUS#show ip nat translations | include 10.2.2.10|203.0.113.10
+
+icmp 203.0.113.254:4   10.2.2.10:4        203.0.113.10:4     203.0.113.10:4
+
+FW-CAMPUS#show ip nat translations
+
+Pro Inside global      Inside local       Outside local      Outside global
+
+icmp 203.0.113.254:4   10.2.2.10:4        203.0.113.10:4     203.0.113.10:4
+
+FW-CAMPUS#
+
+FW-CAMPUS#
+### COMMAND: conf t
+conf t
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+FW-CAMPUS(config)#
+### COMMAND: ip access-list extended ACL_DST_WEB
+ip access-list extended ACL_DST_WEB
+
+FW-CAMPUS(config-ext-nacl)#
+### COMMAND:  permit ip any host 172.16.10.10
+permit ip any host 172.16.10.10
+
+FW-CAMPUS(config-ext-nacl)#
+### COMMAND: exit
+exit
+
+FW-CAMPUS(config)#
+### COMMAND: ip access-list extended ACL_DST_MAIL
+ip access-list extended ACL_DST_MAIL
+
+FW-CAMPUS(config-ext-nacl)#
+### COMMAND:  permit ip any host 172.16.10.20
+permit ip any host 172.16.10.20
+
+FW-CAMPUS(config-ext-nacl)#
+### COMMAND: exit
+exit
+
+FW-CAMPUS(config)#
+### COMMAND: ip access-list extended ACL_DST_DNS
+ip access-list extended ACL_DST_DNS
+
+FW-CAMPUS(config-ext-nacl)#
+### COMMAND:  permit ip any host 172.16.10.30
+permit ip any host 172.16.10.30
+
+FW-CAMPUS(config-ext-nacl)#
+### COMMAND: exit
+exit
+
+FW-CAMPUS(config)#
+### COMMAND: ip access-list extended ACL_DST_DMZ_SERVERS
+ip access-list extended ACL_DST_DMZ_SERVERS
+
+FW-CAMPUS(config-ext-nacl)#
+### COMMAND:  permit ip any host 172.16.10.10
+permit ip any host 172.16.10.10
+
+FW-CAMPUS(config-ext-nacl)#
+### COMMAND:  permit ip any host 172.16.10.20
+permit ip any host 172.16.10.20
+
+FW-CAMPUS(config-ext-nacl)#
+### COMMAND:  permit ip any host 172.16.10.30
+permit ip any host 172.16.10.30
+
+FW-CAMPUS(config-ext-nacl)#
+### COMMAND: exit
+exit
+
+FW-CAMPUS(config)#
+### COMMAND: ip access-list extended ACL_PROTO_WEB
+ip access-list extended ACL_PROTO_WEB
+
+FW-CAMPUS(config-ext-nacl)#
+### COMMAND:  permit tcp any any eq www
+permit tcp any any eq www
+
+FW-CAMPUS(config-ext-nacl)#
+### COMMAND:  permit tcp any any eq 443
+permit tcp any any eq 443
+
+FW-CAMPUS(config-ext-nacl)#
+### COMMAND: exit
+exit
+
+FW-CAMPUS(config)#
+### COMMAND: ip access-list extended ACL_PROTO_MAIL_FULL
+ip access-list extended ACL_PROTO_MAIL_FULL
+
+FW-CAMPUS(config-ext-nacl)#
+### COMMAND:  permit tcp any any eq smtp
+permit tcp any any eq smtp
+
+FW-CAMPUS(config-ext-nacl)#
+### COMMAND:  permit tcp any any eq pop3
+permit tcp any any eq pop3
+
+FW-CAMPUS(config-ext-nacl)#
+### COMMAND:  permit tcp any any eq 143
+permit tcp any any eq 143
+
+FW-CAMPUS(config-ext-nacl)#
+### COMMAND: exit
+exit
+
+FW-CAMPUS(config)#
+### COMMAND: ip access-list extended ACL_PROTO_SMTP
+ip access-list extended ACL_PROTO_SMTP
+
+FW-CAMPUS(config-ext-nacl)#
+### COMMAND:  permit tcp any any eq smtp
+permit tcp any any eq smtp
+
+FW-CAMPUS(config-ext-nacl)#
+### COMMAND: exit
+exit
+
+FW-CAMPUS(config)#
+### COMMAND: ip access-list extended ACL_PROTO_DNS
+ip access-list extended ACL_PROTO_DNS
+
+FW-CAMPUS(config-ext-nacl)#
+### COMMAND:  permit tcp any any eq domain
+permit tcp any any eq domain
+
+FW-CAMPUS(config-ext-nacl)#
+### COMMAND:  permit udp any any eq domain
+permit udp any any eq domain
+
+FW-CAMPUS(config-ext-nacl)#
+### COMMAND: exit
+exit
+
+FW-CAMPUS(config)#
+### COMMAND: ip access-list extended ACL_PROTO_ICMP
+ip access-list extended ACL_PROTO_ICMP
+
+FW-CAMPUS(config-ext-nacl)#
+### COMMAND:  permit icmp any any
+permit icmp any any
+
+FW-CAMPUS(config-ext-nacl)#
+### COMMAND: exit
+exit
+
+FW-CAMPUS(config)#
+### COMMAND: class-map type inspect match-any CM_PROTO_WEB
+class-map type inspect match-any CM_PROTO_WEB
+
+FW-CAMPUS(config-cmap)#
+### COMMAND:  match access-group name ACL_PROTO_WEB
+match access-group name ACL_PROTO_WEB
+
+FW-CAMPUS(config-cmap)#
+### COMMAND: exit
+exit
+
+FW-CAMPUS(config)#
+### COMMAND: class-map type inspect match-any CM_PROTO_MAIL_FULL
+class-map type inspect match-any CM_PROTO_MAIL_FULL
+
+FW-CAMPUS(config-cmap)#
+### COMMAND:  match access-group name ACL_PROTO_MAIL_FULL
+match access-group name ACL_PROTO_MAIL_FULL
+
+FW-CAMPUS(config-cmap)#
+### COMMAND: exit
+exit
+
+FW-CAMPUS(config)#
+### COMMAND: class-map type inspect match-any CM_PROTO_SMTP
+class-map type inspect match-any CM_PROTO_SMTP
+
+FW-CAMPUS(config-cmap)#
+### COMMAND:  match access-group name ACL_PROTO_SMTP
+match access-group name ACL_PROTO_SMTP
+
+FW-CAMPUS(config-cmap)#
+### COMMAND: exit
+exit
+
+FW-CAMPUS(config)#
+### COMMAND: class-map type inspect match-any CM_PROTO_DNS
+class-map type inspect match-any CM_PROTO_DNS
+
+FW-CAMPUS(config-cmap)#
+### COMMAND:  match access-group name ACL_PROTO_DNS
+match access-group name ACL_PROTO_DNS
+
+FW-CAMPUS(config-cmap)#
+### COMMAND: exit
+exit
+
+FW-CAMPUS(config)#
+### COMMAND: class-map type inspect match-any CM_PROTO_ICMP
+class-map type inspect match-any CM_PROTO_ICMP
+
+FW-CAMPUS(config-cmap)#
+### COMMAND:  match access-group name ACL_PROTO_ICMP
+match access-group name ACL_PROTO_ICMP
+
+FW-CAMPUS(config-cmap)#
+### COMMAND: exit
+exit
+
+FW-CAMPUS(config)#
+### COMMAND: class-map type inspect match-all CM_TO_WEB_NESTED
+class-map type inspect match-all CM_TO_WEB_NESTED
+
+FW-CAMPUS(config-cmap)#
+### COMMAND:  match access-group name ACL_DST_WEB
+match access-group name ACL_DST_WEB
+
+FW-CAMPUS(config-cmap)#
+### COMMAND:  match class-map CM_PROTO_WEB
+match class-map CM_PROTO_WEB
+
+FW-CAMPUS(config-cmap)#
+### COMMAND: exit
+exit
+
+FW-CAMPUS(config)#
+### COMMAND: class-map type inspect match-all CM_TO_MAIL_FULL_NESTED
+class-map type inspect match-all CM_TO_MAIL_FULL_NESTED
+
+FW-CAMPUS(config-cmap)#
+### COMMAND:  match access-group name ACL_DST_MAIL
+match access-group name ACL_DST_MAIL
+
+FW-CAMPUS(config-cmap)#
+### COMMAND:  match class-map CM_PROTO_MAIL_FULL
+match class-map CM_PROTO_MAIL_FULL
+
+FW-CAMPUS(config-cmap)#
+### COMMAND: exit
+exit
+
+FW-CAMPUS(config)#
+### COMMAND: class-map type inspect match-all CM_TO_MAIL_SMTP_NESTED
+class-map type inspect match-all CM_TO_MAIL_SMTP_NESTED
+
+FW-CAMPUS(config-cmap)#
+### COMMAND:  match access-group name ACL_DST_MAIL
+match access-group name ACL_DST_MAIL
+
+FW-CAMPUS(config-cmap)#
+### COMMAND:  match class-map CM_PROTO_SMTP
+match class-map CM_PROTO_SMTP
+
+FW-CAMPUS(config-cmap)#
+### COMMAND: exit
+exit
+
+FW-CAMPUS(config)#
+### COMMAND: class-map type inspect match-all CM_TO_DNS_NESTED
+class-map type inspect match-all CM_TO_DNS_NESTED
+
+FW-CAMPUS(config-cmap)#
+### COMMAND:  match access-group name ACL_DST_DNS
+match access-group name ACL_DST_DNS
+
+FW-CAMPUS(config-cmap)#
+### COMMAND:  match class-map CM_PROTO_DNS
+match class-map CM_PROTO_DNS
+
+FW-CAMPUS(config-cmap)#
+### COMMAND: exit
+exit
+
+FW-CAMPUS(config)#
+### COMMAND: class-map type inspect match-all CM_TO_DMZ_ICMP_NESTED
+class-map type inspect match-all CM_TO_DMZ_ICMP_NESTED
+
+FW-CAMPUS(config-cmap)#
+### COMMAND:  match access-group name ACL_DST_DMZ_SERVERS
+match access-group name ACL_DST_DMZ_SERVERS
+
+FW-CAMPUS(config-cmap)#
+### COMMAND:  match class-map CM_PROTO_ICMP
+match class-map CM_PROTO_ICMP
+
+FW-CAMPUS(config-cmap)#
+### COMMAND: exit
+exit
+
+FW-CAMPUS(config)#
+### COMMAND: class-map type inspect match-any CM_PR_TO_DMZ_NESTED
+class-map type inspect match-any CM_PR_TO_DMZ_NESTED
+
+FW-CAMPUS(config-cmap)#
+### COMMAND:  match class-map CM_TO_WEB_NESTED
+match class-map CM_TO_WEB_NESTED
+
+FW-CAMPUS(config-cmap)#
+### COMMAND:  match class-map CM_TO_MAIL_FULL_NESTED
+match class-map CM_TO_MAIL_FULL_NESTED
+
+FW-CAMPUS(config-cmap)#
+### COMMAND:  match class-map CM_TO_DNS_NESTED
+match class-map CM_TO_DNS_NESTED
+
+FW-CAMPUS(config-cmap)#
+### COMMAND:  match class-map CM_TO_DMZ_ICMP_NESTED
+match class-map CM_TO_DMZ_ICMP_NESTED
+
+FW-CAMPUS(config-cmap)#
+### COMMAND: exit
+exit
+
+FW-CAMPUS(config)#
+### COMMAND: class-map type inspect match-any CM_OUT_TO_DMZ_NESTED
+class-map type inspect match-any CM_OUT_TO_DMZ_NESTED
+
+FW-CAMPUS(config-cmap)#
+### COMMAND:  match class-map CM_TO_WEB_NESTED
+match class-map CM_TO_WEB_NESTED
+
+FW-CAMPUS(config-cmap)#
+### COMMAND:  match class-map CM_TO_MAIL_SMTP_NESTED
+match class-map CM_TO_MAIL_SMTP_NESTED
+
+FW-CAMPUS(config-cmap)#
+### COMMAND:  match class-map CM_TO_DNS_NESTED
+match class-map CM_TO_DNS_NESTED
+
+FW-CAMPUS(config-cmap)#
+### COMMAND:  match class-map CM_TO_DMZ_ICMP_NESTED
+match class-map CM_TO_DMZ_ICMP_NESTED
+
+FW-CAMPUS(config-cmap)#
+### COMMAND: exit
+exit
+
+FW-CAMPUS(config)#
+### COMMAND: policy-map type inspect PM_PR_TO_DMZ
+policy-map type inspect PM_PR_TO_DMZ
+
+FW-CAMPUS(config-pmap)#
+### COMMAND:  no class type inspect CM_PR_TO_DMZ
+no class type inspect CM_PR_TO_DMZ
+
+FW-CAMPUS(config-pmap)#
+### COMMAND:  class type inspect CM_PR_TO_DMZ_NESTED
+class type inspect CM_PR_TO_DMZ_NESTED
+
+FW-CAMPUS(config-pmap-c)#
+### COMMAND:   inspect
+inspect
+
+FW-CAMPUS(config-pmap-c)#
+### COMMAND:  class class-default
+class class-default
+
+FW-CAMPUS(config-pmap-c)#
+### COMMAND:   drop log
+drop log
+
+FW-CAMPUS(config-pmap-c)#
+### COMMAND: exit
+exit
+
+FW-CAMPUS(config-pmap)#
+### COMMAND: policy-map type inspect PM_OUT_TO_DMZ
+policy-map type inspect PM_OUT_TO_DMZ
+
+FW-CAMPUS(config-pmap)#
+### COMMAND:  no class type inspect CM_OUT_TO_DMZ
+no class type inspect CM_OUT_TO_DMZ
+
+FW-CAMPUS(config-pmap)#
+### COMMAND:  class type inspect CM_OUT_TO_DMZ_NESTED
+class type inspect CM_OUT_TO_DMZ_NESTED
+
+FW-CAMPUS(config-pmap-c)#
+### COMMAND:   inspect
+inspect
+
+FW-CAMPUS(config-pmap-c)#
+### COMMAND:  class class-default
+class class-default
+
+FW-CAMPUS(config-pmap-c)#
+### COMMAND:   drop log
+drop log
+
+FW-CAMPUS(config-pmap-c)#
+### COMMAND: exit
+exit
+
+FW-CAMPUS(config-pmap)#
+### COMMAND: end
+end
+
+FW-CAMPUS#
+### COMMAND: write memory
+write memory
+
+Warning: Attempting to overwrite an NVRAM configuration previously written
+
+by a different version of the system image.
+
+Overwrite the previous NVRAM configuration?[confirm]
+
+*May  6 16:51:01.623: %SYS-5-CONFIG_I: Configured from console by console
+
+[confirm]
+### COMMAND: terminal length 0
+t
+
+No action taken because command was not confirmed
+
+FW-CAMPUS#erminal length 0
+
+^
+
+% Invalid input detected at '^' marker.
+
+FW-CAMPUS#
+### COMMAND: show running-config | section class-map type inspect
+show running-config | section class-map type inspect
+
+class-map type inspect match-any CM_PROTO_DNS
+
+match access-group name ACL_PROTO_DNS
+
+class-map type inspect match-any CM_PROTO_MAIL_FULL
+
+match access-group name ACL_PROTO_MAIL_FULL
+
+class-map type inspect match-all CM_TO_MAIL_FULL_NESTED
+
+match access-group name ACL_DST_MAIL
+
+match class-map CM_PROTO_MAIL_FULL
+
+class-map type inspect match-any CM_PROTO_WEB
+
+match access-group name ACL_PROTO_WEB
+
+class-map type inspect match-all CM_TO_WEB_NESTED
+
+match access-group name ACL_DST_WEB
+
+match class-map CM_PROTO_WEB
+
+class-map type inspect match-any CM_PROTO_SMTP
+
+match access-group name ACL_PROTO_SMTP
+
+class-map type inspect match-all CM_TO_MAIL_SMTP_NESTED
+
+match access-group name ACL_DST_MAIL
+
+match class-map CM_PROTO_SMTP
+
+class-map type inspect match-all CM_TO_DNS_NESTED
+
+match access-group name ACL_DST_DNS
+
+match class-map CM_PROTO_DNS
+
+class-map type inspect match-any CM_PROTO_ICMP
+
+match access-group name ACL_PROTO_ICMP
+
+class-map type inspect match-all CM_TO_DMZ_ICMP_NESTED
+
+match access-group name ACL_DST_DMZ_SERVERS
+
+match class-map CM_PROTO_ICMP
+
+class-map type inspect match-any CM_OUT_TO_DMZ_NESTED
+
+match class-map CM_TO_WEB_NESTED
+
+match class-map CM_TO_MAIL_SMTP_NESTED
+
+match class-map CM_TO_DNS_NESTED
+
+match class-map CM_TO_DMZ_ICMP_NESTED
+
+class-map type inspect match-any CM_PR_TO_OUT
+
+match access-group name ACL_PR_TO_OUT
+
+class-map type inspect match-any CM_PR_TO_DMZ
+
+match access-group name ACL_PR_TO_DMZ
+
+class-map type inspect match-any CM_TO_SELF_SSH
+
+match access-group name ACL_TO_SELF_SSH
+
+class-map type inspect match-any CM_PR_TO_DMZ_NESTED
+
+match class-map CM_TO_WEB_NESTED
+
+match class-map CM_TO_MAIL_FULL_NESTED
+
+match class-map CM_TO_DNS_NESTED
+
+match class-map CM_TO_DMZ_ICMP_NESTED
+
+class-map type inspect match-any CM_OUT_TO_DMZ
+
+match access-group name ACL_OUT_TO_DMZ
+
+class-map type inspect match-any CM_DMZ_TO_OUT
+
+match access-group name ACL_DMZ_TO_OUT
+
+FW-CAMPUS#
+### COMMAND: show running-config | section policy-map type inspect PM_PR_TO_DMZ
+show running-config | section policy-map type inspect PM_PR_TO_DMZ
+
+policy-map type inspect PM_PR_TO_DMZ
+
+class type inspect CM_PR_TO_DMZ_NESTED
+
+inspect
+
+class class-default
+
+drop log
+
+FW-CAMPUS#
+### COMMAND: show running-config | section policy-map type inspect PM_OUT_TO_DMZ
+show running-config | section policy-map type inspect PM_OUT_TO_DMZ
+
+policy-map type inspect PM_OUT_TO_DMZ
+
+class type inspect CM_OUT_TO_DMZ_NESTED
+
+inspect
+
+class class-default
+
+drop log
+
+FW-CAMPUS#

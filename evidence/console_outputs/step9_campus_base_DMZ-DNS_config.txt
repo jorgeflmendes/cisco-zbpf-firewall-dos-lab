@@ -1,0 +1,76 @@
+### COMMAND: killall python3 2>/dev/null || true
+killall python3 2>/dev/null || true
+
+### COMMAND: killall openssl 2>/dev/null || true
+killall openssl 2>/dev/null || true
+
+### COMMAND: ip addr flush dev eth0
+ip addr flush dev eth0
+
+^C
+
+pkill -f "tcp53" || true
+
+### COMMAND: ip addr add 172.16.10.30/24 dev eth0
+ip addr add 172.16.10.30/24 dev eth0
+
+ip addr add 172.16.10.30/24 dev eth0
+
+### COMMAND: ip link set eth0 up
+ip link set eth0 up
+
+nohup python3 -c "import socket,threading,time;
+
+def tcp():
+
+ s=socket.socket(); s.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1); s.bi
+ind(('0.0.0.0',53)); s.listen(20); print('tcp53',flush=True);
+
+ while True:
+
+  c,a=s.accept(); c.close()
+
+def udp():
+
+ s=socket.socket(socket.AF_INET,socket.SOCK_DGRAM); s.bind(('0.0.0.0',53)); pri
+int('udp53',flush=True);
+
+ while True:
+
+  data,a=s.recvfrom(512); s.sendto(data,a)
+
+threading.Thread(target=tcp,daemon=True).start(); threading.Thread(target=udp,d
+daemon=True).start(); time.sleep(10**9)" >/tmp/lab_dns.log 2>&1 &
+
+[1] 312
+
+python3 - <<"PY"
+
+import socket
+
+s=socket.socket(); print(53, s.connect_ex(("127.0.0.1",53))); s.close()
+
+### COMMAND: ip route replace default via 172.16.10.254
+ip route replace default via 172.16.10.254
+
+53 0
+
+ip route replace default via 172.16.10.254
+
+### COMMAND: ip addr show eth0
+ip addr show eth0
+
+15: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UNKNOWN group default qlen 1000
+
+link/ether 02:42:ad:f2:a2:00 brd ff:ff:ff:ff:ff:ff
+
+inet 172.16.10.30/24 scope global eth0
+
+valid_lft forever preferred_lft forever
+
+### COMMAND: ip route
+ip route
+
+default via 172.16.10.254 dev eth0
+
+172.16.10.0/24 dev eth0 proto kernel scope link src 172.16.10.30

@@ -1,0 +1,50 @@
+[
+  {
+    "name": "server",
+    "status": "started",
+    "console_host": "<lab-console-host>",
+    "console": 5017,
+    "node_type": "dynamips",
+    "compute_id": "vm"
+  },
+  {
+    "name": "attacker-IN",
+    "status": "started",
+    "console_host": "<lab-console-host>",
+    "console": 5019,
+    "node_type": "docker",
+    "compute_id": "vm"
+  },
+  {
+    "name": "attacker-OUT",
+    "status": "started",
+    "console_host": "<lab-console-host>",
+    "console": 5021,
+    "node_type": "docker",
+    "compute_id": "vm"
+  },
+  {
+    "name": "firewall",
+    "status": "started",
+    "console_host": "<lab-console-host>",
+    "console": 5000,
+    "node_type": "dynamips",
+    "compute_id": "vm"
+  },
+  {
+    "name": "SW-INSIDE1",
+    "status": "started",
+    "console_host": "<lab-console-host>",
+    "console": 5001,
+    "node_type": "ethernet_switch",
+    "compute_id": "vm"
+  },
+  {
+    "name": "SW-OUTSIDE1",
+    "status": "started",
+    "console_host": "<lab-console-host>",
+    "console": 5002,
+    "node_type": "ethernet_switch",
+    "compute_id": "vm"
+  }
+]

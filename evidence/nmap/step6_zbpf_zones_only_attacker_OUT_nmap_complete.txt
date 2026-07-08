@@ -1,0 +1,27 @@
+mass_dns: warning: Unable to determine any DNS servers. Reverse DNS is disabled. Try using --system-dns or specify valid servers with --dns-servers
+
+Nmap scan report for 222.10.10.254
+
+Host is up (0.0069s latency).
+
+Nmap done: 256 IP addresses (1 host up) scanned in 46.62 seconds
+
+]0;root@attacker-OUT: / root@attacker-OUT:/# ^C
+
+]0;root@attacker-OUT: / root@attacker-OUT:/#
+
+]0;root@attacker-OUT: / root@attacker-OUT:/#
+### COMMAND: nmap -sn --max-retries 1 --host-timeout 8s 222.10.10.0/24
+nmap -sn --max-retries 1 --host-timeout 8s 222.10.10.0/24
+
+Starting Nmap 7.80 ( https://nmap.org ) at 2026-05-05 19:27 UTC
+
+mass_dns: warning: Unable to determine any DNS servers. Reverse DNS is disabled. Try using --system-dns or specify valid servers with --dns-servers
+
+Nmap scan report for 222.10.10.254
+
+Host is up (0.013s latency).
+
+Nmap done: 256 IP addresses (1 host up) scanned in 37.12 seconds
+
+]0;root@attacker-OUT: / root@attacker-OUT:/#

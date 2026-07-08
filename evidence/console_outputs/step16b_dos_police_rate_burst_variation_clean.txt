@@ -1,0 +1,2043 @@
+===== low rate=64000 burst=4000 =====
+Connected to Dynamips VM "firewall" (ID 2, type c7200) - Console port
+
+Press ENTER to get the prompt.
+
+1
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [1:1:0]
+
+Last session created 00:00:22
+
+Last statistic reset 00:00:26
+
+Last session creation rate 1
+
+Maxever session creation rate 1
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Police
+
+rate 64000 bps,4000 limit
+
+conformed 1960 packets, 85578 bytes; actions: transmit
+
+exceeded 6999 packets, 307962 bytes; actions: drop
+
+conformed 4000 bps, exceed 12000 bps
+
+Class-map: class-default (match-any)
+
+Match: any
+
+Drop
+
+0 packets, 0 bytes
+
+firewall#
+
+firewall#
+
+firewall#
+
+firewall#terminal length 0
+
+firewall#configure terminal
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+firewall(config)#policy-map type inspect DOS_POLICYMAP
+
+firewall(config-pmap)#class type inspect ICMP_CLASSMAP
+
+firewall(config-pmap-c)#police rate 256000 burst 16000
+
+firewall(config-pmap-c)#exit
+
+firewall(config-pmap)#class type inspect WWW_CLASSMAP
+
+firewall(config-pmap-c)#police rate 256000 burst 16000
+
+firewall(config-pmap-c)#exit
+
+firewall(config-pmap)#end
+
+firewall#
+
+*May  6 11:50:01.575: %SYS-5-CONFIG_I: Configured from console by console
+
+firewall#clear zone-pair counter
+
+firewall#
+
+firewall#
+
+firewall#
+
+firewall#terminal length 0
+
+firewall#show policy-map type inspect zone-pair OUT_TO_IN
+
+policy exists on zp OUT_TO_IN
+
+Zone-pair: OUT_TO_IN
+
+Service-policy inspect : DOS_POLICYMAP
+
+Class-map: WWW_CLASSMAP (match-all)
+
+Match: access-group name TO_IN_HOST
+
+Match: protocol http
+
+Inspect
+
+Session creations since subsystem startup or last reset 0
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [0:0:0]
+
+Last session created never
+
+Last statistic reset 00:00:25
+
+Last session creation rate 0
+
+Maxever session creation rate 0
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Police
+
+rate 256000 bps,16000 limit
+
+conformed 0 packets, 0 bytes; actions: transmit
+
+exceeded 0 packets, 0 bytes; actions: drop
+
+conformed 0 bps, exceed 0 bps
+
+Class-map: ICMP_CLASSMAP (match-all)
+
+Match: access-group name TO_IN_HOST
+
+Match: protocol icmp
+
+Inspect
+
+Packet inspection statistics [process switch:fast switch]
+
+icmp packets: [0:5271]
+
+Session creations since subsystem startup or last reset 1
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [1:1:0]
+
+Last session created 00:00:22
+
+Last statistic reset 00:00:25
+
+Last session creation rate 1
+
+Maxever session creation rate 1
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Police
+
+rate 256000 bps,16000 limit
+
+conformed 5271 packets, 229050 bytes; actions: transmit
+
+exceeded 3495 packets, 152910 bytes; actions: drop
+
+conformed 8000 bps, exceed 4000 bps
+
+Class-map: class-default (match-any)
+
+Match: any
+
+Drop
+
+0 packets, 0 bytes
+
+firewall#
+
+firewall#
+
+firewall#
+
+firewall#terminal length 0
+
+firewall#configure terminal
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+firewall(config)#policy-map type inspect DOS_POLICYMAP
+
+firewall(config-pmap)#class type inspect ICMP_CLASSMAP
+
+firewall(config-pmap-c)#police rate 128000 burst 8000
+
+firewall(config-pmap-c)#exit
+
+firewall(config-pmap)#
+
+firewall#
+
+firewall#
+
+firewall#class type inspect WWW_CLASSMAP
+
+^
+
+% Invalid input detected at '^' marker.
+
+firewall#
+### COMMAND: terminal length 0
+terminal length 0
+
+firewall#
+
+*May  6 11:50:54.871: %SYS-5-CONFIG_I: Configured from console by console
+
+firewall#police rate 128000 burst 8000
+
+^
+
+% Invalid input detected at '^' marker.
+
+firewall#
+### COMMAND: configure terminal
+configure terminal
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+firewall(config)#exit
+
+firewall#
+### COMMAND: policy-map type inspect DOS_POLICYMAP
+policy-map type inspect DOS_POLICYMAP
+
+^
+
+% Invalid input detected at '^' marker.
+
+firewall#
+
+*May  6 11:51:00.903: %SYS-5-CONFIG_I: Configured from console by console
+
+firewall#end
+
+Translating "end"
+
+Translating "end"
+
+% Bad IP address or host name
+
+% Unknown command or computer name, or unable to find computer address
+
+firewall#
+### COMMAND: class type inspect ICMP_CLASSMAP
+class type inspect ICMP_CLASSMAP
+
+^
+
+% Invalid input detected at '^' marker.
+
+firewall#
+### COMMAND: police rate 64000 burst 4000
+police rate 64000 burst 4000
+
+^
+
+% Invalid input detected at '^' marker.
+
+firewall#
+### COMMAND: exit
+exit
+
+firewall con0 is now available
+
+Press RETURN to get started.
+
+### COMMAND: end
+
+### COMMAND: clear zone-pair counter
+
+^C
+
+### COMMAND: hping3 -q -1 -c 1000 -i u1000 222.10.10.1
+hping3 -q -1 -c 1000 -i u1000 222.10.10.1
+
+HPING 222.10.10.1 (eth0 222.10.10.1): icmp mode set, 28 headers + 0 data bytes
+
+len=28 ip=222.10.10.1 ttl=254 id=21182 icmp_seq=0 rtt=51.8 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=43560 icmp_seq=1 rtt=56.2 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=11041 icmp_seq=2 rtt=74.1 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=43451 icmp_seq=3 rtt=76.7 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=6788 icmp_seq=4 rtt=92.4 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=22930 icmp_seq=5 rtt=102.5 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=39920 icmp_seq=6 rtt=112.3 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=28599 icmp_seq=7 rtt=120.7 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=41959 icmp_seq=8 rtt=135.4 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=1545 icmp_seq=9 rtt=133.4 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=21080 icmp_seq=10 rtt=144.3 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=48805 icmp_seq=11 rtt=158.6 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=38008 icmp_seq=12 rtt=166.1 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=49914 icmp_seq=13 rtt=176.3 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=47859 icmp_seq=14 rtt=186.2 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=8908 icmp_seq=15 rtt=194.2 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=44053 icmp_seq=16 rtt=204.6 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=14492 icmp_seq=17 rtt=210.6 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=12150 icmp_seq=18 rtt=220.9 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=34533 icmp_seq=19 rtt=235.5 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=41817 icmp_seq=20 rtt=241.2 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=39595 icmp_seq=21 rtt=250.3 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=48731 icmp_seq=22 rtt=260.8 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=56303 icmp_seq=23 rtt=269.6 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=32263 icmp_seq=24 rtt=278.8 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=61293 icmp_seq=25 rtt=285.5 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=37773 icmp_seq=26 rtt=292.1 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=5747 icmp_seq=27 rtt=301.9 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=25824 icmp_seq=28 rtt=317.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=587 icmp_seq=29 rtt=326.8 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=33082 icmp_seq=30 rtt=333.1 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=47007 icmp_seq=31 rtt=340.4 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=44147 icmp_seq=32 rtt=354.5 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=44124 icmp_seq=33 rtt=359.9 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=24922 icmp_seq=34 rtt=367.3 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=50935 icmp_seq=35 rtt=376.5 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=1518 icmp_seq=36 rtt=391.1 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=64843 icmp_seq=37 rtt=398.7 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=13999 icmp_seq=38 rtt=412.4 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=43477 icmp_seq=39 rtt=417.9 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=852 icmp_seq=40 rtt=424.2 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=35079 icmp_seq=41 rtt=438.5 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=26746 icmp_seq=42 rtt=447.4 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=38860 icmp_seq=43 rtt=454.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=19457 icmp_seq=44 rtt=460.9 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=9069 icmp_seq=45 rtt=474.8 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=47769 icmp_seq=46 rtt=481.4 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=63510 icmp_seq=47 rtt=496.1 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=23562 icmp_seq=48 rtt=506.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=59919 icmp_seq=49 rtt=508.7 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=32507 icmp_seq=50 rtt=519.8 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=65379 icmp_seq=51 rtt=530.1 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=28971 icmp_seq=60 rtt=611.7 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=43677 icmp_seq=65 rtt=670.2 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=17161 icmp_seq=74 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=59314 icmp_seq=80 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=26464 icmp_seq=81 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=27757 icmp_seq=83 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=28463 icmp_seq=86 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=53626 icmp_seq=87 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=10263 icmp_seq=88 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=39707 icmp_seq=112 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=4427 icmp_seq=118 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=13954 icmp_seq=120 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=31811 icmp_seq=125 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=11646 icmp_seq=141 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=30798 icmp_seq=144 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=2626 icmp_seq=145 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=59931 icmp_seq=156 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=6261 icmp_seq=161 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=53323 icmp_seq=162 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=43696 icmp_seq=163 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=14665 icmp_seq=164 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=63945 icmp_seq=165 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=56536 icmp_seq=166 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=18250 icmp_seq=167 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=28318 icmp_seq=168 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=40299 icmp_seq=169 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=16412 icmp_seq=170 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=5934 icmp_seq=171 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=51945 icmp_seq=172 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=2927 icmp_seq=173 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=23257 icmp_seq=174 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=17207 icmp_seq=175 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=5554 icmp_seq=176 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=56918 icmp_seq=177 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=49038 icmp_seq=178 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=52754 icmp_seq=179 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=29470 icmp_seq=180 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=26628 icmp_seq=181 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=48373 icmp_seq=182 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=31823 icmp_seq=183 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=54748 icmp_seq=184 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=1325 icmp_seq=185 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=42571 icmp_seq=186 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=49143 icmp_seq=187 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=4185 icmp_seq=188 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=18448 icmp_seq=189 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=49612 icmp_seq=190 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=38099 icmp_seq=191 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=24709 icmp_seq=192 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=37399 icmp_seq=193 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=16259 icmp_seq=194 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=39374 icmp_seq=195 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=35808 icmp_seq=196 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=64127 icmp_seq=199 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=27783 icmp_seq=205 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=48635 icmp_seq=211 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=57494 icmp_seq=217 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=30648 icmp_seq=222 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=54167 icmp_seq=228 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=4622 icmp_seq=234 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=24939 icmp_seq=240 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=5690 icmp_seq=246 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=58015 icmp_seq=252 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=10757 icmp_seq=259 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=51570 icmp_seq=265 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=1235 icmp_seq=271 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=65424 icmp_seq=276 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=59929 icmp_seq=283 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=42472 icmp_seq=286 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=18229 icmp_seq=292 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=92 icmp_seq=301 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=36447 icmp_seq=309 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=65225 icmp_seq=315 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=58693 icmp_seq=321 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=11775 icmp_seq=327 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=35791 icmp_seq=333 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=1494 icmp_seq=339 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=34256 icmp_seq=343 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=57758 icmp_seq=349 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=10851 icmp_seq=357 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=32793 icmp_seq=364 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=6344 icmp_seq=370 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=32243 icmp_seq=376 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=40143 icmp_seq=381 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=50720 icmp_seq=387 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=37727 icmp_seq=394 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=3244 icmp_seq=401 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=32368 icmp_seq=405 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=14942 icmp_seq=409 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=38561 icmp_seq=417 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=3209 icmp_seq=424 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=14554 icmp_seq=429 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=60232 icmp_seq=435 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=9152 icmp_seq=440 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=10554 icmp_seq=445 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=49930 icmp_seq=451 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=24755 icmp_seq=458 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=30722 icmp_seq=465 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=28565 icmp_seq=473 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=2085 icmp_seq=478 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=60444 icmp_seq=484 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=57788 icmp_seq=489 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=312 icmp_seq=495 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=63602 icmp_seq=500 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=24729 icmp_seq=506 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=36004 icmp_seq=512 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=27877 icmp_seq=518 rtt=0.0 ms
+
+--- 222.10.10.1 hping statistic ---
+
+1000 packets transmitted, 159 packets received, 85% packet loss
+
+round-trip min/avg/max = 51.8/304.7/670.2 ms
+
+Connected to Dynamips VM "firewall" (ID 2, type c7200) - Console port
+
+Press ENTER to get the prompt.
+
+map)#class type inspect WWW_CLASSMAP
+
+firewall(config-pmap-c)#police rate 256000 burst 16000
+
+firewall(config-pmap-c)#exit
+
+firewall(config-pmap)#end
+
+firewall#
+
+*May  6 11:50:01.575: %SYS-5-CONFIG_I: Configured from console by console
+
+firewall#clear zone-pair counter
+
+firewall#
+
+firewall#
+
+firewall#
+
+firewall#terminal length 0
+
+firewall#show policy-map type inspect zone-pair OUT_TO_IN
+
+policy exists on zp OUT_TO_IN
+
+Zone-pair: OUT_TO_IN
+
+Service-policy inspect : DOS_POLICYMAP
+
+Class-map: WWW_CLASSMAP (match-all)
+
+Match: access-group name TO_IN_HOST
+
+Match: protocol http
+
+Inspect
+
+Session creations since subsystem startup or last reset 0
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [0:0:0]
+
+Last session created never
+
+Last statistic reset 00:00:25
+
+Last session creation rate 0
+
+Maxever session creation rate 0
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Police
+
+rate 256000 bps,16000 limit
+
+conformed 0 packets, 0 bytes; actions: transmit
+
+exceeded 0 packets, 0 bytes; actions: drop
+
+conformed 0 bps, exceed 0 bps
+
+Class-map: ICMP_CLASSMAP (match-all)
+
+Match: access-group name TO_IN_HOST
+
+Match: protocol icmp
+
+Inspect
+
+Packet inspection statistics [process switch:fast switch]
+
+icmp packets: [0:5271]
+
+Session creations since subsystem startup or last reset 1
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [1:1:0]
+
+Last session created 00:00:22
+
+Last statistic reset 00:00:25
+
+Last session creation rate 1
+
+Maxever session creation rate 1
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Police
+
+rate 256000 bps,16000 limit
+
+conformed 5271 packets, 229050 bytes; actions: transmit
+
+exceeded 3495 packets, 152910 bytes; actions: drop
+
+conformed 8000 bps, exceed 4000 bps
+
+Class-map: class-default (match-any)
+
+Match: any
+
+Drop
+
+0 packets, 0 bytes
+
+firewall#
+
+firewall#
+
+firewall#
+
+firewall#terminal length 0
+
+firewall#configure terminal
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+firewall(config)#policy-map type inspect DOS_POLICYMAP
+
+firewall(config-pmap)#class type inspect ICMP_CLASSMAP
+
+firewall(config-pmap-c)#police rate 128000 burst 8000
+
+firewall(config-pmap-c)#exit
+
+firewall(config-pmap)#
+
+firewall#
+
+firewall#
+
+firewall#class type inspect WWW_CLASSMAP
+
+^
+
+% Invalid input detected at '^' marker.
+
+firewall#terminal length 0
+
+firewall#
+
+*May  6 11:50:54.871: %SYS-5-CONFIG_I: Configured from console by console
+
+firewall#police rate 128000 burst 8000
+
+^
+
+% Invalid input detected at '^' marker.
+
+firewall#configure terminal
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+firewall(config)#exit
+
+firewall#policy-map type inspect DOS_POLICYMAP
+
+^
+
+% Invalid input detected at '^' marker.
+
+firewall#
+
+*May  6 11:51:00.903: %SYS-5-CONFIG_I: Configured from console by console
+
+firewall#end
+
+Translating "end"
+
+Translating "end"
+
+% Bad IP address or host name
+
+% Unknown command or computer name, or unable to find computer address
+
+firewall#class type inspect ICMP_CLASSMAP
+
+^
+
+% Invalid input detected at '^' marker.
+
+firewall#police rate 64000 burst 4000
+
+^
+
+% Invalid input detected at '^' marker.
+
+firewall#exit
+
+firewall con0 is now available
+
+Press RETURN to get started.
+
+firewall#
+### COMMAND: terminal length 0
+terminal length 0
+
+firewall#
+### COMMAND: show policy-map type inspect zone-pair OUT_TO_IN
+show policy-map type inspect zone-pair OUT_TO_IN
+
+policy exists on zp OUT_TO_IN
+
+Zone-pair: OUT_TO_IN
+
+Service-policy inspect : DOS_POLICYMAP
+
+Class-map: WWW_CLASSMAP (match-all)
+
+Match: access-group name TO_IN_HOST
+
+Match: protocol http
+
+Inspect
+
+Session creations since subsystem startup or last reset 0
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [0:0:0]
+
+Last session created never
+
+Last statistic reset 00:01:26
+
+Last session creation rate 0
+
+Maxever session creation rate 0
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Police
+
+rate 256000 bps,16000 limit
+
+conformed 0 packets, 0 bytes; actions: transmit
+
+exceeded 0 packets, 0 bytes; actions: drop
+
+conformed 0 bps, exceed 0 bps
+
+Class-map: ICMP_CLASSMAP (match-all)
+
+Match: access-group name TO_IN_HOST
+
+Match: protocol icmp
+
+Inspect
+
+Packet inspection statistics [process switch:fast switch]
+
+icmp packets: [0:6294]
+
+Session creations since subsystem startup or last reset 2
+
+Current session counts (estab/half-open/terminating) [1:0:0]
+
+Maxever session counts (estab/half-open/terminating) [1:1:0]
+
+Last session created 00:00:12
+
+Last statistic reset 00:01:26
+
+Last session creation rate 1
+
+Maxever session creation rate 1
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Police
+
+rate 128000 bps,8000 limit
+
+conformed 6294 packets, 276282 bytes; actions: transmit
+
+exceeded 3801 packets, 167418 bytes; actions: drop
+
+conformed 4000 bps, exceed 1000 bps
+
+Class-map: class-default (match-any)
+
+Match: any
+
+Drop
+
+0 packets, 0 bytes
+
+firewall#
+===== high rate=256000 burst=16000 =====
+Connected to Dynamips VM "firewall" (ID 2, type c7200) - Console port
+
+Press ENTER to get the prompt.
+
+000 bps,16000 limit
+
+conformed 5271 packets, 229050 bytes; actions: transmit
+
+exceeded 3495 packets, 152910 bytes; actions: drop
+
+conformed 8000 bps, exceed 4000 bps
+
+Class-map: class-default (match-any)
+
+Match: any
+
+Drop
+
+0 packets, 0 bytes
+
+firewall#
+
+firewall#
+
+firewall#
+
+firewall#terminal length 0
+
+firewall#configure terminal
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+firewall(config)#policy-map type inspect DOS_POLICYMAP
+
+firewall(config-pmap)#class type inspect ICMP_CLASSMAP
+
+firewall(config-pmap-c)#police rate 128000 burst 8000
+
+firewall(config-pmap-c)#exit
+
+firewall(config-pmap)#
+
+firewall#
+
+firewall#
+
+firewall#class type inspect WWW_CLASSMAP
+
+^
+
+% Invalid input detected at '^' marker.
+
+firewall#terminal length 0
+
+firewall#
+
+*May  6 11:50:54.871: %SYS-5-CONFIG_I: Configured from console by console
+
+firewall#police rate 128000 burst 8000
+
+^
+
+% Invalid input detected at '^' marker.
+
+firewall#configure terminal
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+firewall(config)#exit
+
+firewall#policy-map type inspect DOS_POLICYMAP
+
+^
+
+% Invalid input detected at '^' marker.
+
+firewall#
+
+*May  6 11:51:00.903: %SYS-5-CONFIG_I: Configured from console by console
+
+firewall#end
+
+Translating "end"
+
+Translating "end"
+
+% Bad IP address or host name
+
+% Unknown command or computer name, or unable to find computer address
+
+firewall#class type inspect ICMP_CLASSMAP
+
+^
+
+% Invalid input detected at '^' marker.
+
+firewall#police rate 64000 burst 4000
+
+^
+
+% Invalid input detected at '^' marker.
+
+firewall#exit
+
+firewall con0 is now available
+
+Press RETURN to get started.
+
+firewall#terminal length 0
+
+firewall#show policy-map type inspect zone-pair OUT_TO_IN
+
+policy exists on zp OUT_TO_IN
+
+Zone-pair: OUT_TO_IN
+
+Service-policy inspect : DOS_POLICYMAP
+
+Class-map: WWW_CLASSMAP (match-all)
+
+Match: access-group name TO_IN_HOST
+
+Match: protocol http
+
+Inspect
+
+Session creations since subsystem startup or last reset 0
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [0:0:0]
+
+Last session created never
+
+Last statistic reset 00:01:26
+
+Last session creation rate 0
+
+Maxever session creation rate 0
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Police
+
+rate 256000 bps,16000 limit
+
+conformed 0 packets, 0 bytes; actions: transmit
+
+exceeded 0 packets, 0 bytes; actions: drop
+
+conformed 0 bps, exceed 0 bps
+
+Class-map: ICMP_CLASSMAP (match-all)
+
+Match: access-group name TO_IN_HOST
+
+Match: protocol icmp
+
+Inspect
+
+Packet inspection statistics [process switch:fast switch]
+
+icmp packets: [0:6294]
+
+Session creations since subsystem startup or last reset 2
+
+Current session counts (estab/half-open/terminating) [1:0:0]
+
+Maxever session counts (estab/half-open/terminating) [1:1:0]
+
+Last session created 00:00:12
+
+Last statistic reset 00:01:26
+
+Last session creation rate 1
+
+Maxever session creation rate 1
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Police
+
+rate 128000 bps,8000 limit
+
+conformed 6294 packets, 276282 bytes; actions: transmit
+
+exceeded 3801 packets, 167418 bytes; actions: drop
+
+conformed 4000 bps, exceed 1000 bps
+
+Class-map: class-default (match-any)
+
+Match: any
+
+Drop
+
+0 packets, 0 bytes
+
+firewall#
+
+firewall#
+
+firewall#
+
+firewall#
+### COMMAND: terminal length 0
+terminal length 0
+
+firewall#
+### COMMAND: configure terminal
+configure terminal
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+firewall(config)#
+### COMMAND: policy-map type inspect DOS_POLICYMAP
+policy-map type inspect DOS_POLICYMAP
+
+firewall(config-pmap)#
+### COMMAND: class type inspect ICMP_CLASSMAP
+class type inspect ICMP_CLASSMAP
+
+firewall(config-pmap-c)#
+### COMMAND: police rate 256000 burst 16000
+police rate 256000 burst 16000
+
+firewall(config-pmap-c)#
+### COMMAND: exit
+exit
+
+firewall(config-pmap)#
+### COMMAND: end
+end
+
+firewall#
+
+*May  6 11:51:56.171: %SYS-5-CONFIG_I: Configured from console by console
+
+firewall#
+### COMMAND: clear zone-pair counter
+clear zone-pair counter
+
+firewall#
+^C
+
+### COMMAND: hping3 -q -1 -c 1000 -i u1000 222.10.10.1
+hping3 -q -1 -c 1000 -i u1000 222.10.10.1
+
+HPING 222.10.10.1 (eth0 222.10.10.1): icmp mode set, 28 headers + 0 data bytes
+
+len=28 ip=222.10.10.1 ttl=254 id=39017 icmp_seq=0 rtt=40.3 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=60972 icmp_seq=1 rtt=54.5 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=34928 icmp_seq=2 rtt=58.1 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=8893 icmp_seq=3 rtt=64.7 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=59722 icmp_seq=4 rtt=79.6 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=60451 icmp_seq=5 rtt=86.3 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=46070 icmp_seq=6 rtt=96.5 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=7187 icmp_seq=7 rtt=103.3 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=62931 icmp_seq=8 rtt=117.4 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=64579 icmp_seq=9 rtt=124.3 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=17373 icmp_seq=10 rtt=131.3 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=37581 icmp_seq=11 rtt=145.5 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=28364 icmp_seq=12 rtt=151.5 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=32136 icmp_seq=13 rtt=157.5 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=60076 icmp_seq=14 rtt=167.7 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=1294 icmp_seq=15 rtt=173.6 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=55975 icmp_seq=16 rtt=188.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=13373 icmp_seq=17 rtt=194.6 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=55153 icmp_seq=18 rtt=204.7 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=2298 icmp_seq=19 rtt=211.8 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=13963 icmp_seq=20 rtt=218.6 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=25158 icmp_seq=21 rtt=232.6 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=29352 icmp_seq=22 rtt=242.8 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=32956 icmp_seq=23 rtt=249.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=56540 icmp_seq=24 rtt=259.4 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=34456 icmp_seq=25 rtt=266.2 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=2938 icmp_seq=26 rtt=264.4 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=45052 icmp_seq=27 rtt=283.7 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=56644 icmp_seq=28 rtt=282.6 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=12775 icmp_seq=29 rtt=300.8 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=53273 icmp_seq=30 rtt=315.9 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=30126 icmp_seq=31 rtt=314.9 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=8211 icmp_seq=32 rtt=333.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=22665 icmp_seq=33 rtt=339.6 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=39019 icmp_seq=34 rtt=338.3 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=2397 icmp_seq=35 rtt=353.3 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=17580 icmp_seq=36 rtt=360.1 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=19553 icmp_seq=37 rtt=366.5 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=9584 icmp_seq=38 rtt=373.3 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=14976 icmp_seq=39 rtt=384.2 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=18596 icmp_seq=40 rtt=394.6 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=26957 icmp_seq=41 rtt=405.2 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=52557 icmp_seq=42 rtt=411.2 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=46960 icmp_seq=43 rtt=425.2 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=59093 icmp_seq=44 rtt=431.2 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=47097 icmp_seq=45 rtt=437.2 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=48255 icmp_seq=46 rtt=451.6 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=49532 icmp_seq=47 rtt=457.6 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=60471 icmp_seq=48 rtt=463.6 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=37872 icmp_seq=49 rtt=474.1 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=51830 icmp_seq=50 rtt=481.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=8898 icmp_seq=51 rtt=495.5 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=63030 icmp_seq=52 rtt=505.5 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=15647 icmp_seq=53 rtt=511.5 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=41854 icmp_seq=54 rtt=517.5 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=54034 icmp_seq=55 rtt=535.2 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=50103 icmp_seq=56 rtt=533.2 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=44792 icmp_seq=57 rtt=551.4 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=33551 icmp_seq=58 rtt=549.4 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=41212 icmp_seq=59 rtt=563.4 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=57567 icmp_seq=60 rtt=573.3 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=21288 icmp_seq=61 rtt=580.2 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=5802 icmp_seq=62 rtt=590.9 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=242 icmp_seq=63 rtt=597.7 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=43954 icmp_seq=64 rtt=616.2 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=44821 icmp_seq=65 rtt=615.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=2639 icmp_seq=66 rtt=629.7 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=61534 icmp_seq=67 rtt=640.2 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=64374 icmp_seq=68 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=12224 icmp_seq=69 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=10974 icmp_seq=70 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=17434 icmp_seq=71 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=39181 icmp_seq=72 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=63532 icmp_seq=73 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=64395 icmp_seq=74 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=32739 icmp_seq=75 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=45093 icmp_seq=76 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=47114 icmp_seq=77 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=16735 icmp_seq=78 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=40028 icmp_seq=79 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=19450 icmp_seq=80 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=3030 icmp_seq=81 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=48926 icmp_seq=82 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=16944 icmp_seq=83 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=18677 icmp_seq=84 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=25244 icmp_seq=85 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=5443 icmp_seq=86 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=3244 icmp_seq=87 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=4500 icmp_seq=88 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=38994 icmp_seq=89 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=44456 icmp_seq=90 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=62067 icmp_seq=91 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=60282 icmp_seq=92 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=50258 icmp_seq=93 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=62309 icmp_seq=94 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=38700 icmp_seq=95 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=29543 icmp_seq=96 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=64949 icmp_seq=97 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=34699 icmp_seq=98 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=28381 icmp_seq=99 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=11637 icmp_seq=100 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=45673 icmp_seq=101 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=45816 icmp_seq=102 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=50818 icmp_seq=103 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=43669 icmp_seq=104 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=44675 icmp_seq=105 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=18021 icmp_seq=106 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=23227 icmp_seq=107 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=26253 icmp_seq=108 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=34757 icmp_seq=109 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=63255 icmp_seq=110 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=45703 icmp_seq=111 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=37787 icmp_seq=112 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=46646 icmp_seq=113 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=62647 icmp_seq=114 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=56464 icmp_seq=115 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=6354 icmp_seq=116 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=2554 icmp_seq=117 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=59708 icmp_seq=118 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=10855 icmp_seq=119 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=41548 icmp_seq=120 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=38629 icmp_seq=121 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=7386 icmp_seq=122 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=36295 icmp_seq=123 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=23351 icmp_seq=124 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=4160 icmp_seq=125 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=9459 icmp_seq=126 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=52895 icmp_seq=127 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=3573 icmp_seq=128 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=44158 icmp_seq=129 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=15740 icmp_seq=130 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=15210 icmp_seq=131 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=24296 icmp_seq=132 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=61556 icmp_seq=133 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=492 icmp_seq=134 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=2429 icmp_seq=135 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=40695 icmp_seq=136 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=18514 icmp_seq=137 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=25656 icmp_seq=138 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=1412 icmp_seq=139 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=53271 icmp_seq=140 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=23376 icmp_seq=141 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=47115 icmp_seq=142 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=25522 icmp_seq=143 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=4486 icmp_seq=144 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=44227 icmp_seq=145 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=16450 icmp_seq=146 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=10840 icmp_seq=147 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=46781 icmp_seq=148 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=10622 icmp_seq=149 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=21695 icmp_seq=150 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=22794 icmp_seq=151 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=49251 icmp_seq=152 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=29082 icmp_seq=153 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=59089 icmp_seq=154 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=7067 icmp_seq=155 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=33242 icmp_seq=156 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=3012 icmp_seq=157 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=59962 icmp_seq=158 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=36815 icmp_seq=159 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=47171 icmp_seq=160 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=10166 icmp_seq=161 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=52025 icmp_seq=162 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=5931 icmp_seq=163 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=6187 icmp_seq=164 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=52517 icmp_seq=165 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=8360 icmp_seq=166 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=46882 icmp_seq=167 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=5495 icmp_seq=168 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=34017 icmp_seq=169 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=48295 icmp_seq=170 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=58766 icmp_seq=171 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=57393 icmp_seq=172 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=29874 icmp_seq=173 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=18752 icmp_seq=174 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=61879 icmp_seq=175 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=8565 icmp_seq=176 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=35202 icmp_seq=177 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=7183 icmp_seq=178 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=55347 icmp_seq=179 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=45825 icmp_seq=180 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=28879 icmp_seq=181 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=12605 icmp_seq=182 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=29540 icmp_seq=183 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=57961 icmp_seq=184 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=6158 icmp_seq=185 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=36607 icmp_seq=186 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=25667 icmp_seq=187 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=9170 icmp_seq=188 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=31033 icmp_seq=189 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=62482 icmp_seq=190 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=56341 icmp_seq=191 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=41200 icmp_seq=192 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=48971 icmp_seq=193 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=62272 icmp_seq=194 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=47387 icmp_seq=195 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=35952 icmp_seq=196 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=5097 icmp_seq=197 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=34678 icmp_seq=202 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=23097 icmp_seq=208 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=3998 icmp_seq=217 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=58482 icmp_seq=222 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=60316 icmp_seq=228 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=26643 icmp_seq=237 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=57235 icmp_seq=242 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=65179 icmp_seq=249 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=62833 icmp_seq=256 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=55417 icmp_seq=263 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=47548 icmp_seq=271 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=25079 icmp_seq=279 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=32017 icmp_seq=285 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=2435 icmp_seq=290 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=53707 icmp_seq=296 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=40917 icmp_seq=304 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=62450 icmp_seq=310 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=52131 icmp_seq=316 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=60434 icmp_seq=321 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=35229 icmp_seq=328 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=58382 icmp_seq=335 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=2103 icmp_seq=340 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=11255 icmp_seq=349 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=29458 icmp_seq=355 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=7920 icmp_seq=360 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=30526 icmp_seq=365 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=10043 icmp_seq=372 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=64960 icmp_seq=379 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=2200 icmp_seq=387 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=14426 icmp_seq=395 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=58811 icmp_seq=401 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=45587 icmp_seq=407 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=23548 icmp_seq=413 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=28072 icmp_seq=421 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=2655 icmp_seq=430 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=46036 icmp_seq=437 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=56661 icmp_seq=442 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=36721 icmp_seq=450 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=42958 icmp_seq=456 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=39077 icmp_seq=463 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=46676 icmp_seq=472 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=44264 icmp_seq=479 rtt=0.0 ms
+
+len=28 ip=222.10.10.1 ttl=254 id=58271 icmp_seq=486 rtt=0.0 ms
+
+--- 222.10.10.1 hping statistic ---
+
+1000 packets transmitted, 241 packets received, 76% packet loss
+
+round-trip min/avg/max = 40.3/339.2/640.2 ms
+
+Connected to Dynamips VM "firewall" (ID 2, type c7200) - Console port
+
+Press ENTER to get the prompt.
+
+MAP
+
+firewall(config-pmap)#class type inspect ICMP_CLASSMAP
+
+firewall(config-pmap-c)#police rate 128000 burst 8000
+
+firewall(config-pmap-c)#exit
+
+firewall(config-pmap)#
+
+firewall#
+
+firewall#
+
+firewall#class type inspect WWW_CLASSMAP
+
+^
+
+% Invalid input detected at '^' marker.
+
+firewall#terminal length 0
+
+firewall#
+
+*May  6 11:50:54.871: %SYS-5-CONFIG_I: Configured from console by console
+
+firewall#police rate 128000 burst 8000
+
+^
+
+% Invalid input detected at '^' marker.
+
+firewall#configure terminal
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+firewall(config)#exit
+
+firewall#policy-map type inspect DOS_POLICYMAP
+
+^
+
+% Invalid input detected at '^' marker.
+
+firewall#
+
+*May  6 11:51:00.903: %SYS-5-CONFIG_I: Configured from console by console
+
+firewall#end
+
+Translating "end"
+
+Translating "end"
+
+% Bad IP address or host name
+
+% Unknown command or computer name, or unable to find computer address
+
+firewall#class type inspect ICMP_CLASSMAP
+
+^
+
+% Invalid input detected at '^' marker.
+
+firewall#police rate 64000 burst 4000
+
+^
+
+% Invalid input detected at '^' marker.
+
+firewall#exit
+
+firewall con0 is now available
+
+Press RETURN to get started.
+
+firewall#terminal length 0
+
+firewall#show policy-map type inspect zone-pair OUT_TO_IN
+
+policy exists on zp OUT_TO_IN
+
+Zone-pair: OUT_TO_IN
+
+Service-policy inspect : DOS_POLICYMAP
+
+Class-map: WWW_CLASSMAP (match-all)
+
+Match: access-group name TO_IN_HOST
+
+Match: protocol http
+
+Inspect
+
+Session creations since subsystem startup or last reset 0
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [0:0:0]
+
+Last session created never
+
+Last statistic reset 00:01:26
+
+Last session creation rate 0
+
+Maxever session creation rate 0
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Police
+
+rate 256000 bps,16000 limit
+
+conformed 0 packets, 0 bytes; actions: transmit
+
+exceeded 0 packets, 0 bytes; actions: drop
+
+conformed 0 bps, exceed 0 bps
+
+Class-map: ICMP_CLASSMAP (match-all)
+
+Match: access-group name TO_IN_HOST
+
+Match: protocol icmp
+
+Inspect
+
+Packet inspection statistics [process switch:fast switch]
+
+icmp packets: [0:6294]
+
+Session creations since subsystem startup or last reset 2
+
+Current session counts (estab/half-open/terminating) [1:0:0]
+
+Maxever session counts (estab/half-open/terminating) [1:1:0]
+
+Last session created 00:00:12
+
+Last statistic reset 00:01:26
+
+Last session creation rate 1
+
+Maxever session creation rate 1
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Police
+
+rate 128000 bps,8000 limit
+
+conformed 6294 packets, 276282 bytes; actions: transmit
+
+exceeded 3801 packets, 167418 bytes; actions: drop
+
+conformed 4000 bps, exceed 1000 bps
+
+Class-map: class-default (match-any)
+
+Match: any
+
+Drop
+
+0 packets, 0 bytes
+
+firewall#
+
+firewall#
+
+firewall#
+
+firewall#terminal length 0
+
+firewall#configure terminal
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+firewall(config)#policy-map type inspect DOS_POLICYMAP
+
+firewall(config-pmap)#class type inspect ICMP_CLASSMAP
+
+firewall(config-pmap-c)#police rate 256000 burst 16000
+
+firewall(config-pmap-c)#exit
+
+firewall(config-pmap)#end
+
+firewall#
+
+*May  6 11:51:56.171: %SYS-5-CONFIG_I: Configured from console by console
+
+firewall#clear zone-pair counter
+
+firewall#
+
+firewall#
+
+firewall#
+
+firewall#
+### COMMAND: terminal length 0
+terminal length 0
+
+firewall#
+### COMMAND: show policy-map type inspect zone-pair OUT_TO_IN
+show policy-map type inspect zone-pair OUT_TO_IN
+
+policy exists on zp OUT_TO_IN
+
+Zone-pair: OUT_TO_IN
+
+Service-policy inspect : DOS_POLICYMAP
+
+Class-map: WWW_CLASSMAP (match-all)
+
+Match: access-group name TO_IN_HOST
+
+Match: protocol http
+
+Inspect
+
+Session creations since subsystem startup or last reset 0
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [0:0:0]
+
+Last session created never
+
+Last statistic reset 00:00:15
+
+Last session creation rate 0
+
+Maxever session creation rate 0
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Police
+
+rate 256000 bps,16000 limit
+
+conformed 0 packets, 0 bytes; actions: transmit
+
+exceeded 0 packets, 0 bytes; actions: drop
+
+conformed 0 bps, exceed 0 bps
+
+Class-map: ICMP_CLASSMAP (match-all)
+
+Match: access-group name TO_IN_HOST
+
+Match: protocol icmp
+
+Inspect
+
+Packet inspection statistics [process switch:fast switch]
+
+icmp packets: [0:1316]
+
+Session creations since subsystem startup or last reset 1
+
+Current session counts (estab/half-open/terminating) [1:0:0]
+
+Maxever session counts (estab/half-open/terminating) [1:1:0]
+
+Last session created 00:00:12
+
+Last statistic reset 00:00:15
+
+Last session creation rate 1
+
+Maxever session creation rate 2
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Police
+
+rate 256000 bps,16000 limit
+
+conformed 1316 packets, 60960 bytes; actions: transmit
+
+exceeded 0 packets, 0 bytes; actions: drop
+
+conformed 2000 bps, exceed 0 bps
+
+Class-map: class-default (match-any)
+
+Match: any
+
+Drop
+
+0 packets, 0 bytes
+
+firewall#

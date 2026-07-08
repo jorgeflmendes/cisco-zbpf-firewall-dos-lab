@@ -1,0 +1,33 @@
+OUT-HOST console is now available... Press RETURN to get started.
+
+^C
+
+### COMMAND: ip addr flush dev eth0
+ip addr flush dev eth0
+
+### COMMAND: ip addr add 203.0.113.10/24 dev eth0
+ip addr add 203.0.113.10/24 dev eth0
+
+### COMMAND: ip link set eth0 up
+ip link set eth0 up
+
+### COMMAND: ip route replace default via 203.0.113.254
+ip route replace default via 203.0.113.254
+
+### COMMAND: ip addr show eth0
+ip addr show eth0
+
+12: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UNKNOWN group default qlen 1000
+
+link/ether 02:42:db:5f:f9:00 brd ff:ff:ff:ff:ff:ff
+
+inet 203.0.113.10/24 scope global eth0
+
+valid_lft forever preferred_lft forever
+
+### COMMAND: ip route
+ip route
+
+default via 203.0.113.254 dev eth0
+
+203.0.113.0/24 dev eth0 proto kernel scope link src 203.0.113.10

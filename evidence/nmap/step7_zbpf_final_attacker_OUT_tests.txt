@@ -1,0 +1,73 @@
+### COMMAND: ping -c 3 222.10.10.1
+ping -c 3 222.10.10.1
+
+PING 222.10.10.1 (222.10.10.1) 56(84) bytes of data.
+
+64 bytes from 222.10.10.1: icmp_seq=1 ttl=254 time=19.8 ms
+
+64 bytes from 222.10.10.1: icmp_seq=2 ttl=254 time=13.8 ms
+
+64 bytes from 222.10.10.1: icmp_seq=3 ttl=254 time=20.0 ms
+
+--- 222.10.10.1 ping statistics ---
+
+3 packets transmitted, 3 received, 0% packet loss, time 2003ms
+
+rtt min/avg/max/mdev = 13.798/17.873/20.002/2.882 ms
+
+]0;root@attacker-OUT: / root@attacker-OUT:/#
+### COMMAND: ping -c 3 222.10.10.254
+ping -c 3 222.10.10.254
+
+PING 222.10.10.254 (222.10.10.254) 56(84) bytes of data.
+
+### COMMAND: ping -c 3 111.10.10.254
+ping -c 3 111.10.10.254
+
+### COMMAND: nmap -sn --max-retries 1 --host-timeout 8s 222.10.10.0/24
+nmap -sn --max-retries 1 --host-timeout 8s 222.10.10.0/24
+
+--- 222.10.10.254 ping statistics ---
+
+3 packets transmitted, 0 received, 100% packet loss, time 2042ms
+
+]0;root@attacker-OUT: / root@attacker-OUT:/# ping -c 3 111.10.10.254
+
+PING 111.10.10.254 (111.10.10.254) 56(84) bytes of data.
+
+--- 111.10.10.254 ping statistics ---
+
+3 packets transmitted, 0 received, 100% packet loss, time 2028ms
+
+]0;root@attacker-OUT: / root@attacker-OUT:/# nmap -sn --max-retries 1 --host-timeout 8s 222.10.10.0/24
+
+Starting Nmap 7.80 ( https://nmap.org ) at 2026-05-05 19:33 UTC
+
+mass_dns: warning: Unable to determine any DNS servers. Reverse DNS is disabled. Try using --system-dns or specify valid servers with --dns-servers
+
+Nmap scan report for 222.10.10.1
+
+Host is up (0.026s latency).
+
+Nmap done: 256 IP addresses (1 host up) scanned in 4.14 seconds
+
+]0;root@attacker-OUT: / root@attacker-OUT:/#
+### COMMAND: nmap -n -Pn -p 0-1023 --max-retries 1 --host-timeout 75s 222.10.10.1
+nmap -n -Pn -p 0-1023 --max-retries 1 --host-timeout 75s 222
+2.10.10.1
+
+Starting Nmap 7.80 ( https://nmap.org ) at 2026-05-05 19:33 UTC
+
+Nmap scan report for 222.10.10.1
+
+Host is up (0.031s latency).
+
+Not shown: 1023 filtered ports
+
+PORT   STATE SERVICE
+
+80/tcp open  http
+
+Nmap done: 1 IP address (1 host up) scanned in 5.37 seconds
+
+]0;root@attacker-OUT: / root@attacker-OUT:/#

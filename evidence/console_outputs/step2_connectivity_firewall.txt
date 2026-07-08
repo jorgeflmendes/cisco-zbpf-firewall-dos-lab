@@ -1,0 +1,191 @@
+��������"Connected to Dynamips VM "firewall" (ID 2, type c7200) - Console port
+
+Press ENTER to get the prompt.
+
+5 18:58:58.015: %IFMGR-7-NO_IFINDEX_FILE: Unable to open nvram:/ifIndex-table No such file or directory
+
+*May  5 18:59:02.991: %LINEPROTO-5-UPDOWN: Line protocol on Interface VoIP-Null0, changed state to up
+
+*May  5 18:59:02.995: %LINK-3-UPDOWN: Interface FastEthernet0/0, changed state to up
+
+*May  5 18:59:03.003: %LINK-3-UPDOWN: Interface FastEthernet0/1, changed state to up
+
+*May  5 18:59:03.191: %SYS-5-CONFIG_I: Configured from memory by console
+
+*May  5 18:59:03.315: %SYS-5-RESTART: System restarted --
+
+Cisco IOS Software, 7200 Software (C7200-ADVENTERPRISEK9-M), Version 15.1(4)M2, RELEASE SOFTWARE (fc1)
+
+Technical Support: http://www.cisco.com/techsupport
+
+Copyright (c) 1986-2011 by Cisco Systems, Inc.
+
+Compiled Mon 26-Sep-11 21:34 by prod_rel_team
+
+*May  5 18:59:03.323: %SNMP-5-COLDSTART: SNMP agent on host firewall is undergoing a cold start
+
+*May  5 18:59:03.347: %CRYPTO-6-ISAKMP_ON_OFF: ISAKMP is OFF
+
+*May  5 18:59:03.347: %CRYPTO-6-GDOI_ON_OFF: GDOI is OFF
+
+*May  5 18:59:03.995: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to down
+
+*May  5 18:59:04.003: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to down
+
+*May  5 18:59:05.195: %LINK-5-CHANGED: Interface FastEthernet0/0, changed state to administratively down
+
+*May  5 18:59:05.203: %LINK-5-CHANGED: Interface FastEthernet0/1, changed state to administratively down
+
+firewall#
+
+firewall#terminal length 0
+
+firewall#configure terminal
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+firewall(config)#hostname firewall
+
+firewall(config)#interface FastEthernet0/0
+
+firewall(config-if)#description INSIDE_ZONE
+
+firewall(config-if)#ip address 222.10.10.254 255.255.255.0
+
+firewall(config-if)#no shutdown
+
+firewall(config-if)#exit
+
+firewall(config)#
+
+*May  5 19:01:57.139: %LINK-3-UPDOWN: Interface FastEthernet0/0, changed state to up
+
+*May  5 19:01:58.139: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+firewall(config)#interface FastEthernet0/1
+
+firewall(config-if)#description OUTSIDE_ZONE
+
+firewall(config-if)#ip address 111.10.10.254 255.255.255.0
+
+firewall(config-if)#no shutdown
+
+firewall(config-if)#exit
+
+firewall(config)#
+
+*May  5 19:02:11.143: %LINK-3-UPDOWN: Interface FastEthernet0/1, changed state to up
+
+*May  5 19:02:12.143: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up
+
+firewall(config)#end
+
+firewall#
+
+*May  5 19:02:14.763: %SYS-5-CONFIG_I: Configured from console by console
+
+firewall#show ip interface brief
+
+Interface                  IP-Address      OK? Method Status                Protocol
+
+FastEthernet0/0            222.10.10.254   YES manual up                    up
+
+FastEthernet0/1            111.10.10.254   YES manual up                    up
+
+firewall#show ip route connected
+
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+
+D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+
+N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+
+E1 - OSPF external type 1, E2 - OSPF external type 2
+
+i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+
+ia - IS-IS inter area, * - candidate default, U - per-user static route
+
+o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+
++ - replicated route, % - next hop override
+
+Gateway of last resort is not set
+
+111.0.0.0/8 is variably subnetted, 2 subnets, 2 masks
+
+C        111.10.10.0/24 is directly connected, FastEthernet0/1
+
+L        111.10.10.254/32 is directly connected, FastEthernet0/1
+
+222.10.10.0/24 is variably subnetted, 2 subnets, 2 masks
+
+C        222.10.10.0/24 is directly connected, FastEthernet0/0
+
+L        222.10.10.254/32 is directly connected, FastEthernet0/0
+
+firewall#write memory
+
+Warning: Attempting to overwrite an NVRAM configuration previously written
+
+by a different version of the system image.
+
+Overwrite the previous NVRAM configuration?[confirm]
+
+Building configuration...
+
+[OK]
+
+firewall#
+
+firewall#
+### COMMAND: terminal length 0
+terminal length 0
+
+firewall#
+### COMMAND: ping 222.10.10.1
+ping 222.10.10.1
+
+Type escape sequence to abort.
+
+Sending 5, 100-byte ICMP Echos to 222.10.10.1, timeout is 2 seconds:
+
+!!!!!
+
+Success rate is 100 percent (5/5), round-trip min/avg/max = 12/19/24 ms
+
+firewall#
+### COMMAND: ping 222.10.10.2
+ping 222.10.10.2
+
+Type escape sequence to abort.
+
+Sending 5, 100-byte ICMP Echos to 222.10.10.2, timeout is 2 seconds:
+
+!!!!!
+
+Success rate is 100 percent (5/5), round-trip min/avg/max = 8/9/12 ms
+
+firewall#
+### COMMAND: ping 111.10.10.2
+ping 111.10.10.2
+
+Type escape sequence to abort.
+
+Sending 5, 100-byte ICMP Echos to 111.10.10.2, timeout is 2 seconds:
+
+!!!!!
+
+Success rate is 100 percent (5/5), round-trip min/avg/max = 8/10/12 ms
+
+firewall#
+### COMMAND: show ip interface brief
+show ip interface brief
+
+Interface                  IP-Address      OK? Method Status                Protocol
+
+FastEthernet0/0            222.10.10.254   YES manual up                    up
+
+FastEthernet0/1            111.10.10.254   YES manual up                    up
+
+firewall#

@@ -1,0 +1,110 @@
+### COMMAND: show policy-map type inspect zone-pair OUT_TO_IN
+show policy-map type inspect zone-pair OUT_TO_IN
+
+policy exists on zp OUT_TO_IN
+
+Zone-pair: OUT_TO_IN
+
+Service-policy inspect : DOS_POLICYMAP
+
+Class-map: WWW_CLASSMAP (match-all)
+
+Match: access-group name TO_IN_HOST
+
+Match: protocol http
+
+Inspect
+
+Packet inspection statistics [process switch:fast switch]
+
+tcp packets: [44:1509]
+
+Session creations since subsystem startup or last reset 2062
+
+Current session counts (estab/half-open/terminating) [0:1795:0]
+
+Maxever session counts (estab/half-open/terminating) [0:1795:0]
+
+Last session created 00:00:04
+
+Last statistic reset 00:00:42
+
+Last session creation rate 2062
+
+Maxever session creation rate 2062
+
+Last half-open session total 1795
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Police
+
+rate 128000 bps,8000 limit
+
+conformed 1553 packets, 83862 bytes; actions: transmit
+
+exceeded 242 packets, 13068 bytes; actions: drop
+
+conformed 4000 bps, exceed 2000 bps
+
+Class-map: ICMP_CLASSMAP (match-all)
+
+Match: access-group name TO_IN_HOST
+
+Match: protocol icmp
+
+Inspect
+
+Packet inspection statistics [process switch:fast switch]
+
+icmp packets: [0:2252]
+
+Session creations since subsystem startup or last reset 1
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [1:1:0]
+
+Last session created 00:00:29
+
+Last statistic reset 00:00:42
+
+Last session creation rate 1
+
+Maxever session creation rate 1
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Police
+
+rate 128000 bps,8000 limit
+
+conformed 2252 packets, 97860 bytes; actions: transmit
+
+exceeded 42132 packets, 1777122 bytes; actions: drop
+
+conformed 4000 bps, exceed 48000 bps
+
+Class-map: class-default (match-any)
+
+Match: any
+
+Drop
+
+0 packets, 0 bytes
+
+firewall#

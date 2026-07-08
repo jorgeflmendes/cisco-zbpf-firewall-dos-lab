@@ -1,0 +1,80 @@
+### COMMAND: ping -c 2 -W 2 10.1.1.10
+ping -c 2 -W 2 10.1.1.10
+
+PING 10.1.1.10 (10.1.1.10) 56(84) bytes of data.
+
+64 bytes from 203.0.113.254: icmp_seq=1 ttl=63 time=23.2 ms
+
+64 bytes from 203.0.113.254: icmp_seq=2 ttl=63 time=18.8 ms
+
+--- 10.1.1.10 ping statistics ---
+
+2 packets transmitted, 2 received, 0% packet loss, time 1001ms
+
+rtt min/avg/max/mdev = 18.766/20.990/23.215/2.224 ms
+
+### COMMAND: ping -c 2 -W 2 172.16.10.10
+ping -c 2 -W 2 172.16.10.10
+
+PING 172.16.10.10 (172.16.10.10) 56(84) bytes of data.
+
+64 bytes from 172.16.10.10: icmp_seq=1 ttl=63 time=16.8 ms
+
+64 bytes from 172.16.10.10: icmp_seq=2 ttl=63 time=25.1 ms
+
+--- 172.16.10.10 ping statistics ---
+
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+
+rtt min/avg/max/mdev = 16.789/20.950/25.112/4.161 ms
+
+### COMMAND: nmap -n -Pn -p 80,443 172.16.10.10
+nmap -n -Pn -p 80,443 172.16.10.10
+
+Starting Nmap 7.80 ( https://nmap.org ) at 2026-05-05 19:53 UTC
+
+Nmap scan report for 172.16.10.10
+
+Host is up (0.021s latency).
+
+PORT    STATE SERVICE
+
+80/tcp  open  http
+
+443/tcp open  https
+
+Nmap done: 1 IP address (1 host up) scanned in 0.11 seconds
+
+### COMMAND: nmap -n -Pn -p 25,110,143 172.16.10.20
+nmap -n -Pn -p 25,110,143 172.16.10.20
+
+Starting Nmap 7.80 ( https://nmap.org ) at 2026-05-05 19:53 UTC
+
+Nmap scan report for 172.16.10.20
+
+Host is up (0.018s latency).
+
+PORT    STATE SERVICE
+
+25/tcp  open  smtp
+
+110/tcp open  pop3
+
+143/tcp open  imap
+
+Nmap done: 1 IP address (1 host up) scanned in 0.10 seconds
+
+### COMMAND: nmap -n -Pn -p 53 172.16.10.30
+nmap -n -Pn -p 53 172.16.10.30
+
+Starting Nmap 7.80 ( https://nmap.org ) at 2026-05-05 19:53 UTC
+
+Nmap scan report for 172.16.10.30
+
+Host is up (0.017s latency).
+
+PORT   STATE SERVICE
+
+53/tcp open  domain
+
+Nmap done: 1 IP address (1 host up) scanned in 0.11 seconds

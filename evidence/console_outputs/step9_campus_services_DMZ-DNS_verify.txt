@@ -1,0 +1,49 @@
+### COMMAND: ps -ef | grep python3 | grep -v grep || true
+ps -ef | grep python3 | grep -v grep || true
+
+root         312       1  0 19:49 pts/0    00:00:00 python3 -c import socket,threading,time;  def tcp():  s=socket.socket(); s.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1); s.bind(('0.0.0.0',53)); s.listen(20); print('tcp53',flush=True);  while True:   c,a=s.accept(); c.close() def udp():  s=socket.socket(socket.AF_INET,socket.SOCK_DGRAM); s.bind(('0.0.0.0',53)); print('udp53',flush=True);  while True:   data,a=s.recvfrom(512); s.sendto(data,a) threading.Thread(target=tcp,daemon=True).start(); threading.Thread(target=udp,daemon=True).start(); time.sleep(10**9)
+
+root         320       1  0 19:50 pts/0    00:00:00 python3 -c import socket,threading,time def tcp():  s=socket.socket(); s.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1); s.bind(('0.0.0.0',53)); s.listen(20); print('tcp53',flush=True);  while True:   c,a=s.accept(); c.close() def udp():  s=socket.socket(socket.AF_INET,socket.SOCK_DGRAM); s.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1); s.bind(('0.0.0.0',53)); print('udp53',flush=True);  while True:   data,a=s.recvfrom(512); s.sendto(data,a) threading.Thread(target=tcp,daemon=True).start(); threading.Thread(target=udp,daemon=True).start(); time.sleep(10**9)
+
+### COMMAND: cat /tmp/lab_dns.log 2>/dev/null | tail -20
+cat /tmp/lab_dns.log 2>/dev/null | tail -20
+
+nohup: ignoring input
+
+Exception in thread Thread-1:
+
+Traceback (most recent call last):
+
+File "/usr/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+
+self.run()
+
+File "/usr/lib/python3.8/threading.py", line 870, in run
+
+self._target(*self._args, **self._kwargs)
+
+File "<string>", line 3, in tcp
+
+OSError: [Errno 98] Address already in use
+
+Exception in thread Thread-2:
+
+Traceback (most recent call last):
+
+File "/usr/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+
+self.run()
+
+File "/usr/lib/python3.8/threading.py", line 870, in run
+
+self._target(*self._args, **self._kwargs)
+
+File "<string>", line 7, in udp
+
+OSError: [Errno 98] Address already in use
+
+### COMMAND: python3 -c 'import socket; s=socket.socket(); print(53,s.connect_ex(("127.0.0.1",53))); s.close()'
+python3 -c 'import socket; s=socket.socket(); print(53,s.connect_
+_ex(("127.0.0.1",53))); s.close()'
+
+53 0

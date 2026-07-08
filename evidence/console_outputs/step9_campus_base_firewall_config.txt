@@ -1,0 +1,412 @@
+Connected to Dynamips VM "FW-CAMPUS" (ID 1, type c7200) - Console port
+
+Press ENTER to get the prompt.
+
+subscription and usage guidelines.
+
+5 FastEthernet interfaces
+
+509K bytes of NVRAM.
+
+8192K bytes of Flash internal SIMM (Sector size 256K).
+
+SETUP: new interface FastEthernet0/0 placed in "shutdown" state
+
+SETUP: new interface FastEthernet0/1 placed in "shutdown" state
+
+SETUP: new interface FastEthernet1/0 placed in "shutdown" state
+
+SETUP: new interface FastEthernet2/0 placed in "shutdown" state
+
+SETUP: new interface FastEthernet3/0 placed in "shutdown" state
+
+% Crashinfo may not be recovered at bootflash:crashinfo
+
+% This file system device reports an error
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+!!By default, the following "voice service voip"         !!
+
+!!sub-command is enabled:                                !!
+
+!!   ip address trusted authenticate                     !!
+
+!!                                                       !!
+
+!!The command enables the ip address authentication      !!
+
+!!on incoming H.323 or SIP trunk calls for toll fraud    !!
+
+!!prevention supports.                                   !!
+
+!!                                                       !!
+
+!!Please use "show ip address trusted list" command      !!
+
+!!to display a list of valid ip addresses for incoming   !!
+
+!!H.323 or SIP trunk calls.                              !!
+
+!!                                                       !!
+
+!!Additional valid ip addresses can be added via the     !!
+
+!!following command line:                                !!
+
+!!  voice service voip                                   !!
+
+!!   ip address trusted list                             !!
+
+!!    ipv4 <ipv4-address> [<ipv4 network-mask>]          !!
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Press RETURN to get started!
+
+*May  5 19:42:19.047: %IFMGR-7-NO_IFINDEX_FILE: Unable to open nvram:/ifIndex-table No such file or directory
+
+*May  5 19:42:26.859: %LINEPROTO-5-UPDOWN: Line protocol on Interface VoIP-Null0, changed state to up
+
+*May  5 19:42:26.863: %LINK-3-UPDOWN: Interface FastEthernet0/0, changed state to up
+
+*May  5 19:42:26.871: %LINK-3-UPDOWN: Interface FastEthernet0/1, changed state to up
+
+*May  5 19:42:26.879: %LINK-3-UPDOWN: Interface FastEthernet1/0, changed state to up
+
+*May  5 19:42:26.887: %LINK-3-UPDOWN: Interface FastEthernet2/0, changed state to up
+
+*May  5 19:42:26.891: %LINK-3-UPDOWN: Interface FastEthernet3/0, changed state to up
+
+*May  5 19:42:27.243: %SYS-5-CONFIG_I: Configured from memory by console
+
+*May  5 19:42:27.403: %SYS-5-RESTART: System restarted --
+
+Cisco IOS Software, 7200 Software (C7200-ADVENTERPRISEK9-M), Version 15.1(4)M2, RELEASE SOFTWARE (fc1)
+
+Technical Support: http://www.cisco.com/techsupport
+
+Copyright (c) 1986-2011 by Cisco Systems, Inc.
+
+Compiled Mon 26-Sep-11 21:34 by prod_rel_team
+
+*May  5 19:42:27.411: %SNMP-5-COLDSTART: SNMP agent on host FW-CAMPUS is undergoing a cold start
+
+*May  5 19:42:27.451: %CRYPTO-6-ISAKMP_ON_OFF: ISAKMP is OFF
+
+*May  5 19:42:27.455: %CRYPTO-6-GDOI_ON_OFF: GDOI is OFF
+
+*May  5 19:42:27.863: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to down
+
+*May  5 19:42:27.871: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to down
+
+*May  5 19:42:27.879: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet1/0, changed state to down
+
+*May  5 19:42:27.887: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet2/0, changed state to down
+
+*May  5 19:42:27.891: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet3/0, changed state to down
+
+*May  5 19:42:28.943: %LINK-5-CHANGED: Interface FastEthernet3/0, changed state to administratively down
+
+*May  5 19:42:29.247: %LINK-5-CHANGED: Interface FastEthernet0/0, changed state to administratively down
+
+*May  5 19:42:29.255: %LINK-5-CHANGED: Interface FastEthernet0/1, changed state to administratively down
+
+*May  5 19:42:29.259: %LINK-5-CHANGED: Interface FastEthernet1/0, changed state to administratively down
+
+*May  5 19:42:29.267: %LINK-5-CHANGED: Interface FastEthernet2/0, changed state to administratively down
+
+FW-CAMPUS#
+### COMMAND: terminal length 0
+terminal length 0
+
+FW-CAMPUS#
+### COMMAND: configure terminal
+configure terminal
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+FW-CAMPUS(config)#
+### COMMAND: hostname FW-CAMPUS
+hostname FW-CAMPUS
+
+FW-CAMPUS(config)#
+### COMMAND: no ip domain-lookup
+no ip domain-lookup
+
+FW-CAMPUS(config)#
+### COMMAND: ip routing
+ip routing
+
+FW-CAMPUS(config)#
+### COMMAND: ip domain-name saar.lab
+ip domain-name saar.lab
+
+FW-CAMPUS(config)#
+### COMMAND: username admin privilege 15 secret saarpass
+username admin privilege 15 secret saarpass
+
+FW-CAMPUS(config)#
+### COMMAND: crypto key generate rsa modulus 1024
+crypto key generate rsa modulus 1024
+
+The name for the keys will be: FW-CAMPUS.saar.lab
+
+% The key modulus size is 1024 bits
+
+% Generating 1024 bit RSA keys, keys will be non-exportable...
+
+[OK] (elapsed time was 1 seconds)
+
+FW-CAMPUS(config)#
+
+*May  5 19:44:01.003: %SSH-5-ENABLED: SSH 1.99 has been enabled
+
+FW-CAMPUS(config)#
+### COMMAND: ip ssh version 2
+ip ssh version 2
+
+FW-CAMPUS(config)#
+### COMMAND: line vty 0 4
+line vty 0 4
+
+FW-CAMPUS(config-line)#
+### COMMAND: login local
+login local
+
+FW-CAMPUS(config-line)#
+### COMMAND: transport input ssh
+transport input ssh
+
+FW-CAMPUS(config-line)#
+### COMMAND: exit
+exit
+
+FW-CAMPUS(config)#
+### COMMAND: interface FastEthernet0/0
+interface FastEthernet0/0
+
+FW-CAMPUS(config-if)#
+### COMMAND: description PR1_ZONE
+description PR1_ZONE
+
+FW-CAMPUS(config-if)#
+### COMMAND: ip address 10.1.1.254 255.255.255.0
+ip address 10.1.1.254 255.255.255.0
+
+FW-CAMPUS(config-if)#
+### COMMAND: ip nat inside
+ip nat inside
+
+### COMMAND: no shutdown
+FW-CAMPUS(config-if)#no shutdown
+
+FW-CAMPUS(config-if)#
+
+*May  5 19:44:36.875: %LINEPROTO-5-UPDOWN: Line protocol on Interface NVI0, changed state to up
+
+FW-CAMPUS(config-if)#
+### COMMAND: exit
+exit
+
+FW-CAMPUS(config)#
+
+*May  5 19:44:39.307: %LINK-3-UPDOWN: Interface FastEthernet0/0, changed state to up
+
+*May  5 19:44:40.307: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+FW-CAMPUS(config)#
+### COMMAND: interface FastEthernet0/1
+interface FastEthernet0/1
+
+FW-CAMPUS(config-if)#
+### COMMAND: description PR2_ZONE
+description PR2_ZONE
+
+FW-CAMPUS(config-if)#
+### COMMAND: ip address 10.2.2.254 255.255.255.0
+ip address 10.2.2.254 255.255.255.0
+
+FW-CAMPUS(config-if)#
+### COMMAND: ip nat inside
+ip nat inside
+
+FW-CAMPUS(config-if)#
+### COMMAND: no shutdown
+no shutdown
+
+FW-CAMPUS(config-if)#
+
+*May  5
+### COMMAND: exit
+19:44:58.631: %LINK-3-UPDOWN: Interface FastEthernet0/1, changed state to up
+
+*May  5 19:44:59.631: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up
+
+FW-CAMPUS(config-if)#exit
+
+FW-CAMPUS(config)#
+### COMMAND: interface FastEthernet1/0
+interface FastEthernet1/0
+
+FW-CAMPUS(config-if)#
+### COMMAND: description DMZ_ZONE
+description DMZ_ZONE
+
+FW-CAMPUS(config-if)#
+### COMMAND: ip address 172.16.10.254 255.255.255.0
+ip address 172.16.10.254 255.255.255.0
+
+FW-CAMPUS(config-if)#
+### COMMAND: no shutdown
+no shutdown
+
+FW-CAMPUS(config-if)#
+
+*May  5
+### COMMAND: exit
+19:45:14.843: %LINK-3-UPDOWN: Interface FastEthernet1/0, changed state to up
+
+*May  5 19:45:15.843: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet1/0, changed state to up
+
+FW-CAMPUS(config-if)#exit
+
+FW-CAMPUS(config)#
+### COMMAND: interface FastEthernet2/0
+interface FastEthernet2/0
+
+FW-CAMPUS(config-if)#
+### COMMAND: description OUT_ZONE
+description OUT_ZONE
+
+FW-CAMPUS(config-if)#
+### COMMAND: ip address 203.0.113.254 255.255.255.0
+ip address 203.0.113.254 255.255.255.0
+
+FW-CAMPUS(config-if)#
+### COMMAND: ip nat outside
+ip nat outside
+
+FW-CAMPUS(config-if)#
+### COMMAND: no shutdown
+no shutdown
+
+FW-CAMPUS(config-if)#
+### COMMAND: exit
+exit
+
+FW-CAMPUS(config)#
+
+*May  5 19:45:34.131: %LINK-3-UPDOWN: Interface FastEthernet2/0, changed state to up
+
+*May  5 19:45:35.131: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet2/0, changed state to up
+
+FW-CAMPUS(config)#
+### COMMAND: interface FastEthernet3/0
+interface FastEthernet3/0
+
+FW-CAMPUS(config-if)#
+### COMMAND: shutdown
+shutdown
+
+FW-CAMPUS(config-if)#
+### COMMAND: exit
+exit
+
+FW-CAMPUS(config)#
+### COMMAND: no access-list 10
+no access-list 10
+
+FW-CAMPUS(config)#
+### COMMAND: access-list 10 permit 10.0.0.0 0.255.255.255
+access-list 10 permit 10.0.0.0 0.255.255.255
+
+FW-CAMPUS(config)#
+### COMMAND: ip nat inside source list 10 interface FastEthernet2/0 overload
+ip nat inside source list 10 interface FastEthernet2/0 over$de source list 10 interface FastEthernet2/0 overl         oad
+
+FW-CAMPUS(config)#
+### COMMAND: end
+end
+
+FW-CAMPUS#
+
+*May  5 19:45:57.867: %SYS-5-CONFIG_I: Configured from console by console
+
+FW-CAMPUS#
+### COMMAND: show ip interface brief
+show ip interface brief
+
+Any interface listed with OK? value "NO" does not have a valid configuration
+
+Interface                  IP-Address      OK? Method Status                Protocol
+
+FastEthernet0/0            10.1.1.254      YES manual up                    up
+
+FastEthernet0/1            10.2.2.254      YES manual up                    up
+
+FastEthernet1/0            172.16.10.254   YES manual up                    up
+
+FastEthernet2/0            203.0.113.254   YES manual up                    up
+
+FastEthernet3/0            unassigned      YES unset  administratively down down
+
+NVI0                       unassigned      NO  unset  up                    up
+
+FW-CAMPUS#
+### COMMAND: show ip nat statistics
+show ip nat statistics
+
+Total active translations: 0 (0 static, 0 dynamic; 0 extended)
+
+Peak translations: 0
+
+Outside interfaces:
+
+FastEthernet2/0
+
+Inside interfaces:
+
+FastEthernet0/0, FastEthernet0/1
+
+Hits: 0  Misses: 0
+
+CEF Translated packets: 0, CEF Punted packets: 0
+
+Expired translations: 0
+
+Dynamic mappings:
+
+-- Inside Source
+
+[Id: 1] access-list 10 interface FastEthernet2/0 refcount 0
+
+Total doors: 0
+
+Appl doors: 0
+
+Normal doors: 0
+
+Queued Packets: 0
+
+FW-CAMPUS#
+### COMMAND: show running-config | include hostname|ip nat|access-list 10|ip ssh|username|domain-name
+show running-config | include hostname|ip nat|access-list 10|ip ssh$g-config | include hostname|ip nat|access-list 10|ip ssh|         username| include hostname|ip nat|access-list 10|ip ssh|username|d         omain-namostname|ip nat|access-list 10|ip ssh|username|domain-name         
+
+hostname FW-CAMPUS
+
+username admin privilege 15 secret 5 $1$eG.G$WF./haMxryna.To.lKy4w/
+
+ip ssh version 2
+
+ip nat inside
+
+ip nat inside
+
+ip nat outside
+
+ip nat inside source list 10 interface FastEthernet2/0 overload
+
+access-list 10 permit 10.0.0.0 0.255.255.255
+
+FW-CAMPUS#

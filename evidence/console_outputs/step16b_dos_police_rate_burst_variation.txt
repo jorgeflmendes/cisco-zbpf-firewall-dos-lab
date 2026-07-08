@@ -1,0 +1,392 @@
+===== attacker OUT IP =====
+
+### COMMAND: ip addr flush dev eth0 && ip addr add 111.10.10.2/24 dev eth0 && ip link set eth0 up && ip route replace default via 111.10.10.254
+ip addr flush dev eth0 && ip addr add 111.10.10.2/24 dev eth
+h0 && ip link set eth0 up && ip route replace default via 111.10.10.254
+
+### COMMAND: ip addr show eth0
+ip addr show eth0
+
+13: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UNKNOWN group default qlen 1000
+
+link/ether 02:42:e1:74:4c:00 brd ff:ff:ff:ff:ff:ff
+
+inet 111.10.10.2/24 scope global eth0
+
+valid_lft forever preferred_lft forever
+
+### COMMAND: ip route
+ip route
+
+default via 111.10.10.254 dev eth0
+
+111.10.10.0/24 dev eth0 proto kernel scope link src 111.10.10.2
+
+===== low rate=64000 burst=4000 =====
+
+### COMMAND: configure terminal
+configure terminal
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+firewall(config)#
+### COMMAND: policy-map type inspect DOS_POLICYMAP
+policy-map type inspect DOS_POLICYMAP
+
+firewall(config-pmap)#
+### COMMAND: class type inspect WWW_CLASSMAP
+class type inspect WWW_CLASSMAP
+
+firewall(config-pmap-c)#
+### COMMAND: inspect PARMAP
+inspect PARMAP
+
+firewall(config-pmap-c)#
+### COMMAND: police rate 64000 burst 4000
+police rate 64000 burst 4000
+
+firewall(config-pmap-c)#
+### COMMAND: exit
+exit
+
+firewall(config-pmap)#
+### COMMAND: class type inspect ICMP_CLASSMAP
+class type inspect ICMP_CLASSMAP
+
+firewall(config-pmap-c)#
+### COMMAND: inspect
+inspect
+
+firewall(config-pmap-c)#
+### COMMAND: police rate 64000 burst 4000
+police rate 64000 burst 4000
+
+firewall(config-pmap-c)#
+### COMMAND: exit
+exit
+
+firewall(config-pmap)#
+### COMMAND: end
+end
+
+firewall#
+
+*May  6 11:42:48.787: %SYS-5-CONFIG_I: Configured from console by console
+
+firewall#
+### COMMAND: clear zone-pair counter
+clear zone-pair counter
+
+firewall#
+### COMMAND: show policy-map type inspect zone-pair OUT_TO_IN
+show policy-map type inspect zone-pair OUT_TO_IN
+
+policy exists on zp OUT_TO_IN
+
+Zone-pair: OUT_TO_IN
+
+Service-policy inspect : DOS_POLICYMAP
+
+Class-map: WWW_CLASSMAP (match-all)
+
+Match: access-group name TO_IN_HOST
+
+Match: protocol http
+
+Inspect
+
+Session creations since subsystem startup or last reset 0
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [0:0:0]
+
+Last session created never
+
+Last statistic reset 00:00:03
+
+Last session creation rate 0
+
+Maxever session creation rate 0
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+--More--
+
+### COMMAND: timeout 3s hping3 -1 --flood 222.10.10.1
+timeout 3s hping3 -1 --flood 222.10.10.1
+
+HPING 222.10.10.1 (eth0 222.10.10.1): icmp mode set, 28 headers + 0 data bytes
+
+hping in flood mode, no replies will be shown
+
+--- 222.10.10.1 hping statistic ---
+
+1444427 packets transmitted, 0 packets received, 100% packet loss
+
+round-trip min/avg/max = 0.0/0.0/0.0 ms
+
+### COMMAND: show policy-map type inspect zone-pair OUT_TO_IN
+show policy-map type inspect zone-pair OUT_TO_IN
+
+policy exists on zp OUT_TO_IN
+
+Zone-pair: OUT_TO_IN
+
+Service-policy inspect : DOS_POLICYMAP
+
+Class-map: WWW_CLASSMAP (match-all)
+
+Match: access-group name TO_IN_HOST
+
+Match: protocol http
+
+Inspect
+
+Session creations since subsystem startup or last reset 0
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [0:0:0]
+
+Last session created never
+
+Last statistic reset 00:00:20
+
+Last session creation rate 0
+
+Maxever session creation rate 0
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+--More--
+===== high rate=256000 burst=16000 =====
+
+### COMMAND: configure terminal
+configure terminal
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+firewall(config)#
+### COMMAND: policy-map type inspect DOS_POLICYMAP
+policy-map type inspect DOS_POLICYMAP
+
+firewall(config-pmap)#
+### COMMAND: class type inspect WWW_CLASSMAP
+class type inspect WWW_CLASSMAP
+
+firewall(config-pmap-c)#
+### COMMAND: inspect PARMAP
+inspect PARMAP
+
+firewall(config-pmap-c)#
+### COMMAND: police rate 256000 burst 16000
+police rate 256000 burst 16000
+
+firewall(config-pmap-c)#
+### COMMAND: exit
+exit
+
+firewall(config-pmap)#
+### COMMAND: class type inspect ICMP_CLASSMAP
+class type inspect ICMP_CLASSMAP
+
+firewall(config-pmap-c)#
+### COMMAND: inspect
+inspect
+
+firewall(config-pmap-c)#
+### COMMAND: police rate 256000 burst 16000
+police rate 256000 burst 16000
+
+firewall(config-pmap-c)#
+### COMMAND: exit
+exit
+
+firewall(config-pmap)#
+### COMMAND: end
+end
+
+firewall#
+
+*May  6 11:43:54.119: %SYS-5-CONFIG_I: Configured from console by console
+
+firewall#
+### COMMAND: clear zone-pair counter
+clear zone-pair counter
+
+firewall#
+### COMMAND: show policy-map type inspect zone-pair OUT_TO_IN
+show policy-map type inspect zone-pair OUT_TO_IN
+
+policy exists on zp OUT_TO_IN
+
+Zone-pair: OUT_TO_IN
+
+Service-policy inspect : DOS_POLICYMAP
+
+Class-map: WWW_CLASSMAP (match-all)
+
+Match: access-group name TO_IN_HOST
+
+Match: protocol http
+
+Inspect
+
+Session creations since subsystem startup or last reset 0
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [0:0:0]
+
+Last session created never
+
+Last statistic reset 00:00:03
+
+Last session creation rate 0
+
+Maxever session creation rate 0
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+--More--
+
+### COMMAND: timeout 3s hping3 -1 --flood 222.10.10.1
+timeout 3s hping3 -1 --flood 222.10.10.1
+
+HPING 222.10.10.1 (eth0 222.10.10.1): icmp mode set, 28 headers + 0 data bytes
+
+hping in flood mode, no replies will be shown
+
+--- 222.10.10.1 hping statistic ---
+
+1417761 packets transmitted, 0 packets received, 100% packet loss
+
+round-trip min/avg/max = 0.0/0.0/0.0 ms
+
+### COMMAND: show policy-map type inspect zone-pair OUT_TO_IN
+show policy-map type inspect zone-pair OUT_TO_IN
+
+policy exists on zp OUT_TO_IN
+
+Zone-pair: OUT_TO_IN
+
+Service-policy inspect : DOS_POLICYMAP
+
+Class-map: WWW_CLASSMAP (match-all)
+
+Match: access-group name TO_IN_HOST
+
+Match: protocol http
+
+Inspect
+
+Session creations since subsystem startup or last reset 0
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [0:0:0]
+
+Last session created never
+
+Last statistic reset 00:00:19
+
+Last session creation rate 0
+
+Maxever session creation rate 0
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+--More--
+===== restored =====
+
+### COMMAND: configure terminal
+configure terminal
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+firewall(config)#
+### COMMAND: policy-map type inspect DOS_POLICYMAP
+policy-map type inspect DOS_POLICYMAP
+
+firewall(config-pmap)#
+### COMMAND: class type inspect WWW_CLASSMAP
+class type inspect WWW_CLASSMAP
+
+firewall(config-pmap-c)#
+### COMMAND: inspect PARMAP
+inspect PARMAP
+
+firewall(config-pmap-c)#
+### COMMAND: police rate 128000 burst 8000
+police rate 128000 burst 8000
+
+firewall(config-pmap-c)#
+### COMMAND: exit
+exit
+
+firewall(config-pmap)#
+### COMMAND: class type inspect ICMP_CLASSMAP
+class type inspect ICMP_CLASSMAP
+
+firewall(config-pmap-c)#
+### COMMAND: inspect
+inspect
+
+firewall(config-pmap-c)#
+### COMMAND: police rate 128000 burst 8000
+police rate 128000 burst 8000
+
+firewall(config-pmap-c)#
+### COMMAND: exit
+exit
+
+firewall(config-pmap)#
+### COMMAND: end
+end
+
+firewall#
+
+*May  6 11:44:59.147: %SYS-5-CONFIG_I: Configured from console by console
+
+firewall#
+### COMMAND: write memory
+write memory
+
+Warning: Attempting to overwrite an NVRAM configuration previously written
+
+by a different version of the system image.
+
+Overwrite the previous NVRAM configuration?[confirm]

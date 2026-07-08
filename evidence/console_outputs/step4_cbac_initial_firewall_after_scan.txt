@@ -1,0 +1,237 @@
+��������"Connected to Dynamips VM "firewall" (ID 2, type c7200) - Console port
+
+Press ENTER to get the prompt.
+
+- OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+
+E1 - OSPF external type 1, E2 - OSPF external type 2
+
+i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+
+ia - IS-IS inter area, * - candidate default, U - per-user static route
+
+o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+
++ - replicated route, % - next hop override
+
+Gateway of last resort is not set
+
+111.0.0.0/8 is variably subnetted, 2 subnets, 2 masks
+
+C        111.10.10.0/24 is directly connected, FastEthernet0/1
+
+L        111.10.10.254/32 is directly connected, FastEthernet0/1
+
+222.10.10.0/24 is variably subnetted, 2 subnets, 2 masks
+
+C        222.10.10.0/24 is directly connected, FastEthernet0/0
+
+L        222.10.10.254/32 is directly connected, FastEthernet0/0
+
+firewall#write memory
+
+Warning: Attempting to overwrite an NVRAM configuration previously written
+
+by a different version of the system image.
+
+Overwrite the previous NVRAM configuration?[confirm]
+
+Building configuration...
+
+[OK]
+
+firewall#
+
+firewall#terminal length 0
+
+firewall#ping 222.10.10.1
+
+Type escape sequence to abort.
+
+Sending 5, 100-byte ICMP Echos to 222.10.10.1, timeout is 2 seconds:
+
+!!!!!
+
+Success rate is 100 percent (5/5), round-trip min/avg/max = 12/19/24 ms
+
+firewall#ping 222.10.10.2
+
+Type escape sequence to abort.
+
+Sending 5, 100-byte ICMP Echos to 222.10.10.2, timeout is 2 seconds:
+
+!!!!!
+
+Success rate is 100 percent (5/5), round-trip min/avg/max = 8/9/12 ms
+
+firewall#ping 111.10.10.2
+
+Type escape sequence to abort.
+
+Sending 5, 100-byte ICMP Echos to 111.10.10.2, timeout is 2 seconds:
+
+!!!!!
+
+Success rate is 100 percent (5/5), round-trip min/avg/max = 8/10/12 ms
+
+firewall#show ip interface brief
+
+Interface                  IP-Address      OK? Method Status                Protocol
+
+FastEthernet0/0            222.10.10.254   YES manual up                    up
+
+FastEthernet0/1            111.10.10.254   YES manual up                    up
+
+firewall#configure terminal
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+firewall(config)#ip inspect name PROTOCOLS icmp
+
+firewall(config)#ip inspect name PROTOCOLS http
+
+firewall(config)#interface FastEthernet0/1
+
+firewall(config-if)#ip inspect PROTOCOLS in
+
+firewall(config-if)#exit
+
+firewall(config)#ip access-list extended TO_SERVER
+
+firewall(config-ext-nacl)#permit ip any host 222.10.10.1
+
+firewall(config-ext-nacl)#exit
+
+firewall(config)#interface FastEthernet0/1
+
+firewall(config-if)#ip access-group TO_SERVER in
+
+firewall(config-if)#end
+
+firewall#
+
+*May  5 19:11:52.495: %SYS-5-CONFIG_I: Configured from console by console
+
+firewall#show running-config interface FastEthernet0/1
+
+Building configuration...
+
+Current configuration : 179 bytes
+
+!
+
+interface FastEthernet0/1
+
+description OUTSIDE_ZONE
+
+ip address 111.10.10.254 255.255.255.0
+
+ip access-group TO_SERVER in
+
+ip inspect PROTOCOLS in
+
+duplex auto
+
+speed auto
+
+end
+
+firewall#show ip inspect all
+
+Session audit trail is disabled
+
+Session alert is enabled
+
+one-minute (sampling period) thresholds are [unlimited : unlimited] connections
+
+max-incomplete sessions thresholds are [unlimited : unlimited]
+
+max-incomplete tcp connections per host is unlimited. Block-time 0 minute.
+
+tcp synwait-time is 30 sec -- tcp finwait-time is 5 sec
+
+tcp idle-time is 3600 sec -- udp idle-time is 30 sec
+
+tcp reassembly queue length 16; timeout 5 sec; memory-limit 1024 kilo bytes
+
+dns-timeout is 5 sec
+
+Inspection Rule Configuration
+
+Inspection name PROTOCOLS
+
+icmp alert is on audit-trail is off timeout 10
+
+http alert is on audit-trail is off timeout 3600
+
+Interface Configuration
+
+Interface FastEthernet0/1
+
+Inbound inspection rule is PROTOCOLS
+
+icmp alert is on audit-trail is off timeout 10
+
+http alert is on audit-trail is off timeout 3600
+
+Outgoing inspection rule is not set
+
+Inbound access list is TO_SERVER
+
+Outgoing access list is not set
+
+firewall#show access-lists TO_SERVER
+
+Extended IP access list TO_SERVER
+
+10 permit ip any host 222.10.10.1
+
+firewall#
+### COMMAND: show access-lists TO_SERVER
+show access-lists TO_SERVER
+
+Extended IP access list TO_SERVER
+
+10 permit ip any host 222.10.10.1 (1377 matches)
+
+firewall#
+### COMMAND: show ip inspect sessions
+show ip inspect sessions
+
+firewall#
+### COMMAND: show ip inspect statistics
+show ip inspect statistics
+
+Packet inspection statistics [process switch:fast switch]
+
+tcp packets: [0:3]
+
+icmp packets: [2:4]
+
+Interfaces configured for inspection 1
+
+Session creations since subsystem startup or last reset 5
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [2:2:0]
+
+Last session created 00:00:55
+
+Last statistic reset never
+
+Last session creation rate 0
+
+Maxever session creation rate 5
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+firewall#

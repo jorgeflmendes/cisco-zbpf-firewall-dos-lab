@@ -1,0 +1,11 @@
+### COMMAND: timeout 6s hping3 -i u10000 -S -p 80 --rand-source 222.10.10.1
+timeout 6s hping3 -i u10000 -S -p 80 --rand-source 222.10.10
+0.1
+
+HPING 222.10.10.1 (eth0 222.10.10.1): S set, 40 headers + 0 data bytes
+
+--- 222.10.10.1 hping statistic ---
+
+535 packets transmitted, 0 packets received, 100% packet loss
+
+round-trip min/avg/max = 0.0/0.0/0.0 ms

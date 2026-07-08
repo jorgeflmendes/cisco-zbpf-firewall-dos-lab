@@ -1,0 +1,42 @@
+### COMMAND: killall python3 2>/dev/null || true
+killall python3 2>/dev/null || true
+
+### COMMAND: nohup python3 -c "import socket,threading,time
+def srv(p):
+s=socket.socket(); s.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1); s.bind(('0.0.0.0',p)); s.listen(20); print('listen',p,flush=True);
+while True:
+c,a=s.accept(); c.sendall(('220 dmz-mail port %d\r\n'%p).encode()); c.close()
+[threading.Thread(target=srv,args=(p,),daemon=True).start() for p in (25,110,143)]; time.sleep(10**9)" >/tmp/lab_mail.log 2>&1 &
+nohup python3 -c "import socket,threading,time
+
+def srv(p):
+
+ s=socket.socket(); s.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1); s.bi
+ind(('0.0.0.0',p)); s.listen(20); print('listen',p,flush=True);
+
+ while True:
+
+  c,a=s.accept(); c.sendall(('220 dmz-mail port %d\r\n'%p).encode()); c.close()
+)
+
+[threading.Thread(target=srv,args=(p,),daemon=True).start() for p in (25,110,14
+43)]; time.sleep(10**9)" >/tmp/lab_mail.log 2>&1 &
+
+[2] 321
+
+### COMMAND: python3 -c "import socket;
+for p in (25,110,143):
+s=socket.socket(); print(p,s.connect_ex(("127.0.0.1",p))); s.close()"
+python3 -c "import socket;
+
+for p in (25,110,143):
+
+ s=socket.socket(); print(p,s.connect_ex(("127.0.0.1",p))); s.close()"
+
+File "<string>", line 3
+
+s=socket.socket(); print(p,s.connect_ex((127.0.0.1,p))); s.close()
+
+^
+
+SyntaxError: invalid syntax

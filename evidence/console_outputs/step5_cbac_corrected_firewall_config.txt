@@ -1,0 +1,371 @@
+��������"Connected to Dynamips VM "firewall" (ID 2, type c7200) - Console port
+
+Press ENTER to get the prompt.
+
+0/0
+
+firewall#write memory
+
+Warning: Attempting to overwrite an NVRAM configuration previously written
+
+by a different version of the system image.
+
+Overwrite the previous NVRAM configuration?[confirm]
+
+Building configuration...
+
+[OK]
+
+firewall#
+
+firewall#terminal length 0
+
+firewall#ping 222.10.10.1
+
+Type escape sequence to abort.
+
+Sending 5, 100-byte ICMP Echos to 222.10.10.1, timeout is 2 seconds:
+
+!!!!!
+
+Success rate is 100 percent (5/5), round-trip min/avg/max = 12/19/24 ms
+
+firewall#ping 222.10.10.2
+
+Type escape sequence to abort.
+
+Sending 5, 100-byte ICMP Echos to 222.10.10.2, timeout is 2 seconds:
+
+!!!!!
+
+Success rate is 100 percent (5/5), round-trip min/avg/max = 8/9/12 ms
+
+firewall#ping 111.10.10.2
+
+Type escape sequence to abort.
+
+Sending 5, 100-byte ICMP Echos to 111.10.10.2, timeout is 2 seconds:
+
+!!!!!
+
+Success rate is 100 percent (5/5), round-trip min/avg/max = 8/10/12 ms
+
+firewall#show ip interface brief
+
+Interface                  IP-Address      OK? Method Status                Protocol
+
+FastEthernet0/0            222.10.10.254   YES manual up                    up
+
+FastEthernet0/1            111.10.10.254   YES manual up                    up
+
+firewall#configure terminal
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+firewall(config)#ip inspect name PROTOCOLS icmp
+
+firewall(config)#ip inspect name PROTOCOLS http
+
+firewall(config)#interface FastEthernet0/1
+
+firewall(config-if)#ip inspect PROTOCOLS in
+
+firewall(config-if)#exit
+
+firewall(config)#ip access-list extended TO_SERVER
+
+firewall(config-ext-nacl)#permit ip any host 222.10.10.1
+
+firewall(config-ext-nacl)#exit
+
+firewall(config)#interface FastEthernet0/1
+
+firewall(config-if)#ip access-group TO_SERVER in
+
+firewall(config-if)#end
+
+firewall#
+
+*May  5 19:11:52.495: %SYS-5-CONFIG_I: Configured from console by console
+
+firewall#show running-config interface FastEthernet0/1
+
+Building configuration...
+
+Current configuration : 179 bytes
+
+!
+
+interface FastEthernet0/1
+
+description OUTSIDE_ZONE
+
+ip address 111.10.10.254 255.255.255.0
+
+ip access-group TO_SERVER in
+
+ip inspect PROTOCOLS in
+
+duplex auto
+
+speed auto
+
+end
+
+firewall#show ip inspect all
+
+Session audit trail is disabled
+
+Session alert is enabled
+
+one-minute (sampling period) thresholds are [unlimited : unlimited] connections
+
+max-incomplete sessions thresholds are [unlimited : unlimited]
+
+max-incomplete tcp connections per host is unlimited. Block-time 0 minute.
+
+tcp synwait-time is 30 sec -- tcp finwait-time is 5 sec
+
+tcp idle-time is 3600 sec -- udp idle-time is 30 sec
+
+tcp reassembly queue length 16; timeout 5 sec; memory-limit 1024 kilo bytes
+
+dns-timeout is 5 sec
+
+Inspection Rule Configuration
+
+Inspection name PROTOCOLS
+
+icmp alert is on audit-trail is off timeout 10
+
+http alert is on audit-trail is off timeout 3600
+
+Interface Configuration
+
+Interface FastEthernet0/1
+
+Inbound inspection rule is PROTOCOLS
+
+icmp alert is on audit-trail is off timeout 10
+
+http alert is on audit-trail is off timeout 3600
+
+Outgoing inspection rule is not set
+
+Inbound access list is TO_SERVER
+
+Outgoing access list is not set
+
+firewall#show access-lists TO_SERVER
+
+Extended IP access list TO_SERVER
+
+10 permit ip any host 222.10.10.1
+
+firewall#show access-lists TO_SERVER
+
+Extended IP access list TO_SERVER
+
+10 permit ip any host 222.10.10.1 (1377 matches)
+
+firewall#show ip inspect sessions
+
+firewall#show ip inspect statistics
+
+Packet inspection statistics [process switch:fast switch]
+
+tcp packets: [0:3]
+
+icmp packets: [2:4]
+
+Interfaces configured for inspection 1
+
+Session creations since subsystem startup or last reset 5
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [2:2:0]
+
+Last session created 00:00:55
+
+Last statistic reset never
+
+Last session creation rate 0
+
+Maxever session creation rate 5
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+firewall#
+### COMMAND: configure terminal
+configure terminal
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+firewall(config)#
+### COMMAND: ip access-list extended OUT_TO_IN
+ip access-list extended OUT_TO_IN
+
+firewall(config-ext-nacl)#
+### COMMAND: permit icmp any host 222.10.10.1 echo
+permit icmp any host 222.10.10.1 echo
+
+firewall(config-ext-nacl)#
+### COMMAND: permit tcp any host 222.10.10.1 eq 80
+permit tcp any host 222.10.10.1 eq 80
+
+firewall(config-ext-nacl)#
+### COMMAND: deny ip any 222.10.10.0 0.0.0.255 log
+deny ip any 222.10.10.0 0.0.0.255 log
+
+firewall(config-ext-nacl)#
+### COMMAND: deny ip any host 111.10.10.254 log
+deny ip any host 111.10.10.254 log
+
+firewall(config-ext-nacl)#
+### COMMAND: deny ip any any log
+deny ip any any log
+
+firewall(config-ext-nacl)#
+### COMMAND: exit
+exit
+
+firewall(config)#
+### COMMAND: ip access-list extended IN_TO_OUT
+ip access-list extended IN_TO_OUT
+
+firewall(config-ext-nacl)#
+### COMMAND: deny ip 222.10.10.0 0.0.0.255 any log
+deny ip 222.10.10.0 0.0.0.255 any log
+
+firewall(config-ext-nacl)#
+### COMMAND: exit
+exit
+
+firewall(config)#
+### COMMAND: interface FastEthernet0/1
+interface FastEthernet0/1
+
+firewall(config-if)#
+### COMMAND: no ip access-group TO_SERVER in
+no ip access-group TO_SERVER in
+
+firewall(config-if)#
+### COMMAND: ip access-group OUT_TO_IN in
+ip access-group OUT_TO_IN in
+
+firewall(config-if)#
+### COMMAND: exit
+exit
+
+firewall(config)#
+### COMMAND: interface FastEthernet0/0
+interface FastEthernet0/0
+
+firewall(config-if)#
+### COMMAND: ip access-group IN_TO_OUT in
+ip access-group IN_TO_OUT in
+
+firewall(config-if)#
+### COMMAND: exit
+exit
+
+firewall(config)#
+### COMMAND: end
+end
+
+firewall#
+
+*May  5 19:15:11.655: %SYS-5-CONFIG_I: Configured from console by console
+
+firewall#
+### COMMAND: clear access-list counters OUT_TO_IN
+clear access-list counters OUT_TO_IN
+
+firewall#
+### COMMAND: clear access-list counters IN_TO_OUT
+clear access-list counters IN_TO_OUT
+
+firewall#
+### COMMAND: show running-config interface FastEthernet0/0
+show running-config interface FastEthernet0/0
+
+Building configuration...
+
+Current configuration : 153 bytes
+
+!
+
+interface FastEthernet0/0
+
+description INSIDE_ZONE
+
+ip address 222.10.10.254 255.255.255.0
+
+ip access-group IN_TO_OUT in
+
+duplex auto
+
+speed auto
+
+end
+
+firewall#
+### COMMAND: show running-config interface FastEthernet0/1
+show running-config interface FastEthernet0/1
+
+Building configuration...
+
+Current configuration : 179 bytes
+
+!
+
+interface FastEthernet0/1
+
+description OUTSIDE_ZONE
+
+ip address 111.10.10.254 255.255.255.0
+
+ip access-group OUT_TO_IN in
+
+ip inspect PROTOCOLS in
+
+duplex auto
+
+speed auto
+
+end
+
+firewall#
+### COMMAND: show access-lists OUT_TO_IN
+show access-lists OUT_TO_IN
+
+Extended IP access list OUT_TO_IN
+
+10 permit icmp any host 222.10.10.1 echo
+
+20 permit tcp any host 222.10.10.1 eq www
+
+30 deny ip any 222.10.10.0 0.0.0.255 log
+
+40 deny ip any host 111.10.10.254 log
+
+50 deny ip any any log
+
+firewall#
+### COMMAND: show access-lists IN_TO_OUT
+show access-lists IN_TO_OUT
+
+Extended IP access list IN_TO_OUT
+
+10 deny ip 222.10.10.0 0.0.0.255 any log
+
+firewall#

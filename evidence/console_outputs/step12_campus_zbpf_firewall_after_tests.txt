@@ -1,0 +1,532 @@
+### COMMAND: terminal length 0
+terminal length 0
+
+FW-CAMPUS#
+### COMMAND: show policy-map type inspect zone-pair
+show policy-map type inspect zone-pair
+
+policy exists on zp PR1_TO_OUT
+
+Zone-pair: PR1_TO_OUT
+
+Service-policy inspect : PM_PR_TO_OUT
+
+Class-map: CM_PR_TO_OUT (match-any)
+
+Match: access-group name ACL_PR_TO_OUT
+
+1 packets, 64 bytes
+
+30 second rate 0 bps
+
+Inspect
+
+Packet inspection statistics [process switch:fast switch]
+
+icmp packets: [0:4]
+
+Session creations since subsystem startup or last reset 1
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [1:1:0]
+
+Last session created 00:02:47
+
+Last statistic reset never
+
+Last session creation rate 0
+
+Maxever session creation rate 1
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Class-map: class-default (match-any)
+
+Match: any
+
+Drop
+
+0 packets, 0 bytes
+
+policy exists on zp PR2_TO_OUT
+
+Zone-pair: PR2_TO_OUT
+
+Service-policy inspect : PM_PR_TO_OUT
+
+Class-map: CM_PR_TO_OUT (match-any)
+
+Match: access-group name ACL_PR_TO_OUT
+
+0 packets, 0 bytes
+
+30 second rate 0 bps
+
+Inspect
+
+Session creations since subsystem startup or last reset 0
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [0:0:0]
+
+Last session created never
+
+Last statistic reset never
+
+Last session creation rate 0
+
+Maxever session creation rate 0
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Class-map: class-default (match-any)
+
+Match: any
+
+Drop
+
+0 packets, 0 bytes
+
+policy exists on zp PR1_TO_DMZ
+
+Zone-pair: PR1_TO_DMZ
+
+Service-policy inspect : PM_PR_TO_DMZ
+
+Class-map: CM_PR_TO_DMZ (match-any)
+
+Match: access-group name ACL_PR_TO_DMZ
+
+6 packets, 144 bytes
+
+30 second rate 0 bps
+
+Inspect
+
+Packet inspection statistics [process switch:fast switch]
+
+tcp packets: [0:18]
+
+Session creations since subsystem startup or last reset 6
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [0:3:0]
+
+Last session created 00:02:19
+
+Last statistic reset never
+
+Last session creation rate 0
+
+Maxever session creation rate 6
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Class-map: class-default (match-any)
+
+Match: any
+
+Drop
+
+6 packets, 144 bytes
+
+policy exists on zp PR2_TO_DMZ
+
+Zone-pair: PR2_TO_DMZ
+
+Service-policy inspect : PM_PR_TO_DMZ
+
+Class-map: CM_PR_TO_DMZ (match-any)
+
+Match: access-group name ACL_PR_TO_DMZ
+
+0 packets, 0 bytes
+
+30 second rate 0 bps
+
+Inspect
+
+Session creations since subsystem startup or last reset 0
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [0:0:0]
+
+Last session created never
+
+Last statistic reset never
+
+Last session creation rate 0
+
+Maxever session creation rate 0
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Class-map: class-default (match-any)
+
+Match: any
+
+Drop
+
+0 packets, 0 bytes
+
+policy exists on zp OUT_TO_DMZ
+
+Zone-pair: OUT_TO_DMZ
+
+Service-policy inspect : PM_OUT_TO_DMZ
+
+Class-map: CM_OUT_TO_DMZ (match-any)
+
+Match: access-group name ACL_OUT_TO_DMZ
+
+5 packets, 160 bytes
+
+30 second rate 0 bps
+
+Inspect
+
+Packet inspection statistics [process switch:fast switch]
+
+tcp packets: [0:12]
+
+icmp packets: [0:4]
+
+Session creations since subsystem startup or last reset 5
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [1:2:0]
+
+Last session created 00:01:21
+
+Last statistic reset never
+
+Last session creation rate 0
+
+Maxever session creation rate 5
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Class-map: class-default (match-any)
+
+Match: any
+
+Drop
+
+8 packets, 192 bytes
+
+policy exists on zp DMZ_TO_OUT
+
+Zone-pair: DMZ_TO_OUT
+
+Service-policy inspect : PM_DMZ_TO_OUT
+
+Class-map: CM_DMZ_TO_OUT (match-any)
+
+Match: access-group name ACL_DMZ_TO_OUT
+
+3 packets, 112 bytes
+
+30 second rate 0 bps
+
+Inspect
+
+Packet inspection statistics [process switch:fast switch]
+
+tcp packets: [0:4]
+
+icmp packets: [0:4]
+
+Session creations since subsystem startup or last reset 3
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [1:2:0]
+
+Last session created 00:00:27
+
+Last statistic reset never
+
+Last session creation rate 3
+
+Maxever session creation rate 3
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Class-map: class-default (match-any)
+
+Match: any
+
+Drop
+
+2 packets, 48 bytes
+
+policy exists on zp PR1_TO_SELF
+
+Zone-pair: PR1_TO_SELF
+
+Service-policy inspect : PM_TO_SELF
+
+Class-map: CM_TO_SELF_SSH (match-any)
+
+Match: access-group name ACL_TO_SELF_SSH
+
+1 packets, 24 bytes
+
+30 second rate 0 bps
+
+Inspect
+
+Packet inspection statistics [process switch:fast switch]
+
+tcp packets: [2:4]
+
+Session creations since subsystem startup or last reset 2
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [0:2:0]
+
+Last session created 00:02:01
+
+Last statistic reset never
+
+Last session creation rate 0
+
+Maxever session creation rate 2
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Class-map: class-default (match-any)
+
+Match: any
+
+Drop
+
+4 packets, 176 bytes
+
+policy exists on zp PR2_TO_SELF
+
+Zone-pair: PR2_TO_SELF
+
+Service-policy inspect : PM_TO_SELF
+
+Class-map: CM_TO_SELF_SSH (match-any)
+
+Match: access-group name ACL_TO_SELF_SSH
+
+0 packets, 0 bytes
+
+30 second rate 0 bps
+
+Inspect
+
+Session creations since subsystem startup or last reset 0
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [0:0:0]
+
+Last session created never
+
+Last statistic reset never
+
+Last session creation rate 0
+
+Maxever session creation rate 0
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Class-map: class-default (match-any)
+
+Match: any
+
+Drop
+
+0 packets, 0 bytes
+
+policy exists on zp DMZ_TO_SELF
+
+Zone-pair: DMZ_TO_SELF
+
+Service-policy inspect : PM_TO_SELF
+
+Class-map: CM_TO_SELF_SSH (match-any)
+
+Match: access-group name ACL_TO_SELF_SSH
+
+1 packets, 24 bytes
+
+30 second rate 0 bps
+
+Inspect
+
+Packet inspection statistics [process switch:fast switch]
+
+tcp packets: [2:4]
+
+Session creations since subsystem startup or last reset 2
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [0:2:0]
+
+Last session created 00:00:17
+
+Last statistic reset never
+
+Last session creation rate 2
+
+Maxever session creation rate 2
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Class-map: class-default (match-any)
+
+Match: any
+
+Drop
+
+2 packets, 48 bytes
+
+policy exists on zp OUT_TO_SELF
+
+Zone-pair: OUT_TO_SELF
+
+Service-policy inspect : PM_TO_SELF
+
+Class-map: CM_TO_SELF_SSH (match-any)
+
+Match: access-group name ACL_TO_SELF_SSH
+
+1 packets, 24 bytes
+
+30 second rate 0 bps
+
+Inspect
+
+Packet inspection statistics [process switch:fast switch]
+
+tcp packets: [2:4]
+
+Session creations since subsystem startup or last reset 2
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [0:2:0]
+
+Last session created 00:01:04
+
+Last statistic reset never
+
+Last session creation rate 0
+
+Maxever session creation rate 2
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Class-map: class-default (match-any)
+
+Match: any
+
+Drop
+
+4 packets, 176 bytes
+
+FW-CAMPUS#
+### COMMAND: show ip nat translations
+show ip nat translations
+
+FW-CAMPUS#
+### COMMAND: write memory
+write memory
+
+Warning: Attempting to overwrite an NVRAM configuration previously written
+
+by a different version of the system image.
+
+Overwrite the previous NVRAM configuration?[confirm]

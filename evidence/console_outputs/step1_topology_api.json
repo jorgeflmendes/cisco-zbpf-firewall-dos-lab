@@ -1,0 +1,86 @@
+{
+  "project_id": "<redacted-project-id>",
+  "nodes": [
+    {
+      "name": "server",
+      "type": "dynamips",
+      "compute": "vm",
+      "status": "stopped",
+      "x": -300,
+      "y": -80,
+      "ports": [
+        "f0/0",
+        "f0/1"
+      ]
+    },
+    {
+      "name": "attacker-IN",
+      "type": "docker",
+      "compute": "vm",
+      "status": "stopped",
+      "x": -300,
+      "y": 140,
+      "ports": [
+        "eth0"
+      ]
+    },
+    {
+      "name": "attacker-OUT",
+      "type": "docker",
+      "compute": "vm",
+      "status": "stopped",
+      "x": 300,
+      "y": 140,
+      "ports": [
+        "eth0"
+      ]
+    },
+    {
+      "name": "firewall",
+      "type": "dynamips",
+      "compute": "vm",
+      "status": "stopped",
+      "x": 0,
+      "y": 0,
+      "ports": [
+        "f0/0",
+        "f0/1"
+      ]
+    },
+    {
+      "name": "SW-INSIDE1",
+      "type": "ethernet_switch",
+      "compute": "vm",
+      "status": "started",
+      "x": -150,
+      "y": 60,
+      "ports": [
+        "e0",
+        "e1",
+        "e2",
+        "e3"
+      ]
+    },
+    {
+      "name": "SW-OUTSIDE1",
+      "type": "ethernet_switch",
+      "compute": "vm",
+      "status": "started",
+      "x": 150,
+      "y": 60,
+      "ports": [
+        "e0",
+        "e1",
+        "e2",
+        "e3"
+      ]
+    }
+  ],
+  "links": [
+    "server:f0/0 -- SW-INSIDE1:e0",
+    "attacker-IN:eth0 -- SW-INSIDE1:e1",
+    "firewall:f0/0 -- SW-INSIDE1:e2",
+    "firewall:f0/1 -- SW-OUTSIDE1:e0",
+    "attacker-OUT:eth0 -- SW-OUTSIDE1:e1"
+  ]
+}

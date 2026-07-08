@@ -1,0 +1,185 @@
+��������"Connected to Dynamips VM "server" (ID 1, type c3725) - Console port
+
+Press ENTER to get the prompt.
+
+Support: http://www.cisco.com/techsupport
+
+Copyright (c) 1986-2008 by Cisco Systems, Inc.
+
+Compiled Thu 10-Jul-08 06:32 by prod_rel_team
+
+BIST FAILED...
+
+This product contains cryptographic features and is subject to United
+
+States and local country laws governing import, export, transfer and
+
+use. Delivery of Cisco cryptographic products does not imply
+
+third-party authority to import, export, distribute or use encryption.
+
+Importers, exporters, distributors and users are responsible for
+
+compliance with U.S. and local country laws. By using this product you
+
+agree to comply with applicable laws and regulations. If you are unable
+
+to comply with U.S. and local laws, return this product immediately.
+
+A summary of U.S. laws governing Cisco cryptographic products may be found at:
+
+http://www.cisco.com/wwl/export/crypto/tool/stqrg.html
+
+If you require further assistance please contact us by sending email to
+
+export@cisco.com.
+
+Cisco 3725 (R7000) processor (revision 0.1) with 124928K/6144K bytes of memory.
+
+Processor board ID FTX0945W0MY
+
+R7000 CPU at 240MHz, Implementation 39, Rev 2.1, 256KB L2, 512KB L3 Cache
+
+2 FastEthernet interfaces
+
+DRAM configuration is 64 bits wide with parity enabled.
+
+55K bytes of NVRAM.
+
+SETUP: new interface FastEthernet0/0 placed in "shutdown" state
+
+SETUP: new interface FastEthernet0/1 placed in "shutdown" state
+
+% Crashinfo may not be recovered at flash:crashinfo
+
+% This file system device reports an error
+
+Press RETURN to get started!
+
+sslinit fn
+
+*Mar  1 00:00:01.403: %SW_VLAN-4-IFS_FAILURE: VLAN manager encountered file operation error: call = ifs_open/read / code = 3588 (No device available)
+
+/ bytes transfered = 0
+
+*Mar  1 00:00:01.451: %SYS-5-CONFIG_I: Configured from memory by console
+
+*Mar  1 00:00:01.547: %SYS-5-RESTART: System restarted --
+
+Cisco IOS Software, 3700 Software (C3725-ADVIPSERVICESK9-M), Version 12.4(21), RELEASE SOFTWARE (fc1)
+
+Technical Support: http://www.cisco.com/techsupport
+
+Copyright (c) 1986-2008 by Cisco Systems, Inc.
+
+Compiled Thu 10-Jul-08 06:32 by prod_rel_team
+
+*Mar  1 00:00:01.551: %SNMP-5-COLDSTART: SNMP agent on host server is undergoing a cold start
+
+*Mar  1 00:00:01.739: %LINEPROTO-5-UPDOWN: Line protocol on Interface VoIP-Null0, changed state to up
+
+*Mar  1 00:00:01.971: %LINEPROTO-5-UPDOWN: Line protocol on Interface IPv6-mpls, changed state to up
+
+*Mar  1 00:00:02.803: %LINK-5-CHANGED: Interface FastEthernet0/0, changed state to administratively down
+
+*Mar  1 00:00:02.827: %LINK-5-CHANGED: Interface FastEthernet0/1, changed state to administratively down
+
+*Mar  1 00:00:03.803: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to down
+
+*Mar  1 00:00:03.827: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to down
+
+server#
+
+server#terminal length 0
+
+server#configure terminal
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+server(config)#hostname server
+
+server(config)#interface FastEthernet0/0
+
+server(config-if)#description INSIDE_SERVER_LAN
+
+server(config-if)#ip address 222.10.10.1 255.255.255.0
+
+server(config-if)#no shutdown
+
+server(config-if)#exit
+
+server(config)#
+
+*Mar  1 00:02:45.915: %LINK-3-UPDOWN: Interface FastEthernet0/0, changed state to up
+
+*Mar  1 00:02:46.915: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+server(config)#ip route 0.0.0.0 0.0.0.0 222.10.10.254
+
+server(config)#end
+
+server#
+
+*Mar  1 00:02:52.659: %SYS-5-CONFIG_I: Configured from console by console
+
+server#show ip interface brief
+
+Interface                  IP-Address      OK? Method Status                Protocol
+
+FastEthernet0/0            222.10.10.1     YES manual up                    up
+
+FastEthernet0/1            unassigned      YES unset  administratively down down
+
+server#show ip route | begin Gateway
+
+Gateway of last resort is 222.10.10.254 to network 0.0.0.0
+
+C    222.10.10.0/24 is directly connected, FastEthernet0/0
+
+S*   0.0.0.0/0 [1/0] via 222.10.10.254
+
+server#write memory
+
+Building configuration...
+
+[OK]
+
+server#
+### COMMAND: terminal length 0
+terminal length 0
+
+server#
+### COMMAND: ping 222.10.10.254
+ping 222.10.10.254
+
+Type escape sequence to abort.
+
+Sending 5, 100-byte ICMP Echos to 222.10.10.254, timeout is 2 seconds:
+
+!!!!!
+
+Success rate is 100 percent (5/5), round-trip min/avg/max = 8/10/12 ms
+
+server#
+### COMMAND: ping 111.10.10.2
+ping 111.10.10.2
+
+Type escape sequence to abort.
+
+Sending 5, 100-byte ICMP Echos to 111.10.10.2, timeout is 2 seconds:
+
+!!!!!
+
+Success rate is 100 percent (5/5), round-trip min/avg/max = 20/25/32 ms
+
+server#
+### COMMAND: show ip route | begin Gateway
+show ip route | begin Gateway
+
+Gateway of last resort is 222.10.10.254 to network 0.0.0.0
+
+C    222.10.10.0/24 is directly connected, FastEthernet0/0
+
+S*   0.0.0.0/0 [1/0] via 222.10.10.254
+
+server#

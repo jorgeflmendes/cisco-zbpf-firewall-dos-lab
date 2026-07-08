@@ -1,0 +1,263 @@
+��������"Connected to Dynamips VM "firewall" (ID 2, type c7200) - Console port
+
+Press ENTER to get the prompt.
+
+oup TO_SERVER in
+
+firewall(config-if)#ip access-group OUT_TO_IN in
+
+firewall(config-if)#exit
+
+firewall(config)#interface FastEthernet0/0
+
+firewall(config-if)#ip access-group IN_TO_OUT in
+
+firewall(config-if)#exit
+
+firewall(config)#end
+
+firewall#
+
+*May  5 19:15:11.655: %SYS-5-CONFIG_I: Configured from console by console
+
+firewall#clear access-list counters OUT_TO_IN
+
+firewall#clear access-list counters IN_TO_OUT
+
+firewall#show running-config interface FastEthernet0/0
+
+Building configuration...
+
+Current configuration : 153 bytes
+
+!
+
+interface FastEthernet0/0
+
+description INSIDE_ZONE
+
+ip address 222.10.10.254 255.255.255.0
+
+ip access-group IN_TO_OUT in
+
+duplex auto
+
+speed auto
+
+end
+
+firewall#show running-config interface FastEthernet0/1
+
+Building configuration...
+
+Current configuration : 179 bytes
+
+!
+
+interface FastEthernet0/1
+
+description OUTSIDE_ZONE
+
+ip address 111.10.10.254 255.255.255.0
+
+ip access-group OUT_TO_IN in
+
+ip inspect PROTOCOLS in
+
+duplex auto
+
+speed auto
+
+end
+
+firewall#show access-lists OUT_TO_IN
+
+Extended IP access list OUT_TO_IN
+
+10 permit icmp any host 222.10.10.1 echo
+
+20 permit tcp any host 222.10.10.1 eq www
+
+30 deny ip any 222.10.10.0 0.0.0.255 log
+
+40 deny ip any host 111.10.10.254 log
+
+50 deny ip any any log
+
+firewall#show access-lists IN_TO_OUT
+
+Extended IP access list IN_TO_OUT
+
+10 deny ip 222.10.10.0 0.0.0.255 any log
+
+firewall#
+
+*May  5 19:16:27.731: %SEC-6-IPACCESSLOGDP: list OUT_TO_IN denied icmp 111.10.10.2 -> 222.10.10.254 (8/0), 1 packet
+
+firewall#
+
+*May  5 19:17:15.735: %SEC-6-IPACCESSLOGDP: list OUT_TO_IN denied icmp 111.10.10.2 -> 111.10.10.254 (8/0), 1 packet
+
+firewall#
+
+*May  5 19:18:03.823: %SEC-6-IPACCESSLOGP: list OUT_TO_IN denied tcp 111.10.10.2(41107) -> 222.10.10.1(443), 1 packet
+
+firewall#
+
+*May  5 19:18:05.171: %SEC-6-IPACCESSLOGP: list OUT_TO_IN denied tcp 111.10.10.2(41364) -> 222.10.10.1(963), 1 packet
+
+firewall#
+
+*May  5 19:18:51.791: %SEC-6-IPACCESSLOGDP: list OUT_TO_IN denied icmp 111.10.10.2 -> 222.10.10.2 (8/0), 1 packet
+
+firewall#
+
+*May  5 19:18:52.799: %SEC-6-IPACCESSLOGDP: list OUT_TO_IN denied icmp 111.10.10.2 -> 222.10.10.152 (8/0), 1 packet
+
+firewall#
+
+*May  5 19:18:53.803: %SEC-6-IPACCESSLOGDP: list OUT_TO_IN denied icmp 111.10.10.2 -> 222.10.10.122 (13/0), 1 packet
+
+firewall#
+
+*May  5 19:18:58.011: %SEC-6-IPACCESSLOGRL: access-list logging rate-limited or missed 2622 packets
+
+firewall#
+
+*May  5 19:19:48.803: %SEC-6-IPACCESSLOGDP: list IN_TO_OUT denied icmp 222.10.10.2 -> 111.10.10.2 (8/0), 1 packet
+
+firewall#
+
+*May  5 19:19:57.815: %SEC-6-IPACCESSLOGDP: list IN_TO_OUT denied icmp 222.10.10.2 -> 111.10.10.254 (8/0), 1 packet
+
+*May  5 19:19:58.011: %SEC-6-IPACCESSLOGRL: access-list logging rate-limited or missed 2 packets
+
+firewall#
+
+*May  5 19:20:06.823: %SEC-6-IPACCESSLOGDP: list IN_TO_OUT denied icmp 222.10.10.2 -> 222.10.10.254 (8/0), 1 packet
+
+firewall#show access-lists OUT_TO_IN
+
+Extended IP access list OUT_TO_IN
+
+10 permit icmp any host 222.10.10.1 echo (6 matches)
+
+20 permit tcp any host 222.10.10.1 eq www (3 matches)
+
+30 deny ip any 222.10.10.0 0.0.0.255 log (2641 matches)
+
+40 deny ip any host 111.10.10.254 log (3 matches)
+
+50 deny ip any any log
+
+firewall#show access-lists IN_TO_OUT
+
+Extended IP access list IN_TO_OUT
+
+10 deny ip 222.10.10.0 0.0.0.255 any log (10 matches)
+
+firewall#show ip inspect sessions
+
+firewall#show ip inspect statistics
+
+Packet inspection statistics [process switch:fast switch]
+
+tcp packets: [0:6]
+
+icmp packets: [3:15]
+
+Interfaces configured for inspection 1
+
+Session creations since subsystem startup or last reset 9
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [2:2:0]
+
+Last session created 00:01:36
+
+Last statistic reset never
+
+Last session creation rate 0
+
+Maxever session creation rate 5
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+firewall#
+### COMMAND: show access-lists OUT_TO_IN
+show access-lists OUT_TO_IN
+
+Extended IP access list OUT_TO_IN
+
+10 permit icmp any host 222.10.10.1 echo (6 matches)
+
+20 permit tcp any host 222.10.10.1 eq www (3 matches)
+
+30 deny ip any 222.10.10.0 0.0.0.255 log (2641 matches)
+
+40 deny ip any host 111.10.10.254 log (3 matches)
+
+50 deny ip any any log
+
+firewall#
+
+*May  5 19:20:58.011: %SEC-6-IPACCESSLOGRL: access-list logging rate-limited or missed 1 packet
+
+firewall#
+### COMMAND: show access-lists IN_TO_OUT
+show access-lists IN_TO_OUT
+
+Extended IP access list IN_TO_OUT
+
+10 deny ip 222.10.10.0 0.0.0.255 any log (10 matches)
+
+firewall#
+### COMMAND: show ip inspect sessions
+show ip inspect sessions
+
+firewall#
+### COMMAND: show ip inspect statistics
+show ip inspect statistics
+
+Packet inspection statistics [process switch:fast switch]
+
+tcp packets: [0:6]
+
+icmp packets: [3:15]
+
+Interfaces configured for inspection 1
+
+Session creations since subsystem startup or last reset 9
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [2:2:0]
+
+Last session created 00:02:17
+
+Last statistic reset never
+
+Last session creation rate 0
+
+Maxever session creation rate 5
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+firewall#

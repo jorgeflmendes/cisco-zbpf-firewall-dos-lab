@@ -1,0 +1,148 @@
+### COMMAND: configure terminal
+configure terminal
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+firewall(config)#
+### COMMAND: policy-map type inspect DOS_POLICYMAP
+policy-map type inspect DOS_POLICYMAP
+
+firewall(config-pmap)#
+### COMMAND: class type inspect WWW_CLASSMAP
+class type inspect WWW_CLASSMAP
+
+firewall(config-pmap-c)#
+### COMMAND: police rate 128000 burst 8000
+police rate 128000 burst 8000
+
+firewall(config-pmap-c)#
+### COMMAND: exit
+exit
+
+firewall(config-pmap)#
+### COMMAND: class type inspect ICMP_CLASSMAP
+class type inspect ICMP_CLASSMAP
+
+firewall(config-pmap-c)#
+### COMMAND: police rate 128000 burst 8000
+police rate 128000 burst 8000
+
+firewall(config-pmap-c)#
+### COMMAND: exit
+exit
+
+firewall(config-pmap)#
+### COMMAND: end
+end
+
+firewall#
+
+*May  5 20:10:15.539: %SYS-5-CONFIG_I: Configured from console by console
+
+firewall#
+### COMMAND: clear zone-pair counter
+clear zone-pair counter
+
+firewall#
+### COMMAND: show policy-map type inspect zone-pair OUT_TO_IN
+show policy-map type inspect zone-pair OUT_TO_IN
+
+policy exists on zp OUT_TO_IN
+
+Zone-pair: OUT_TO_IN
+
+Service-policy inspect : DOS_POLICYMAP
+
+Class-map: WWW_CLASSMAP (match-all)
+
+Match: access-group name TO_IN_HOST
+
+Match: protocol http
+
+Inspect
+
+Session creations since subsystem startup or last reset 0
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [0:0:0]
+
+Last session created 00:01:19
+
+Last statistic reset 00:00:03
+
+Last session creation rate 0
+
+Maxever session creation rate 0
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Police
+
+rate 128000 bps,8000 limit
+
+conformed 0 packets, 0 bytes; actions: transmit
+
+exceeded 0 packets, 0 bytes; actions: drop
+
+conformed 0 bps, exceed 0 bps
+
+Class-map: ICMP_CLASSMAP (match-all)
+
+Match: access-group name TO_IN_HOST
+
+Match: protocol icmp
+
+Inspect
+
+Session creations since subsystem startup or last reset 0
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [0:0:0]
+
+Last session created never
+
+Last statistic reset 00:00:03
+
+Last session creation rate 0
+
+Maxever session creation rate 0
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Police
+
+rate 128000 bps,8000 limit
+
+conformed 0 packets, 0 bytes; actions: transmit
+
+exceeded 0 packets, 0 bytes; actions: drop
+
+conformed 0 bps, exceed 0 bps
+
+Class-map: class-default (match-any)
+
+Match: any
+
+Drop
+
+0 packets, 0 bytes
+
+firewall#

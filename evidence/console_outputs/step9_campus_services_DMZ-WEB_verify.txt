@@ -1,0 +1,33 @@
+### COMMAND: ps -ef | egrep "http.server|openssl" | grep -v grep || true
+ps -ef | egrep "http.server|openssl" | grep -v grep || true
+
+root         315       1  0 19:48 pts/0    00:00:00 python3 -m http.server 80 --bind 0.0.0.0
+
+root         317       1  0 19:48 pts/0    00:00:00 openssl s_server -quiet -accept 443 -cert /tmp/lab.crt -key /tmp/lab.key -www
+
+### COMMAND: cat /tmp/lab_cert.log /tmp/lab_https.log 2>/dev/null | tail -20
+cat /tmp/lab_cert.log /tmp/lab_https.log 2>/dev/null | tail -20
+
+Generating a RSA private key
+
+....+++++
+
+.............................................................................................................+++++
+
+writing new private key to '/tmp/lab.key'
+
+-----
+
+nohup: ignoring input
+
+140506902062400:error:02006062:system library:bind:Address already in use:../crypto/bio/b_sock2.c:161:
+
+140506902062400:error:20093075:BIO routines:BIO_bind:unable to bind socket:../crypto/bio/b_sock2.c:162:
+
+### COMMAND: python3 -c 'import socket; [print(p, socket.socket().connect_ex(("127.0.0.1",p))) for p in (80,443)]'
+python3 -c 'import socket; [print(p, socket.socket().connect_ex((
+("127.0.0.1",p))) for p in (80,443)]'
+
+80 0
+
+443 0

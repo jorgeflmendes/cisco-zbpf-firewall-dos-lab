@@ -1,0 +1,257 @@
+��������"Connected to Dynamips VM "firewall" (ID 2, type c7200) - Console port
+
+Press ENTER to get the prompt.
+
+tographic products may be found at:
+
+http://www.cisco.com/wwl/export/crypto/tool/stqrg.html
+
+If you require further assistance please contact us by sending email to
+
+export@cisco.com.
+
+Cisco 7206VXR (NPE400) processor (revision A) with 491520K/32768K bytes of memory.Installed image archive
+
+Processor board ID 4279256517
+
+R7000 CPU at 150MHz, Implementation 39, Rev 2.1, 256KB L2, 512KB L3 Cache
+
+6 slot VXR midplane, Version 2.1
+
+Last reset from power-on
+
+PCI bus mb0_mb1 (Slots 0, 1, 3 and 5) has a capacity of 600 bandwidth points.
+
+Current configuration on bus mb0_mb1 has a total of 400 bandwidth points.
+
+This configuration is within the PCI bus capacity and is supported.
+
+PCI bus mb2 (Slots 2, 4, 6) has a capacity of 600 bandwidth points.
+
+Current configuration on bus mb2 has a total of 0 bandwidth points
+
+This configuration is within the PCI bus capacity and is supported.
+
+Please refer to the following document "Cisco 7200 Series Port Adaptor
+
+Hardware Configuration Guidelines" on Cisco.com <http://www.cisco.com>
+
+for c7200 bandwidth points oversubscription and usage guidelines.
+
+2 FastEthernet interfaces
+
+509K bytes of NVRAM.
+
+8192K bytes of Flash internal SIMM (Sector size 256K).
+
+SETUP: new interface FastEthernet0/0 placed in "shutdown" state
+
+SETUP: new interface FastEthernet0/1 placed in "shutdown" state
+
+% Crashinfo may not be recovered at bootflash:crashinfo
+
+% This file system device reports an error
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+!!By default, the following "voice service voip"         !!
+
+!!sub-command is enabled:                                !!
+
+!!   ip address trusted authenticate                     !!
+
+!!                                                       !!
+
+!!The command enables the ip address authentication      !!
+
+!!on incoming H.323 or SIP trunk calls for toll fraud    !!
+
+!!prevention supports.                                   !!
+
+!!                                                       !!
+
+!!Please use "show ip address trusted list" command      !!
+
+!!to display a list of valid ip addresses for incoming   !!
+
+!!H.323 or SIP trunk calls.                              !!
+
+!!                                                       !!
+
+!!Additional valid ip addresses can be added via the     !!
+
+!!following command line:                                !!
+
+!!  voice service voip                                   !!
+
+!!   ip address trusted list                             !!
+
+!!    ipv4 <ipv4-address> [<ipv4 network-mask>]          !!
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Press RETURN to get started!
+
+*May  5 18:58:58.015: %IFMGR-7-NO_IFINDEX_FILE: Unable to open nvram:/ifIndex-table No such file or directory
+
+*May  5 18:59:02.991: %LINEPROTO-5-UPDOWN: Line protocol on Interface VoIP-Null0, changed state to up
+
+*May  5 18:59:02.995: %LINK-3-UPDOWN: Interface FastEthernet0/0, changed state to up
+
+*May  5 18:59:03.003: %LINK-3-UPDOWN: Interface FastEthernet0/1, changed state to up
+
+*May  5 18:59:03.191: %SYS-5-CONFIG_I: Configured from memory by console
+
+*May  5 18:59:03.315: %SYS-5-RESTART: System restarted --
+
+Cisco IOS Software, 7200 Software (C7200-ADVENTERPRISEK9-M), Version 15.1(4)M2, RELEASE SOFTWARE (fc1)
+
+Technical Support: http://www.cisco.com/techsupport
+
+Copyright (c) 1986-2011 by Cisco Systems, Inc.
+
+Compiled Mon 26-Sep-11 21:34 by prod_rel_team
+
+*May  5 18:59:03.323: %SNMP-5-COLDSTART: SNMP agent on host firewall is undergoing a cold start
+
+*May  5 18:59:03.347: %CRYPTO-6-ISAKMP_ON_OFF: ISAKMP is OFF
+
+*May  5 18:59:03.347: %CRYPTO-6-GDOI_ON_OFF: GDOI is OFF
+
+*May  5 18:59:03.995: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to down
+
+*May  5 18:59:04.003: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to down
+
+*May  5 18:59:05.195: %LINK-5-CHANGED: Interface FastEthernet0/0, changed state to administratively down
+
+*May  5 18:59:05.203: %LINK-5-CHANGED: Interface FastEthernet0/1, changed state to administratively down
+
+firewall#
+
+firewall#
+### COMMAND: terminal length 0
+terminal length 0
+
+firewall#
+### COMMAND: configure terminal
+configure terminal
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+firewall(config)#
+### COMMAND: hostname firewall
+hostname firewall
+
+firewall(config)#
+### COMMAND: interface FastEthernet0/0
+interface FastEthernet0/0
+
+firewall(config-if)#
+### COMMAND: description INSIDE_ZONE
+description INSIDE_ZONE
+
+firewall(config-if)#
+### COMMAND: ip address 222.10.10.254 255.255.255.0
+ip address 222.10.10.254 255.255.255.0
+
+firewall(config-if)#
+### COMMAND: no shutdown
+no shutdown
+
+firewall(config-if)#
+### COMMAND: exit
+exit
+
+firewall(config)#
+
+*May  5 19:01:57.139: %LINK-3-UPDOWN: Interface FastEthernet0/0, changed state to up
+
+*May  5 19:01:58.139: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+firewall(config)#
+### COMMAND: interface FastEthernet0/1
+interface FastEthernet0/1
+
+firewall(config-if)#
+### COMMAND: description OUTSIDE_ZONE
+description OUTSIDE_ZONE
+
+firewall(config-if)#
+### COMMAND: ip address 111.10.10.254 255.255.255.0
+ip address 111.10.10.254 255.255.255.0
+
+firewall(config-if)#
+### COMMAND: no shutdown
+no shutdown
+
+firewall(config-if)#
+### COMMAND: exit
+exit
+
+firewall(config)#
+
+*May  5 19:02:11.143: %LINK-3-UPDOWN: Interface FastEthernet0/1, changed state to up
+
+*May  5 19:02:12.143: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up
+
+firewall(config)#
+### COMMAND: end
+end
+
+firewall#
+
+*May  5 19:02:14.763: %SYS-5-CONFIG_I: Configured from console by console
+
+firewall#
+### COMMAND: show ip interface brief
+show ip interface brief
+
+Interface                  IP-Address      OK? Method Status                Protocol
+
+FastEthernet0/0            222.10.10.254   YES manual up                    up
+
+FastEthernet0/1            111.10.10.254   YES manual up                    up
+
+firewall#
+### COMMAND: show ip route connected
+show ip route connected
+
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+
+D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+
+N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+
+E1 - OSPF external type 1, E2 - OSPF external type 2
+
+i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+
+ia - IS-IS inter area, * - candidate default, U - per-user static route
+
+o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+
++ - replicated route, % - next hop override
+
+Gateway of last resort is not set
+
+111.0.0.0/8 is variably subnetted, 2 subnets, 2 masks
+
+C        111.10.10.0/24 is directly connected, FastEthernet0/1
+
+L        111.10.10.254/32 is directly connected, FastEthernet0/1
+
+222.10.10.0/24 is variably subnetted, 2 subnets, 2 masks
+
+C        222.10.10.0/24 is directly connected, FastEthernet0/0
+
+L        222.10.10.254/32 is directly connected, FastEthernet0/0
+
+firewall#
+### COMMAND: write memory
+write memory
+
+Warning: Attempting to overwrite an NVRAM configuration previously written
+
+by a different version of the system image.
+
+Overwrite the previous NVRAM configuration?[confirm]

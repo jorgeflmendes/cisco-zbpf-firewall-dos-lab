@@ -1,0 +1,310 @@
+Connected to Dynamips VM "firewall" (ID 2, type c7200) - Console port
+
+Press ENTER to get the prompt.
+
+$ecurity OUTSIDE_TO_SELF source OUTSIDE destination          self
+
+firewall(config-sec-zone-pair)#service-policy type inspect DROP_TO_SELF
+
+firewall(config-sec-zone-pair)#exit
+
+firewall(config)#zone-pair security INSIDE_TO_SELF source INSIDE destination $ecurity INSIDE_TO_SELF source INSIDE destination s         elf
+
+firewall(config-sec-zone-pair)#service-policy type inspect DROP_TO_SELF
+
+firewall(config-sec-zone-pair)#exit
+
+firewall(config)#end
+
+firewall#
+
+*May  5 19:30:45.435: %SYS-5-CONFIG_I: Configured from console by console
+
+firewall#show zone-pair security
+
+Zone-pair name OUT_TO_IN
+
+Source-Zone OUTSIDE  Destination-Zone INSIDE
+
+service-policy OUT_TO_IN_POLICY
+
+Zone-pair name OUTSIDE_TO_SELF
+
+Source-Zone OUTSIDE  Destination-Zone self
+
+service-policy DROP_TO_SELF
+
+Zone-pair name INSIDE_TO_SELF
+
+Source-Zone INSIDE  Destination-Zone self
+
+service-policy DROP_TO_SELF
+
+firewall#show running-config | section class-map type inspect
+
+class-map type inspect match-all HTTP_TO_SERVER
+
+match access-group name ZBF_TO_SERVER
+
+match protocol http
+
+class-map type inspect match-all ICMP_TO_SERVER
+
+match access-group name ZBF_TO_SERVER
+
+match protocol icmp
+
+firewall#show running-config | section policy-map type inspect
+
+policy-map type inspect OUT_TO_IN_POLICY
+
+class type inspect ICMP_TO_SERVER
+
+inspect
+
+class type inspect HTTP_TO_SERVER
+
+inspect
+
+class class-default
+
+drop log
+
+policy-map type inspect DROP_TO_SELF
+
+class class-default
+
+drop log
+
+firewall#show running-config | section zone-pair security
+
+zone-pair security OUT_TO_IN source OUTSIDE destination INSIDE
+
+service-policy type inspect OUT_TO_IN_POLICY
+
+zone-pair security OUTSIDE_TO_SELF source OUTSIDE destination self
+
+service-policy type inspect DROP_TO_SELF
+
+zone-pair security INSIDE_TO_SELF source INSIDE destination self
+
+service-policy type inspect DROP_TO_SELF
+
+firewall#show policy-map type inspect zone-pair
+
+policy exists on zp OUT_TO_IN
+
+Zone-pair: OUT_TO_IN
+
+Service-policy inspect : OUT_TO_IN_POLICY
+
+Class-map: ICMP_TO_SERVER (match-all)
+
+Match: access-group name ZBF_TO_SERVER
+
+Match: protocol icmp
+
+Inspect
+
+Session creations since subsystem startup or last reset 0
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [0:0:0]
+
+Last session created never
+
+Last statistic reset never
+
+Last session creation rate 0
+
+Maxever session creation rate 0
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Class-map: HTTP_TO_SERVER (match-all)
+
+Match: access-group name ZBF_TO_SERVER
+
+Match: protocol http
+
+Inspect
+
+Session creations since subsystem startup or last reset 0
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [0:0:0]
+
+Last session created never
+
+Last statistic reset never
+
+Last session creation rate 0
+
+Maxever session creation rate 0
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Class-map: class-default (match-any)
+
+Match: any
+
+Drop
+
+0 packets, 0 bytes
+
+policy exists on zp OUTSIDE_TO_SELF
+
+Zone-pair: OUTSIDE_TO_SELF
+
+Service-policy inspect : DROP_TO_SELF
+
+Class-map: class-default (match-any)
+
+Match: any
+
+Drop
+
+0 packets, 0 bytes
+
+policy exists on zp INSIDE_TO_SELF
+
+Zone-pair: INSIDE_TO_SELF
+
+Service-policy inspect : DROP_TO_SELF
+
+Class-map: class-default (match-any)
+
+Match: any
+
+Drop
+
+0 packets, 0 bytes
+
+firewall#
+
+firewall#
+### COMMAND: 
+
+firewall#
+
+firewall#
+### COMMAND: end
+end
+
+Translating "end"
+
+Translating "end"
+
+% Bad IP address or host name
+
+% Unknown command or computer name, or unable to find computer address
+
+firewall#
+### COMMAND: terminal length 0
+terminal length 0
+
+firewall#
+### COMMAND: show zone-pair security
+show zone-pair security
+
+Zone-pair name OUT_TO_IN
+
+Source-Zone OUTSIDE  Destination-Zone INSIDE
+
+service-policy OUT_TO_IN_POLICY
+
+Zone-pair name OUTSIDE_TO_SELF
+
+Source-Zone OUTSIDE  Destination-Zone self
+
+service-policy DROP_TO_SELF
+
+Zone-pair name INSIDE_TO_SELF
+
+Source-Zone INSIDE  Destination-Zone self
+
+service-policy DROP_TO_SELF
+
+firewall#
+### COMMAND: show running-config | section class-map type inspect
+show running-config | section class-map type inspect
+
+class-map type inspect match-all HTTP_TO_SERVER
+
+match access-group name ZBF_TO_SERVER
+
+match protocol http
+
+class-map type inspect match-all ICMP_TO_SERVER
+
+match access-group name ZBF_TO_SERVER
+
+match protocol icmp
+
+firewall#
+### COMMAND: show running-config | section policy-map type inspect
+show running-config | section policy-map type inspect
+
+policy-map type inspect OUT_TO_IN_POLICY
+
+class type inspect ICMP_TO_SERVER
+
+inspect
+
+class type inspect HTTP_TO_SERVER
+
+inspect
+
+class class-default
+
+drop log
+
+policy-map type inspect DROP_TO_SELF
+
+class class-default
+
+drop log
+
+firewall#
+### COMMAND: show running-config | section zone-pair security
+show running-config | section zone-pair security
+
+zone-pair security OUT_TO_IN source OUTSIDE destination INSIDE
+
+service-policy type inspect OUT_TO_IN_POLICY
+
+zone-pair security OUTSIDE_TO_SELF source OUTSIDE destination self
+
+service-policy type inspect DROP_TO_SELF
+
+zone-pair security INSIDE_TO_SELF source INSIDE destination self
+
+service-policy type inspect DROP_TO_SELF
+
+firewall#
+### COMMAND: show running-config | section ip access-list extended ZBF_TO_SERVER
+show running-config | section ip access-list extended ZBF_TO_SERVER
+
+ip access-list extended ZBF_TO_SERVER
+
+permit ip any host 222.10.10.1
+
+firewall#

@@ -1,0 +1,114 @@
+### COMMAND: show policy-map type inspect zone-pair OUT_TO_IN
+show policy-map type inspect zone-pair OUT_TO_IN
+
+policy exists on zp OUT_TO_IN
+
+Zone-pair: OUT_TO_IN
+
+Service-policy inspect : DOS_POLICYMAP
+
+Class-map: WWW_CLASSMAP (match-all)
+
+Match: access-group name TO_IN_HOST
+
+Match: protocol http
+
+Inspect
+
+Packet inspection statistics [process switch:fast switch]
+
+tcp packets: [65:2030]
+
+Session creations since subsystem startup or last reset 3345
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [0:3201:0]
+
+Last session created 00:00:04
+
+Last statistic reset 00:00:28
+
+Last session creation rate 3345
+
+Maxever session creation rate 3345
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Police
+
+rate 128000 bps,8000 limit
+
+conformed 2095 packets, 113130 bytes; actions: transmit
+
+exceeded 1117 packets, 60318 bytes; actions: drop
+
+conformed 0 bps, exceed 0 bps
+
+Class-map: ICMP_CLASSMAP (match-all)
+
+Match: access-group name TO_IN_HOST
+
+Match: protocol icmp
+
+Inspect
+
+Session creations since subsystem startup or last reset 0
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [0:0:0]
+
+Last session created 00:02:20
+
+Last statistic reset 00:00:28
+
+Last session creation rate 0
+
+Maxever session creation rate 0
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Police
+
+rate 128000 bps,8000 limit
+
+conformed 0 packets, 0 bytes; actions: transmit
+
+exceeded 0 packets, 0 bytes; actions: drop
+
+conformed 0 bps, exceed 0 bps
+
+Class-map: class-default (match-any)
+
+Match: any
+
+Drop
+
+0 packets, 0 bytes
+
+firewall#
+### COMMAND: write memory
+write memory
+
+Building configuration...
+
+[OK]
+
+firewall#

@@ -1,0 +1,87 @@
+===== PR1 -> OUT =====
+### COMMAND: ping -c 2 -W 2 203.0.113.10 || true
+PING 203.0.113.10 (203.0.113.10) 56(84) bytes of data.
+64 bytes from 203.0.113.10: icmp_seq=1 ttl=63 time=199 ms
+64 bytes from 203.0.113.10: icmp_seq=2 ttl=63 time=18.3 ms
+
+--- 203.0.113.10 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1000ms
+rtt min/avg/max/mdev = 18.299/108.706/199.114/90.407 ms
+### COMMAND: nmap -n -Pn -p 80,443,53,22,25 203.0.113.10
+Starting Nmap 7.80 ( https://nmap.org ) at 2026-05-07 21:16 UTC
+Nmap scan report for 203.0.113.10
+Host is up (0.11s latency).
+
+PORT    STATE    SERVICE
+22/tcp  filtered ssh
+25/tcp  filtered smtp
+53/tcp  closed   domain
+80/tcp  closed   http
+443/tcp closed   https
+
+Nmap done: 1 IP address (1 host up) scanned in 2.14 seconds
+### COMMAND: nmap -sU -n -Pn -p 53 --max-retries 1 --host-timeout 15s 203.0.113.10 || true
+Starting Nmap 7.80 ( https://nmap.org ) at 2026-05-07 21:16 UTC
+Nmap scan report for 203.0.113.10
+Host is up (0.033s latency).
+
+PORT   STATE  SERVICE
+53/udp closed domain
+
+Nmap done: 1 IP address (1 host up) scanned in 0.14 seconds
+
+===== PR2 -> OUT =====
+### COMMAND: ping -c 2 -W 2 203.0.113.10 || true
+PING 203.0.113.10 (203.0.113.10) 56(84) bytes of data.
+64 bytes from 203.0.113.10: icmp_seq=1 ttl=63 time=13.6 ms
+64 bytes from 203.0.113.10: icmp_seq=2 ttl=63 time=16.3 ms
+
+--- 203.0.113.10 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1003ms
+rtt min/avg/max/mdev = 13.557/14.952/16.347/1.395 ms
+### COMMAND: nmap -n -Pn -p 80,443,53,22,25 203.0.113.10
+Starting Nmap 7.80 ( https://nmap.org ) at 2026-05-07 21:16 UTC
+Nmap scan report for 203.0.113.10
+Host is up (0.026s latency).
+
+PORT    STATE    SERVICE
+22/tcp  filtered ssh
+25/tcp  filtered smtp
+53/tcp  closed   domain
+80/tcp  closed   http
+443/tcp closed   https
+
+Nmap done: 1 IP address (1 host up) scanned in 1.32 seconds
+### COMMAND: nmap -sU -n -Pn -p 53 --max-retries 1 --host-timeout 15s 203.0.113.10 || true
+Starting Nmap 7.80 ( https://nmap.org ) at 2026-05-07 21:16 UTC
+Nmap scan report for 203.0.113.10
+Host is up (0.023s latency).
+
+PORT   STATE  SERVICE
+53/udp closed domain
+
+Nmap done: 1 IP address (1 host up) scanned in 0.14 seconds
+
+===== OUT -> DMZ-DNS =====
+### COMMAND: dig @172.16.10.30 exemplo.local +short || true
+172.16.10.10
+### COMMAND: nmap -sU -n -Pn -p 53 --max-retries 1 --host-timeout 15s 172.16.10.30 || true
+Starting Nmap 7.80 ( https://nmap.org ) at 2026-05-07 21:16 UTC
+Nmap scan report for 172.16.10.30
+Host is up (0.019s latency).
+
+PORT   STATE SERVICE
+53/udp open  domain
+
+Nmap done: 1 IP address (1 host up) scanned in 0.13 seconds
+
+===== DMZ-DNS -> OUT =====
+### COMMAND: nmap -sU -n -Pn -p 53 --max-retries 1 --host-timeout 15s 203.0.113.10 || true
+Starting Nmap 7.80 ( https://nmap.org ) at 2026-05-07 21:16 UTC
+Nmap scan report for 203.0.113.10
+Host is up.
+
+PORT   STATE         SERVICE
+53/udp open|filtered domain
+
+Nmap done: 1 IP address (1 host up) scanned in 2.12 seconds

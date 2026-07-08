@@ -1,0 +1,86 @@
+### COMMAND: show policy-map type inspect zone-pair OUT_TO_IN
+show policy-map type inspect zone-pair OUT_TO_IN
+
+policy exists on zp OUT_TO_IN
+
+Zone-pair: OUT_TO_IN
+
+Service-policy inspect : DOS_POLICYMAP
+
+Class-map: WWW_CLASSMAP (match-all)
+
+Match: access-group name TO_IN_HOST
+
+Match: protocol http
+
+Inspect
+
+Packet inspection statistics [process switch:fast switch]
+
+tcp packets: [0:3784]
+
+Session creations since subsystem startup or last reset 1618
+
+Current session counts (estab/half-open/terminating) [0:535:0]
+
+Maxever session counts (estab/half-open/terminating) [0:535:0]
+
+Last session created 00:00:06
+
+Last statistic reset never
+
+Last session creation rate 1078
+
+Maxever session creation rate 1078
+
+Last half-open session total 535
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Class-map: ICMP_CLASSMAP (match-all)
+
+Match: access-group name TO_IN_HOST
+
+Match: protocol icmp
+
+Inspect
+
+Session creations since subsystem startup or last reset 0
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [0:0:0]
+
+Last session created never
+
+Last statistic reset never
+
+Last session creation rate 0
+
+Maxever session creation rate 0
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Class-map: class-default (match-any)
+
+Match: any
+
+Drop
+
+0 packets, 0 bytes
+
+firewall#

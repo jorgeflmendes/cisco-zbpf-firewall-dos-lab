@@ -1,0 +1,527 @@
+Connected to Dynamips VM "FW-CAMPUS" (ID 1, type c7200) - Console port
+
+Press ENTER to get the prompt.
+
+on creation rate 0
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Class-map: class-default (match-any)
+
+Match: any
+
+Drop
+
+0 packets, 0 bytes
+
+policy exists on zp PR1_TO_SELF
+
+Zone-pair: PR1_TO_SELF
+
+Service-policy inspect : PM_TO_SELF
+
+Class-map: CM_TO_SELF_SSH (match-any)
+
+Match: access-group name ACL_TO_SELF_SSH
+
+0 packets, 0 bytes
+
+30 second rate 0 bps
+
+Inspect
+
+Session creations since subsystem startup or last reset 0
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [0:0:0]
+
+Last session created never
+
+Last statistic reset never
+
+Last session creation rate 0
+
+Maxever session creation rate 0
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Class-map: class-default (match-any)
+
+Match: any
+
+Drop
+
+0 packets, 0 bytes
+
+policy exists on zp PR2_TO_SELF
+
+Zone-pair: PR2_TO_SELF
+
+Service-policy inspect : PM_TO_SELF
+
+Class-map: CM_TO_SELF_SSH (match-any)
+
+Match: access-group name ACL_TO_SELF_SSH
+
+0 packets, 0 bytes
+
+30 second rate 0 bps
+
+Inspect
+
+Session creations since subsystem startup or last reset 0
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [0:0:0]
+
+Last session created never
+
+Last statistic reset never
+
+Last session creation rate 0
+
+Maxever session creation rate 0
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Class-map: class-default (match-any)
+
+Match: any
+
+Drop
+
+0 packets, 0 bytes
+
+policy exists on zp DMZ_TO_SELF
+
+Zone-pair: DMZ_TO_SELF
+
+Service-policy inspect : PM_TO_SELF
+
+Class-map: CM_TO_SELF_SSH (match-any)
+
+Match: access-group name ACL_TO_SELF_SSH
+
+0 packets, 0 bytes
+
+30 second rate 0 bps
+
+Inspect
+
+Session creations since subsystem startup or last reset 0
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [0:0:0]
+
+Last session created never
+
+Last statistic reset never
+
+Last session creation rate 0
+
+Maxever session creation rate 0
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Class-map: class-default (match-any)
+
+Match: any
+
+Drop
+
+0 packets, 0 bytes
+
+policy exists on zp OUT_TO_SELF
+
+Zone-pair: OUT_TO_SELF
+
+Service-policy inspect : PM_TO_SELF
+
+Class-map: CM_TO_SELF_SSH (match-any)
+
+Match: access-group name ACL_TO_SELF_SSH
+
+0 packets, 0 bytes
+
+30 second rate 0 bps
+
+Inspect
+
+Session creations since subsystem startup or last reset 0
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [0:0:0]
+
+Last session created never
+
+Last statistic reset never
+
+Last session creation rate 0
+
+Maxever session creation rate 0
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Class-map: class-default (match-any)
+
+Match: any
+
+Drop
+
+0 packets, 0 bytes
+
+FW-CAMPUS#
+
+FW-CAMPUS#
+
+FW-CAMPUS#
+
+FW-CAMPUS#
+### COMMAND: end
+end
+
+Translating "end"
+
+Translating "end"
+
+% Bad IP address or host name
+
+% Unknown command or computer name, or unable to find computer address
+
+FW-CAMPUS#
+### COMMAND: terminal length 0
+terminal length 0
+
+FW-CAMPUS#
+### COMMAND: show zone security
+show zone security
+
+zone self
+
+Description: System defined zone
+
+zone PR1
+
+Member Interfaces:
+
+FastEthernet0/0
+
+zone PR2
+
+Member Interfaces:
+
+FastEthernet0/1
+
+zone DMZ
+
+Member Interfaces:
+
+FastEthernet1/0
+
+zone OUT
+
+Member Interfaces:
+
+FastEthernet2/0
+
+FW-CAMPUS#
+### COMMAND: show zone-pair security
+show zone-pair security
+
+Zone-pair name PR1_TO_OUT
+
+Source-Zone PR1  Destination-Zone OUT
+
+service-policy PM_PR_TO_OUT
+
+Zone-pair name PR2_TO_OUT
+
+Source-Zone PR2  Destination-Zone OUT
+
+service-policy PM_PR_TO_OUT
+
+Zone-pair name PR1_TO_DMZ
+
+Source-Zone PR1  Destination-Zone DMZ
+
+service-policy PM_PR_TO_DMZ
+
+Zone-pair name PR2_TO_DMZ
+
+Source-Zone PR2  Destination-Zone DMZ
+
+service-policy PM_PR_TO_DMZ
+
+Zone-pair name OUT_TO_DMZ
+
+Source-Zone OUT  Destination-Zone DMZ
+
+service-policy PM_OUT_TO_DMZ
+
+Zone-pair name DMZ_TO_OUT
+
+Source-Zone DMZ  Destination-Zone OUT
+
+service-policy PM_DMZ_TO_OUT
+
+Zone-pair name PR1_TO_SELF
+
+Source-Zone PR1  Destination-Zone self
+
+service-policy PM_TO_SELF
+
+Zone-pair name PR2_TO_SELF
+
+Source-Zone PR2  Destination-Zone self
+
+service-policy PM_TO_SELF
+
+Zone-pair name DMZ_TO_SELF
+
+Source-Zone DMZ  Destination-Zone self
+
+service-policy PM_TO_SELF
+
+Zone-pair name OUT_TO_SELF
+
+Source-Zone OUT  Destination-Zone self
+
+service-policy PM_TO_SELF
+
+FW-CAMPUS#
+### COMMAND: show running-config | section zone-pair security
+show running-config | section zone-pair security
+
+zone-pair security PR1_TO_OUT source PR1 destination OUT
+
+service-policy type inspect PM_PR_TO_OUT
+
+zone-pair security PR2_TO_OUT source PR2 destination OUT
+
+service-policy type inspect PM_PR_TO_OUT
+
+zone-pair security PR1_TO_DMZ source PR1 destination DMZ
+
+service-policy type inspect PM_PR_TO_DMZ
+
+zone-pair security PR2_TO_DMZ source PR2 destination DMZ
+
+service-policy type inspect PM_PR_TO_DMZ
+
+zone-pair security OUT_TO_DMZ source OUT destination DMZ
+
+service-policy type inspect PM_OUT_TO_DMZ
+
+zone-pair security DMZ_TO_OUT source DMZ destination OUT
+
+service-policy type inspect PM_DMZ_TO_OUT
+
+zone-pair security PR1_TO_SELF source PR1 destination self
+
+service-policy type inspect PM_TO_SELF
+
+zone-pair security PR2_TO_SELF source PR2 destination self
+
+service-policy type inspect PM_TO_SELF
+
+zone-pair security DMZ_TO_SELF source DMZ destination self
+
+service-policy type inspect PM_TO_SELF
+
+zone-pair security OUT_TO_SELF source OUT destination self
+
+service-policy type inspect PM_TO_SELF
+
+FW-CAMPUS#
+### COMMAND: show running-config | section policy-map type inspect
+show running-config | section policy-map type inspect
+
+policy-map type inspect PM_PR_TO_DMZ
+
+class type inspect CM_PR_TO_DMZ
+
+inspect
+
+class class-default
+
+drop log
+
+policy-map type inspect PM_PR_TO_OUT
+
+class type inspect CM_PR_TO_OUT
+
+inspect
+
+class class-default
+
+drop log
+
+policy-map type inspect PM_TO_SELF
+
+class type inspect CM_TO_SELF_SSH
+
+inspect
+
+class class-default
+
+drop log
+
+policy-map type inspect PM_OUT_TO_DMZ
+
+class type inspect CM_OUT_TO_DMZ
+
+inspect
+
+class class-default
+
+drop log
+
+policy-map type inspect PM_DMZ_TO_OUT
+
+class type inspect CM_DMZ_TO_OUT
+
+inspect
+
+class class-default
+
+drop log
+
+FW-CAMPUS#
+### COMMAND: show running-config | section class-map type inspect
+show running-config | section class-map type inspect
+
+class-map type inspect match-any CM_PR_TO_OUT
+
+match access-group name ACL_PR_TO_OUT
+
+class-map type inspect match-any CM_PR_TO_DMZ
+
+match access-group name ACL_PR_TO_DMZ
+
+class-map type inspect match-any CM_TO_SELF_SSH
+
+match access-group name ACL_TO_SELF_SSH
+
+class-map type inspect match-any CM_OUT_TO_DMZ
+
+match access-group name ACL_OUT_TO_DMZ
+
+class-map type inspect match-any CM_DMZ_TO_OUT
+
+match access-group name ACL_DMZ_TO_OUT
+
+FW-CAMPUS#
+### COMMAND: show running-config | section ip access-list extended ACL_
+show running-config | section ip access-list extended ACL_
+
+ip access-list extended ACL_DMZ_TO_OUT
+
+permit icmp 172.16.10.0 0.0.0.255 any
+
+permit tcp 172.16.10.0 0.0.0.255 any eq smtp
+
+permit tcp 172.16.10.0 0.0.0.255 any eq domain
+
+permit udp 172.16.10.0 0.0.0.255 any eq domain
+
+ip access-list extended ACL_OUT_TO_DMZ
+
+permit icmp any host 172.16.10.10
+
+permit icmp any host 172.16.10.20
+
+permit icmp any host 172.16.10.30
+
+permit tcp any host 172.16.10.10 eq www
+
+permit tcp any host 172.16.10.10 eq 443
+
+permit tcp any host 172.16.10.20 eq smtp
+
+permit tcp any host 172.16.10.30 eq domain
+
+permit udp any host 172.16.10.30 eq domain
+
+ip access-list extended ACL_PR_TO_DMZ
+
+permit icmp 10.0.0.0 0.255.255.255 host 172.16.10.10
+
+permit icmp 10.0.0.0 0.255.255.255 host 172.16.10.20
+
+permit icmp 10.0.0.0 0.255.255.255 host 172.16.10.30
+
+permit tcp 10.0.0.0 0.255.255.255 host 172.16.10.10 eq www
+
+permit tcp 10.0.0.0 0.255.255.255 host 172.16.10.10 eq 443
+
+permit tcp 10.0.0.0 0.255.255.255 host 172.16.10.20 eq smtp
+
+permit tcp 10.0.0.0 0.255.255.255 host 172.16.10.20 eq pop3
+
+permit tcp 10.0.0.0 0.255.255.255 host 172.16.10.20 eq 143
+
+permit tcp 10.0.0.0 0.255.255.255 host 172.16.10.30 eq domain
+
+permit udp 10.0.0.0 0.255.255.255 host 172.16.10.30 eq domain
+
+ip access-list extended ACL_PR_TO_OUT
+
+permit icmp 10.0.0.0 0.255.255.255 any
+
+permit tcp 10.0.0.0 0.255.255.255 any eq www
+
+permit tcp 10.0.0.0 0.255.255.255 any eq 443
+
+permit tcp 10.0.0.0 0.255.255.255 any eq domain
+
+permit udp 10.0.0.0 0.255.255.255 any eq domain
+
+ip access-list extended ACL_TO_SELF_SSH
+
+permit tcp any any eq 22
+
+FW-CAMPUS#

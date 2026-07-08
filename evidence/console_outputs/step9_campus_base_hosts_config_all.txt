@@ -1,0 +1,209 @@
+===== PR1-HOST =====
+PR1-HOST console is now available... Press RETURN to get started.
+
+^C
+
+### COMMAND: ip addr flush dev eth0
+ip addr flush dev eth0
+
+### COMMAND: ip addr add 10.1.1.10/24 dev eth0
+ip addr add 10.1.1.10/24 dev eth0
+
+### COMMAND: ip link set eth0 up
+ip link set eth0 up
+
+### COMMAND: ip route replace default via 10.1.1.254
+ip route replace default via 10.1.1.254
+
+### COMMAND: ip addr show eth0
+ip addr show eth0
+
+10: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UNKNOWN group default qlen 1000
+
+link/ether 02:42:ad:2c:5a:00 brd ff:ff:ff:ff:ff:ff
+
+inet 10.1.1.10/24 scope global eth0
+
+valid_lft forever preferred_lft forever
+
+### COMMAND: ip route
+ip route
+
+default via 10.1.1.254 dev eth0
+
+10.1.1.0/24 dev eth0 proto kernel scope link src 10.1.1.10
+
+===== PR2-HOST =====
+PR2-HOST console is now available... Press RETURN to get started.
+
+^C
+
+### COMMAND: ip addr flush dev eth0
+ip addr flush dev eth0
+
+### COMMAND: ip addr add 10.2.2.10/24 dev eth0
+ip addr add 10.2.2.10/24 dev eth0
+
+### COMMAND: ip link set eth0 up
+ip link set eth0 up
+
+### COMMAND: ip route replace default via 10.2.2.254
+ip route replace default via 10.2.2.254
+
+### COMMAND: ip addr show eth0
+ip addr show eth0
+
+11: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UNKNOWN group default qlen 1000
+
+link/ether 02:42:d1:99:1e:00 brd ff:ff:ff:ff:ff:ff
+
+inet 10.2.2.10/24 scope global eth0
+
+valid_lft forever preferred_lft forever
+
+### COMMAND: ip route
+ip route
+
+default via 10.2.2.254 dev eth0
+
+10.2.2.0/24 dev eth0 proto kernel scope link src 10.2.2.10
+
+===== OUT-HOST =====
+OUT-HOST console is now available... Press RETURN to get started.
+
+^C
+
+### COMMAND: ip addr flush dev eth0
+ip addr flush dev eth0
+
+### COMMAND: ip addr add 203.0.113.10/24 dev eth0
+ip addr add 203.0.113.10/24 dev eth0
+
+### COMMAND: ip link set eth0 up
+ip link set eth0 up
+
+### COMMAND: ip route replace default via 203.0.113.254
+ip route replace default via 203.0.113.254
+
+### COMMAND: ip addr show eth0
+ip addr show eth0
+
+12: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UNKNOWN group default qlen 1000
+
+link/ether 02:42:db:5f:f9:00 brd ff:ff:ff:ff:ff:ff
+
+inet 203.0.113.10/24 scope global eth0
+
+valid_lft forever preferred_lft forever
+
+### COMMAND: ip route
+ip route
+
+default via 203.0.113.254 dev eth0
+
+203.0.113.0/24 dev eth0 proto kernel scope link src 203.0.113.10
+
+===== DMZ-WEB =====
+DMZ-WEB console is now available... Press RETURN to get started.
+
+^C
+
+### COMMAND: ip addr flush dev eth0
+ip addr flush dev eth0
+
+### COMMAND: ip addr add 172.16.10.10/24 dev eth0
+ip addr add 172.16.10.10/24 dev eth0
+
+### COMMAND: ip link set eth0 up
+ip link set eth0 up
+
+### COMMAND: ip route replace default via 172.16.10.254
+ip route replace default via 172.16.10.254
+
+### COMMAND: ip addr show eth0
+ip addr show eth0
+
+13: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UNKNOWN group default qlen 1000
+
+link/ether 02:42:a1:28:14:00 brd ff:ff:ff:ff:ff:ff
+
+inet 172.16.10.10/24 scope global eth0
+
+valid_lft forever preferred_lft forever
+
+### COMMAND: ip route
+ip route
+
+default via 172.16.10.254 dev eth0
+
+172.16.10.0/24 dev eth0 proto kernel scope link src 172.16.10.10
+
+===== DMZ-MAIL =====
+DMZ-MAIL console is now available... Press RETURN to get started.
+
+^C
+
+### COMMAND: ip addr flush dev eth0
+ip addr flush dev eth0
+
+### COMMAND: ip addr add 172.16.10.20/24 dev eth0
+ip addr add 172.16.10.20/24 dev eth0
+
+### COMMAND: ip link set eth0 up
+ip link set eth0 up
+
+### COMMAND: ip route replace default via 172.16.10.254
+ip route replace default via 172.16.10.254
+
+### COMMAND: ip addr show eth0
+ip addr show eth0
+
+14: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UNKNOWN group default qlen 1000
+
+link/ether 02:42:ab:12:1e:00 brd ff:ff:ff:ff:ff:ff
+
+inet 172.16.10.20/24 scope global eth0
+
+valid_lft forever preferred_lft forever
+
+### COMMAND: ip route
+ip route
+
+default via 172.16.10.254 dev eth0
+
+172.16.10.0/24 dev eth0 proto kernel scope link src 172.16.10.20
+
+===== DMZ-DNS =====
+DMZ-DNS console is now available... Press RETURN to get started.
+
+^C
+
+### COMMAND: ip addr flush dev eth0
+ip addr flush dev eth0
+
+### COMMAND: ip addr add 172.16.10.30/24 dev eth0
+ip addr add 172.16.10.30/24 dev eth0
+
+### COMMAND: ip link set eth0 up
+ip link set eth0 up
+
+### COMMAND: ip route replace default via 172.16.10.254
+ip route replace default via 172.16.10.254
+
+### COMMAND: ip addr show eth0
+ip addr show eth0
+
+15: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UNKNOWN group default qlen 1000
+
+link/ether 02:42:ad:f2:a2:00 brd ff:ff:ff:ff:ff:ff
+
+inet 172.16.10.30/24 scope global eth0
+
+valid_lft forever preferred_lft forever
+
+### COMMAND: ip route
+ip route
+
+default via 172.16.10.254 dev eth0
+
+172.16.10.0/24 dev eth0 proto kernel scope link src 172.16.10.30

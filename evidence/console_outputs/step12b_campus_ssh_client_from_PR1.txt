@@ -1,0 +1,36 @@
+### STEP: configure IP
+ip addr flush dev eth0 && ip addr add 10.1.1.10/24 dev eth0 && i
+ip link set eth0 up && ip route replace default via 10.1.1.254
+
+### STEP: start compatible ssh
+ssh -tt -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/n
+null -o ConnectTimeout=8 -o KexAlgorithms=+diffie-hellman-group14-sha1,diffie-hel
+llman-group1-sha1,diffie-hellman-group-exchange-sha1 -o HostKeyAlgorithms=+ssh-rs
+sa -o Ciphers=+aes128-cbc,3des-cbc,aes192-cbc,aes256-cbc admin@10.1.1.254
+
+Warning: Permanently added '10.1.1.254' (RSA) to the list of known hosts.
+
+Password:
+### STEP: send password
+
+FW-CAMPUS#
+### STEP: show clock on firewall
+show clock
+
+*11:41:26.183 UTC Wed May 6 2026
+
+FW-CAMPUS#
+### STEP: show user on firewall
+show users
+
+Line       User       Host(s)              Idle       Location
+
+*  2 vty 0     admin      idle                 00:00:00 10.1.1.10
+
+Interface    User               Mode         Idle     Peer Address
+
+FW-CAMPUS#
+### STEP: disconnect ssh
+exit
+
+Connection to 10.1.1.254 closed.

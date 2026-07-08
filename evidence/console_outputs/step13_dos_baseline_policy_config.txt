@@ -1,0 +1,234 @@
+### COMMAND: configure terminal
+configure terminal
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+firewall(config)#
+### COMMAND: no zone-pair security OUT_TO_IN
+no zone-pair security OUT_TO_IN
+
+firewall(config)#
+### COMMAND: no policy-map type inspect DOS_POLICYMAP
+no policy-map type inspect DOS_POLICYMAP
+
+firewall(config)#
+### COMMAND: no class-map type inspect ICMP_CLASSMAP
+no class-map type inspect ICMP_CLASSMAP
+
+firewall(config)#
+### COMMAND: no class-map type inspect WWW_CLASSMAP
+no class-map type inspect WWW_CLASSMAP
+
+firewall(config)#
+### COMMAND: no ip access-list extended TO_IN_HOST
+no ip access-list extended TO_IN_HOST
+
+firewall(config)#
+### COMMAND: ip access-list extended TO_IN_HOST
+ip access-list extended TO_IN_HOST
+
+firewall(config-ext-nacl)#
+### COMMAND: permit ip any host 222.10.10.1
+permit ip any host 222.10.10.1
+
+firewall(config-ext-nacl)#
+### COMMAND: exit
+exit
+
+firewall(config)#
+### COMMAND: class-map type inspect match-all ICMP_CLASSMAP
+class-map type inspect match-all ICMP_CLASSMAP
+
+firewall(config-cmap)#
+### COMMAND: match access-group name TO_IN_HOST
+match access-group name TO_IN_HOST
+
+firewall(config-cmap)#
+### COMMAND: match protocol icmp
+match protocol icmp
+
+firewall(config-cmap)#
+### COMMAND: exit
+exit
+
+firewall(config)#
+### COMMAND: class-map type inspect match-all WWW_CLASSMAP
+class-map type inspect match-all WWW_CLASSMAP
+
+firewall(config-cmap)#
+### COMMAND: match access-group name TO_IN_HOST
+match access-group name TO_IN_HOST
+
+firewall(config-cmap)#
+### COMMAND: match protocol http
+match protocol http
+
+firewall(config-cmap)#
+### COMMAND: exit
+exit
+
+firewall(config)#
+### COMMAND: policy-map type inspect DOS_POLICYMAP
+policy-map type inspect DOS_POLICYMAP
+
+firewall(config-pmap)#
+### COMMAND: class type inspect WWW_CLASSMAP
+class type inspect WWW_CLASSMAP
+
+firewall(config-pmap-c)#
+### COMMAND: inspect
+inspect
+
+firewall(config-pmap-c)#
+### COMMAND: exit
+exit
+
+firewall(config-pmap)#
+### COMMAND: class type inspect ICMP_CLASSMAP
+class type inspect ICMP_CLASSMAP
+
+firewall(config-pmap-c)#
+### COMMAND: inspect
+inspect
+
+firewall(config-pmap-c)#
+### COMMAND: exit
+exit
+
+firewall(config-pmap)#
+### COMMAND: class class-default
+class class-default
+
+firewall(config-pmap-c)#
+### COMMAND: drop log
+drop log
+
+firewall(config-pmap-c)#
+### COMMAND: exit
+exit
+
+firewall(config-pmap)#
+### COMMAND: exit
+exit
+
+firewall(config)#
+### COMMAND: zone-pair security OUT_TO_IN source OUTSIDE destination INSIDE
+zone-pair security OUT_TO_IN source OUTSIDE destination INSI$ecurity OUT_TO_IN source OUTSIDE destination INSID         E
+
+firewall(config-sec-zone-pair)#
+### COMMAND: service-policy type inspect DOS_POLICYMAP
+service-policy type inspect DOS_POLICYMAP
+
+firewall(config-sec-zone-pair)#
+### COMMAND: exit
+exit
+
+firewall(config)#
+### COMMAND: end
+end
+
+firewall#
+
+*May  5 20:07:28.643: %SYS-5-CONFIG_I: Configured from console by console
+
+firewall#
+### COMMAND: show running-config | section policy-map type inspect DOS_POLICYMAP
+show running-config | section policy-map type inspect DOS_POLICYMAP
+
+policy-map type inspect DOS_POLICYMAP
+
+class type inspect WWW_CLASSMAP
+
+inspect
+
+class type inspect ICMP_CLASSMAP
+
+inspect
+
+class class-default
+
+drop log
+
+firewall#
+### COMMAND: show policy-map type inspect zone-pair OUT_TO_IN
+show policy-map type inspect zone-pair OUT_TO_IN
+
+policy exists on zp OUT_TO_IN
+
+Zone-pair: OUT_TO_IN
+
+Service-policy inspect : DOS_POLICYMAP
+
+Class-map: WWW_CLASSMAP (match-all)
+
+Match: access-group name TO_IN_HOST
+
+Match: protocol http
+
+Inspect
+
+Session creations since subsystem startup or last reset 0
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [0:0:0]
+
+Last session created never
+
+Last statistic reset never
+
+Last session creation rate 0
+
+Maxever session creation rate 0
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Class-map: ICMP_CLASSMAP (match-all)
+
+Match: access-group name TO_IN_HOST
+
+Match: protocol icmp
+
+Inspect
+
+Session creations since subsystem startup or last reset 0
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [0:0:0]
+
+Last session created never
+
+Last statistic reset never
+
+Last session creation rate 0
+
+Maxever session creation rate 0
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Class-map: class-default (match-any)
+
+Match: any
+
+Drop
+
+0 packets, 0 bytes
+
+firewall#

@@ -1,0 +1,39 @@
+### COMMAND: killall python3 2>/dev/null || true
+killall python3 2>/dev/null || true
+
+### COMMAND: killall openssl 2>/dev/null || true
+killall openssl 2>/dev/null || true
+
+### COMMAND: ip addr flush dev eth0
+ip addr flush dev eth0
+
+### COMMAND: ip addr add 172.16.10.20/24 dev eth0
+ip addr add 172.16.10.20/24 dev eth0
+
+### COMMAND: ip link set eth0 up
+ip link set eth0 up
+
+### COMMAND: ip route replace default via 172.16.10.254
+ip route replace default via 172.16.10.254
+
+### COMMAND: ip addr show eth0
+ip addr show eth0
+
+14: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UNKNOWN group default qlen 1000
+
+link/ether 02:42:ab:12:1e:00 brd ff:ff:ff:ff:ff:ff
+
+inet 172.16.10.20/24 scope global eth0
+
+valid_lft forever preferred_lft forever
+
+^C
+
+### COMMAND: ip route
+ip route
+
+default via 172.16.10.254 dev eth0
+
+172.16.10.0/24 dev eth0 proto kernel scope link src 172.16.10.20
+
+pkill -f "dmz-mail port" || true

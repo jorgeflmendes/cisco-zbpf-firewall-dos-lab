@@ -1,0 +1,42 @@
+### COMMAND: killall python3 2>/dev/null || true
+killall python3 2>/dev/null || true
+
+### COMMAND: killall openssl 2>/dev/null || true
+killall openssl 2>/dev/null || true
+
+### COMMAND: nohup python3 -m http.server 80 --bind 0.0.0.0 >/tmp/lab_http.log 2>&1 &
+nohup python3 -m http.server 80 --bind 0.0.0.0 >/tmp/lab_http.log
+g 2>&1 &
+
+[3] 322
+
+### COMMAND: openssl req -x509 -newkey rsa:2048 -nodes -subj /CN=dmz-web -keyout /tmp/lab.key -out /tmp/lab.crt -days 1 >/tmp/lab_cert.log 2>&1
+openssl req -x509 -newkey rsa:2048 -nodes -subj /CN=dmz-web -keyo
+out /tmp/lab.key -out /tmp/lab.crt -days 1 >/tmp/lab_cert.log 2>&1
+
+[3]+  Exit 1                  nohup python3 -m http.server 80 --bind 0.0.0.0 > /tmp/lab_http.log 2>&1
+
+### COMMAND: nohup openssl s_server -quiet -accept 443 -cert /tmp/lab.crt -key /tmp/lab.key -www >/tmp/lab_https.log 2>&1 &
+nohup openssl s_server -quiet -accept 443 -cert /tmp/lab.crt -key
+y /tmp/lab.key -www >/tmp/lab_https.log 2>&1 &
+
+[3] 324
+
+### COMMAND: python3 -c "import socket;
+for p in (80,443):
+s=socket.socket(); print(p,s.connect_ex(("127.0.0.1",p))); s.close()"
+python3 -c "import socket;
+
+[3]+  Done                    nohup openssl s_server -quiet -accept 443 -cert /tmp/lab.crt -key /tmp/lab.key -www > /tmp/lab_https.log 2>&1
+
+for p in (80,443):
+
+ s=socket.socket(); print(p,s.connect_ex(("127.0.0.1",p))); s.close()"
+
+File "<string>", line 3
+
+s=socket.socket(); print(p,s.connect_ex((127.0.0.1,p))); s.close()
+
+^
+
+SyntaxError: invalid syntax

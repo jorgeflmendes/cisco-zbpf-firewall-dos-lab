@@ -1,0 +1,12 @@
+### COMMAND: timeout 5s hping3 -1 --flood 222.10.10.1
+timeout 5s hping3 -1 --flood 222.10.10.1
+
+HPING 222.10.10.1 (eth0 222.10.10.1): icmp mode set, 28 headers + 0 data bytes
+
+hping in flood mode, no replies will be shown
+
+--- 222.10.10.1 hping statistic ---
+
+3182850 packets transmitted, 0 packets received, 100% packet loss
+
+round-trip min/avg/max = 0.0/0.0/0.0 ms

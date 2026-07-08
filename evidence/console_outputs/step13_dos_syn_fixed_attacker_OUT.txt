@@ -1,0 +1,1084 @@
+### COMMAND: timeout 6s hping3 -i u10000 -S -p 80 222.10.10.1
+timeout 6s hping3 -i u10000 -S -p 80 222.10.10.1
+
+HPING 222.10.10.1 (eth0 222.10.10.1): S set, 40 headers + 0 data bytes
+
+len=44 ip=222.10.10.1 ttl=254 id=51790 sport=80 flags=SA seq=0 win=4128 rtt=31.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=53600 sport=80 flags=SA seq=1 win=4128 rtt=37.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=57254 sport=80 flags=SA seq=2 win=4128 rtt=35.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=21105 sport=80 flags=SA seq=3 win=4128 rtt=40.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=60004 sport=80 flags=SA seq=4 win=4128 rtt=38.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=52559 sport=80 flags=SA seq=5 win=4128 rtt=34.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=58868 sport=80 flags=SA seq=6 win=4128 rtt=40.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=16864 sport=80 flags=SA seq=7 win=4128 rtt=36.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=46231 sport=80 flags=SA seq=8 win=4128 rtt=41.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=26650 sport=80 flags=SA seq=9 win=4128 rtt=38.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=25790 sport=80 flags=SA seq=10 win=4128 rtt=42.7 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=1362 sport=80 flags=SA seq=11 win=4128 rtt=38.7 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=62432 sport=80 flags=SA seq=12 win=4128 rtt=36.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=59596 sport=80 flags=SA seq=13 win=4128 rtt=40.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=56069 sport=80 flags=SA seq=14 win=4128 rtt=36.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=64895 sport=80 flags=SA seq=15 win=4128 rtt=40.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=32728 sport=80 flags=SA seq=16 win=4128 rtt=37.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=25334 sport=80 flags=SA seq=17 win=4128 rtt=41.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=2685 sport=80 flags=SA seq=18 win=4128 rtt=37.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=5333 sport=80 flags=SA seq=19 win=4128 rtt=41.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=55591 sport=80 flags=SA seq=20 win=4128 rtt=38.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=56707 sport=80 flags=SA seq=21 win=4128 rtt=35.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=4736 sport=80 flags=SA seq=22 win=4128 rtt=40.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=40802 sport=80 flags=SA seq=23 win=4128 rtt=37.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=51021 sport=80 flags=SA seq=24 win=4128 rtt=42.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=38037 sport=80 flags=SA seq=25 win=4128 rtt=39.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=51065 sport=80 flags=SA seq=26 win=4128 rtt=36.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=18867 sport=80 flags=SA seq=27 win=4128 rtt=39.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=51499 sport=80 flags=SA seq=28 win=4128 rtt=37.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=44830 sport=80 flags=SA seq=29 win=4128 rtt=41.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=27370 sport=80 flags=SA seq=30 win=4128 rtt=39.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=63545 sport=80 flags=SA seq=31 win=4128 rtt=37.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=39578 sport=80 flags=SA seq=32 win=4128 rtt=40.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=233 sport=80 flags=SA seq=33 win=4128 rtt=36.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=2694 sport=80 flags=SA seq=34 win=4128 rtt=40.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=26559 sport=80 flags=SA seq=35 win=4128 rtt=36.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=62977 sport=80 flags=SA seq=36 win=4128 rtt=41.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=29601 sport=80 flags=SA seq=37 win=4128 rtt=38.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=32104 sport=80 flags=SA seq=38 win=4128 rtt=35.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=49075 sport=80 flags=SA seq=39 win=4128 rtt=38.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=59301 sport=80 flags=SA seq=40 win=4128 rtt=36.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=64380 sport=80 flags=SA seq=41 win=4128 rtt=40.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=27547 sport=80 flags=SA seq=42 win=4128 rtt=37.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=5288 sport=80 flags=SA seq=43 win=4128 rtt=33.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=52249 sport=80 flags=SA seq=44 win=4128 rtt=37.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=16589 sport=80 flags=SA seq=45 win=4128 rtt=36.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=49586 sport=80 flags=SA seq=46 win=4128 rtt=33.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=40187 sport=80 flags=SA seq=47 win=4128 rtt=38.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=27367 sport=80 flags=SA seq=48 win=4128 rtt=36.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=25240 sport=80 flags=SA seq=49 win=4128 rtt=33.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=3266 sport=80 flags=SA seq=50 win=4128 rtt=37.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=26205 sport=80 flags=SA seq=51 win=4128 rtt=35.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=31844 sport=80 flags=SA seq=52 win=4128 rtt=32.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=46711 sport=80 flags=SA seq=53 win=4128 rtt=38.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=35549 sport=80 flags=SA seq=54 win=4128 rtt=37.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=39481 sport=80 flags=SA seq=55 win=4128 rtt=33.7 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=38343 sport=80 flags=SA seq=56 win=4128 rtt=39.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=6282 sport=80 flags=SA seq=57 win=4128 rtt=36.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=20349 sport=80 flags=SA seq=58 win=4128 rtt=34.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=60898 sport=80 flags=SA seq=59 win=4128 rtt=39.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=37942 sport=80 flags=SA seq=60 win=4128 rtt=37.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=37782 sport=80 flags=SA seq=61 win=4128 rtt=43.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=5860 sport=80 flags=SA seq=62 win=4128 rtt=32.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=40062 sport=80 flags=SA seq=63 win=4128 rtt=30.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=49111 sport=80 flags=SA seq=64 win=4128 rtt=28.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=15611 sport=80 flags=SA seq=65 win=4128 rtt=31.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=28201 sport=80 flags=SA seq=66 win=4128 rtt=29.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=30010 sport=80 flags=SA seq=67 win=4128 rtt=27.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=57189 sport=80 flags=SA seq=68 win=4128 rtt=34.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=21220 sport=80 flags=SA seq=69 win=4128 rtt=29.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=44598 sport=80 flags=SA seq=70 win=4128 rtt=27.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=63765 sport=80 flags=SA seq=71 win=4128 rtt=32.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=32117 sport=80 flags=SA seq=72 win=4128 rtt=30.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=54228 sport=80 flags=SA seq=73 win=4128 rtt=27.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=53627 sport=80 flags=SA seq=74 win=4128 rtt=33.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=21656 sport=80 flags=SA seq=75 win=4128 rtt=31.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=94 sport=80 flags=SA seq=76 win=4128 rtt=36.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=773 sport=80 flags=SA seq=77 win=4128 rtt=31.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=35219 sport=80 flags=SA seq=78 win=4128 rtt=45.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=10462 sport=80 flags=SA seq=79 win=4128 rtt=42.7 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=6576 sport=80 flags=SA seq=80 win=4128 rtt=41.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=37035 sport=80 flags=SA seq=81 win=4128 rtt=36.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=54080 sport=80 flags=SA seq=82 win=4128 rtt=40.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=38829 sport=80 flags=SA seq=83 win=4128 rtt=37.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=36639 sport=80 flags=SA seq=84 win=4128 rtt=34.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=55188 sport=80 flags=SA seq=85 win=4128 rtt=40.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=24986 sport=80 flags=SA seq=86 win=4128 rtt=36.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=6437 sport=80 flags=SA seq=87 win=4128 rtt=42.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=31322 sport=80 flags=SA seq=88 win=4128 rtt=39.7 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=54249 sport=80 flags=SA seq=89 win=4128 rtt=29.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=50299 sport=80 flags=SA seq=90 win=4128 rtt=26.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=25179 sport=80 flags=SA seq=91 win=4128 rtt=31.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=61966 sport=80 flags=SA seq=92 win=4128 rtt=30.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=18657 sport=80 flags=SA seq=93 win=4128 rtt=27.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=4143 sport=80 flags=SA seq=94 win=4128 rtt=32.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=25552 sport=80 flags=SA seq=95 win=4128 rtt=31.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=44913 sport=80 flags=SA seq=96 win=4128 rtt=29.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=23590 sport=80 flags=SA seq=97 win=4128 rtt=32.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=62282 sport=80 flags=SA seq=98 win=4128 rtt=29.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=44722 sport=80 flags=SA seq=99 win=4128 rtt=27.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=23749 sport=80 flags=SA seq=100 win=4128 rtt=33.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=34698 sport=80 flags=SA seq=101 win=4128 rtt=28.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=52597 sport=80 flags=SA seq=102 win=4128 rtt=26.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=18428 sport=80 flags=SA seq=103 win=4128 rtt=30.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=2717 sport=80 flags=SA seq=104 win=4128 rtt=28.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=30319 sport=80 flags=SA seq=105 win=4128 rtt=26.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=8877 sport=80 flags=SA seq=106 win=4128 rtt=32.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=4868 sport=80 flags=SA seq=107 win=4128 rtt=26.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=28745 sport=80 flags=SA seq=108 win=4128 rtt=24.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=41234 sport=80 flags=SA seq=109 win=4128 rtt=30.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=2200 sport=80 flags=SA seq=110 win=4128 rtt=28.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=5065 sport=80 flags=SA seq=111 win=4128 rtt=23.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=57330 sport=80 flags=SA seq=112 win=4128 rtt=29.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=39057 sport=80 flags=SA seq=113 win=4128 rtt=27.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=55638 sport=80 flags=SA seq=114 win=4128 rtt=24.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=3190 sport=80 flags=SA seq=115 win=4128 rtt=30.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=54373 sport=80 flags=SA seq=116 win=4128 rtt=28.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=34701 sport=80 flags=SA seq=117 win=4128 rtt=25.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=42370 sport=80 flags=SA seq=118 win=4128 rtt=31.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=52328 sport=80 flags=SA seq=119 win=4128 rtt=28.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=51665 sport=80 flags=SA seq=120 win=4128 rtt=26.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=41002 sport=80 flags=SA seq=121 win=4128 rtt=32.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=41571 sport=80 flags=SA seq=122 win=4128 rtt=30.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=5261 sport=80 flags=SA seq=123 win=4128 rtt=26.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=345 sport=80 flags=SA seq=124 win=4128 rtt=31.7 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=15946 sport=80 flags=SA seq=125 win=4128 rtt=29.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=26960 sport=80 flags=SA seq=126 win=4128 rtt=27.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=24522 sport=80 flags=SA seq=127 win=4128 rtt=25.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=34788 sport=80 flags=SA seq=128 win=4128 rtt=30.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=57643 sport=80 flags=SA seq=129 win=4128 rtt=27.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=48606 sport=80 flags=SA seq=130 win=4128 rtt=33.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=12720 sport=80 flags=SA seq=131 win=4128 rtt=31.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=51014 sport=80 flags=SA seq=132 win=4128 rtt=26.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=1725 sport=80 flags=SA seq=133 win=4128 rtt=31.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=27872 sport=80 flags=SA seq=134 win=4128 rtt=28.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=5674 sport=80 flags=SA seq=135 win=4128 rtt=25.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=47843 sport=80 flags=SA seq=136 win=4128 rtt=31.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=41799 sport=80 flags=SA seq=137 win=4128 rtt=29.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=2533 sport=80 flags=SA seq=138 win=4128 rtt=26.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=55151 sport=80 flags=SA seq=139 win=4128 rtt=32.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=25973 sport=80 flags=SA seq=140 win=4128 rtt=29.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=39895 sport=80 flags=SA seq=141 win=4128 rtt=33.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=37629 sport=80 flags=SA seq=142 win=4128 rtt=32.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=54704 sport=80 flags=SA seq=143 win=4128 rtt=29.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=3867 sport=80 flags=SA seq=144 win=4128 rtt=33.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=57289 sport=80 flags=SA seq=145 win=4128 rtt=29.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=781 sport=80 flags=SA seq=146 win=4128 rtt=33.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=30704 sport=80 flags=SA seq=147 win=4128 rtt=29.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=20386 sport=80 flags=SA seq=148 win=4128 rtt=34.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=58064 sport=80 flags=SA seq=149 win=4128 rtt=32.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=10066 sport=80 flags=SA seq=150 win=4128 rtt=28.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=59928 sport=80 flags=SA seq=151 win=4128 rtt=33.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=55035 sport=80 flags=SA seq=152 win=4128 rtt=31.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=60733 sport=80 flags=SA seq=153 win=4128 rtt=35.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=44348 sport=80 flags=SA seq=154 win=4128 rtt=31.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=26679 sport=80 flags=SA seq=155 win=4128 rtt=27.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=55612 sport=80 flags=SA seq=156 win=4128 rtt=33.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=12751 sport=80 flags=SA seq=157 win=4128 rtt=31.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=44538 sport=80 flags=SA seq=158 win=4128 rtt=35.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=23679 sport=80 flags=SA seq=159 win=4128 rtt=31.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=28226 sport=80 flags=SA seq=160 win=4128 rtt=28.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=19133 sport=80 flags=SA seq=161 win=4128 rtt=33.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=19724 sport=80 flags=SA seq=162 win=4128 rtt=31.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=16900 sport=80 flags=SA seq=163 win=4128 rtt=35.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=43230 sport=80 flags=SA seq=164 win=4128 rtt=31.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=17642 sport=80 flags=SA seq=165 win=4128 rtt=27.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=25331 sport=80 flags=SA seq=166 win=4128 rtt=31.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=22078 sport=80 flags=SA seq=167 win=4128 rtt=27.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=35829 sport=80 flags=SA seq=168 win=4128 rtt=26.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=39981 sport=80 flags=SA seq=169 win=4128 rtt=39.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=47181 sport=80 flags=SA seq=170 win=4128 rtt=43.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=21711 sport=80 flags=SA seq=171 win=4128 rtt=39.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=47497 sport=80 flags=SA seq=172 win=4128 rtt=42.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=47122 sport=80 flags=SA seq=173 win=4128 rtt=38.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=37295 sport=80 flags=SA seq=174 win=4128 rtt=36.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=19688 sport=80 flags=SA seq=175 win=4128 rtt=40.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=32281 sport=80 flags=SA seq=176 win=4128 rtt=52.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=26292 sport=80 flags=SA seq=177 win=4128 rtt=49.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=34519 sport=80 flags=SA seq=178 win=4128 rtt=52.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=14472 sport=80 flags=SA seq=179 win=4128 rtt=48.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=41605 sport=80 flags=SA seq=180 win=4128 rtt=54.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=45043 sport=80 flags=SA seq=181 win=4128 rtt=52.7 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=15637 sport=80 flags=SA seq=182 win=4128 rtt=48.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=18088 sport=80 flags=SA seq=183 win=4128 rtt=52.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=34222 sport=80 flags=SA seq=184 win=4128 rtt=48.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=35464 sport=80 flags=SA seq=185 win=4128 rtt=54.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=5245 sport=80 flags=SA seq=186 win=4128 rtt=50.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=59957 sport=80 flags=SA seq=187 win=4128 rtt=54.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=29054 sport=80 flags=SA seq=188 win=4128 rtt=50.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=18618 sport=80 flags=SA seq=189 win=4128 rtt=54.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=46719 sport=80 flags=SA seq=190 win=4128 rtt=51.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=57362 sport=80 flags=SA seq=191 win=4128 rtt=46.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=63508 sport=80 flags=SA seq=192 win=4128 rtt=51.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=14650 sport=80 flags=SA seq=193 win=4128 rtt=48.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=8800 sport=80 flags=SA seq=194 win=4128 rtt=54.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=926 sport=80 flags=SA seq=195 win=4128 rtt=50.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=22602 sport=80 flags=SA seq=196 win=4128 rtt=47.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=40341 sport=80 flags=SA seq=197 win=4128 rtt=51.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=15678 sport=80 flags=SA seq=198 win=4128 rtt=48.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=5203 sport=80 flags=SA seq=199 win=4128 rtt=52.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=51560 sport=80 flags=SA seq=200 win=4128 rtt=50.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=55935 sport=80 flags=SA seq=201 win=4128 rtt=54.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=63135 sport=80 flags=SA seq=202 win=4128 rtt=50.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=38292 sport=80 flags=SA seq=203 win=4128 rtt=46.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=30807 sport=80 flags=SA seq=204 win=4128 rtt=50.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=2070 sport=80 flags=SA seq=205 win=4128 rtt=47.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=19595 sport=80 flags=SA seq=206 win=4128 rtt=51.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=41698 sport=80 flags=SA seq=207 win=4128 rtt=48.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=54144 sport=80 flags=SA seq=208 win=4128 rtt=54.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=39921 sport=80 flags=SA seq=209 win=4128 rtt=50.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=41742 sport=80 flags=SA seq=210 win=4128 rtt=46.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=30534 sport=80 flags=SA seq=211 win=4128 rtt=51.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=23937 sport=80 flags=SA seq=212 win=4128 rtt=49.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=30213 sport=80 flags=SA seq=213 win=4128 rtt=53.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=54924 sport=80 flags=SA seq=214 win=4128 rtt=49.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=11821 sport=80 flags=SA seq=215 win=4128 rtt=53.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=12839 sport=80 flags=SA seq=216 win=4128 rtt=51.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=34646 sport=80 flags=SA seq=217 win=4128 rtt=47.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=15703 sport=80 flags=SA seq=218 win=4128 rtt=52.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=29175 sport=80 flags=SA seq=219 win=4128 rtt=48.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=63891 sport=80 flags=SA seq=220 win=4128 rtt=46.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=16514 sport=80 flags=SA seq=221 win=4128 rtt=50.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=52094 sport=80 flags=SA seq=222 win=4128 rtt=46.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=18125 sport=80 flags=SA seq=223 win=4128 rtt=52.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=32809 sport=80 flags=SA seq=224 win=4128 rtt=49.7 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=28865 sport=80 flags=SA seq=225 win=4128 rtt=46.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=12520 sport=80 flags=SA seq=226 win=4128 rtt=50.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=57795 sport=80 flags=SA seq=227 win=4128 rtt=46.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=9350 sport=80 flags=SA seq=228 win=4128 rtt=52.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=128 sport=80 flags=SA seq=229 win=4128 rtt=48.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=40108 sport=80 flags=SA seq=230 win=4128 rtt=45.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=60852 sport=80 flags=SA seq=231 win=4128 rtt=49.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=64960 sport=80 flags=SA seq=232 win=4128 rtt=45.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=23598 sport=80 flags=SA seq=233 win=4128 rtt=43.7 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=35 sport=80 flags=SA seq=234 win=4128 rtt=49.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=64775 sport=80 flags=SA seq=235 win=4128 rtt=46.7 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=40282 sport=80 flags=SA seq=236 win=4128 rtt=44.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=8543 sport=80 flags=SA seq=237 win=4128 rtt=49.7 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=2233 sport=80 flags=SA seq=238 win=4128 rtt=47.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=38031 sport=80 flags=SA seq=239 win=4128 rtt=44.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=7766 sport=80 flags=SA seq=240 win=4128 rtt=42.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=30812 sport=80 flags=SA seq=241 win=4128 rtt=49.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=59332 sport=80 flags=SA seq=242 win=4128 rtt=46.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=41834 sport=80 flags=SA seq=243 win=4128 rtt=51.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=11407 sport=80 flags=SA seq=244 win=4128 rtt=49.7 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=35068 sport=80 flags=SA seq=245 win=4128 rtt=53.7 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=47192 sport=80 flags=SA seq=246 win=4128 rtt=49.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=60177 sport=80 flags=SA seq=247 win=4128 rtt=54.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=18472 sport=80 flags=SA seq=248 win=4128 rtt=50.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=14407 sport=80 flags=SA seq=249 win=4128 rtt=46.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=21938 sport=80 flags=SA seq=250 win=4128 rtt=51.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=25330 sport=80 flags=SA seq=251 win=4128 rtt=47.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=13086 sport=80 flags=SA seq=252 win=4128 rtt=51.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=48192 sport=80 flags=SA seq=253 win=4128 rtt=49.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=21186 sport=80 flags=SA seq=254 win=4128 rtt=53.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=25157 sport=80 flags=SA seq=255 win=4128 rtt=51.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=46369 sport=80 flags=SA seq=256 win=4128 rtt=54.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=56636 sport=80 flags=SA seq=257 win=4128 rtt=50.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=18267 sport=80 flags=SA seq=258 win=4128 rtt=54.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=26047 sport=80 flags=SA seq=259 win=4128 rtt=52.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=7001 sport=80 flags=SA seq=260 win=4128 rtt=48.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=30845 sport=80 flags=SA seq=261 win=4128 rtt=52.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=15893 sport=80 flags=SA seq=262 win=4128 rtt=49.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=6869 sport=80 flags=SA seq=263 win=4128 rtt=46.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=23256 sport=80 flags=SA seq=264 win=4128 rtt=50.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=11332 sport=80 flags=SA seq=265 win=4128 rtt=48.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=51803 sport=80 flags=SA seq=266 win=4128 rtt=53.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=19007 sport=80 flags=SA seq=267 win=4128 rtt=50.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=41497 sport=80 flags=SA seq=268 win=4128 rtt=47.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=47353 sport=80 flags=SA seq=269 win=4128 rtt=51.7 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=31312 sport=80 flags=SA seq=270 win=4128 rtt=46.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=9536 sport=80 flags=SA seq=271 win=4128 rtt=52.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=31201 sport=80 flags=SA seq=272 win=4128 rtt=49.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=18656 sport=80 flags=SA seq=273 win=4128 rtt=53.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=18586 sport=80 flags=SA seq=274 win=4128 rtt=50.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=6673 sport=80 flags=SA seq=275 win=4128 rtt=48.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=24261 sport=80 flags=SA seq=276 win=4128 rtt=51.7 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=18967 sport=80 flags=SA seq=277 win=4128 rtt=47.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=18073 sport=80 flags=SA seq=278 win=4128 rtt=53.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=2594 sport=80 flags=SA seq=279 win=4128 rtt=51.7 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=50285 sport=80 flags=SA seq=280 win=4128 rtt=48.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=58672 sport=80 flags=SA seq=281 win=4128 rtt=52.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=4872 sport=80 flags=SA seq=282 win=4128 rtt=49.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=31944 sport=80 flags=SA seq=283 win=4128 rtt=52.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=1673 sport=80 flags=SA seq=284 win=4128 rtt=50.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=31632 sport=80 flags=SA seq=285 win=4128 rtt=54.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=2499 sport=80 flags=SA seq=286 win=4128 rtt=50.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=58811 sport=80 flags=SA seq=287 win=4128 rtt=48.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=8326 sport=80 flags=SA seq=288 win=4128 rtt=52.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=33583 sport=80 flags=SA seq=289 win=4128 rtt=49.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=7112 sport=80 flags=SA seq=290 win=4128 rtt=53.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=59039 sport=80 flags=SA seq=291 win=4128 rtt=50.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=31118 sport=80 flags=SA seq=292 win=4128 rtt=46.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=25819 sport=80 flags=SA seq=293 win=4128 rtt=51.7 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=44320 sport=80 flags=SA seq=294 win=4128 rtt=49.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=50325 sport=80 flags=SA seq=295 win=4128 rtt=46.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=64711 sport=80 flags=SA seq=296 win=4128 rtt=49.7 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=10948 sport=80 flags=SA seq=297 win=4128 rtt=47.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=64471 sport=80 flags=SA seq=298 win=4128 rtt=52.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=63785 sport=80 flags=SA seq=299 win=4128 rtt=50.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=9717 sport=80 flags=SA seq=300 win=4128 rtt=54.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=11783 sport=80 flags=SA seq=301 win=4128 rtt=50.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=15109 sport=80 flags=SA seq=302 win=4128 rtt=47.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=45958 sport=80 flags=SA seq=303 win=4128 rtt=52.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=40501 sport=80 flags=SA seq=304 win=4128 rtt=48.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=38781 sport=80 flags=SA seq=305 win=4128 rtt=52.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=14659 sport=80 flags=SA seq=306 win=4128 rtt=49.7 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=46981 sport=80 flags=SA seq=307 win=4128 rtt=47.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=52912 sport=80 flags=SA seq=308 win=4128 rtt=50.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=32741 sport=80 flags=SA seq=309 win=4128 rtt=46.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=13448 sport=80 flags=SA seq=310 win=4128 rtt=52.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=23802 sport=80 flags=SA seq=311 win=4128 rtt=49.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=51983 sport=80 flags=SA seq=312 win=4128 rtt=55.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=49915 sport=80 flags=SA seq=313 win=4128 rtt=51.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=3954 sport=80 flags=SA seq=314 win=4128 rtt=48.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=29053 sport=80 flags=SA seq=315 win=4128 rtt=52.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=51412 sport=80 flags=SA seq=316 win=4128 rtt=48.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=58718 sport=80 flags=SA seq=317 win=4128 rtt=54.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=34399 sport=80 flags=SA seq=318 win=4128 rtt=51.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=33901 sport=80 flags=SA seq=319 win=4128 rtt=47.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=59510 sport=80 flags=SA seq=320 win=4128 rtt=51.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=50896 sport=80 flags=SA seq=321 win=4128 rtt=49.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=18378 sport=80 flags=SA seq=322 win=4128 rtt=45.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=32076 sport=80 flags=SA seq=323 win=4128 rtt=51.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=54683 sport=80 flags=SA seq=324 win=4128 rtt=48.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=63754 sport=80 flags=SA seq=325 win=4128 rtt=52.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=63096 sport=80 flags=SA seq=326 win=4128 rtt=49.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=59184 sport=80 flags=SA seq=327 win=4128 rtt=54.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=25052 sport=80 flags=SA seq=328 win=4128 rtt=50.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=16104 sport=80 flags=SA seq=329 win=4128 rtt=54.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=14862 sport=80 flags=SA seq=330 win=4128 rtt=50.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=53604 sport=80 flags=SA seq=331 win=4128 rtt=46.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=43737 sport=80 flags=SA seq=332 win=4128 rtt=50.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=26770 sport=80 flags=SA seq=333 win=4128 rtt=48.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=41743 sport=80 flags=SA seq=334 win=4128 rtt=52.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=23268 sport=80 flags=SA seq=335 win=4128 rtt=49.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=762 sport=80 flags=SA seq=336 win=4128 rtt=54.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=44899 sport=80 flags=SA seq=337 win=4128 rtt=50.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=43798 sport=80 flags=SA seq=338 win=4128 rtt=48.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=38760 sport=80 flags=SA seq=339 win=4128 rtt=52.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=32885 sport=80 flags=SA seq=340 win=4128 rtt=48.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=63698 sport=80 flags=SA seq=341 win=4128 rtt=52.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=15875 sport=80 flags=SA seq=342 win=4128 rtt=49.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=12224 sport=80 flags=SA seq=343 win=4128 rtt=54.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=15867 sport=80 flags=SA seq=344 win=4128 rtt=52.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=65076 sport=80 flags=SA seq=345 win=4128 rtt=48.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=54450 sport=80 flags=SA seq=346 win=4128 rtt=53.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=14738 sport=80 flags=SA seq=347 win=4128 rtt=49.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=64890 sport=80 flags=SA seq=348 win=4128 rtt=45.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=50683 sport=80 flags=SA seq=349 win=4128 rtt=50.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=8852 sport=80 flags=SA seq=350 win=4128 rtt=47.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=29735 sport=80 flags=SA seq=351 win=4128 rtt=53.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=44529 sport=80 flags=SA seq=352 win=4128 rtt=48.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=17518 sport=80 flags=SA seq=353 win=4128 rtt=46.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=57365 sport=80 flags=SA seq=354 win=4128 rtt=50.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=27822 sport=80 flags=SA seq=355 win=4128 rtt=47.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=56081 sport=80 flags=SA seq=356 win=4128 rtt=52.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=26863 sport=80 flags=SA seq=357 win=4128 rtt=48.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=64704 sport=80 flags=SA seq=358 win=4128 rtt=54.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=45100 sport=80 flags=SA seq=359 win=4128 rtt=50.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=578 sport=80 flags=SA seq=360 win=4128 rtt=54.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=6359 sport=80 flags=SA seq=361 win=4128 rtt=50.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=39754 sport=80 flags=SA seq=362 win=4128 rtt=54.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=63193 sport=80 flags=SA seq=363 win=4128 rtt=52.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=48459 sport=80 flags=SA seq=364 win=4128 rtt=49.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=6965 sport=80 flags=SA seq=365 win=4128 rtt=52.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=34259 sport=80 flags=SA seq=366 win=4128 rtt=48.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=52604 sport=80 flags=SA seq=367 win=4128 rtt=52.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=39840 sport=80 flags=SA seq=368 win=4128 rtt=48.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=37795 sport=80 flags=SA seq=369 win=4128 rtt=54.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=40954 sport=80 flags=SA seq=370 win=4128 rtt=50.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=33264 sport=80 flags=SA seq=371 win=4128 rtt=57.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=43263 sport=80 flags=SA seq=372 win=4128 rtt=52.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=32370 sport=80 flags=SA seq=373 win=4128 rtt=48.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=18185 sport=80 flags=SA seq=374 win=4128 rtt=52.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=38664 sport=80 flags=SA seq=375 win=4128 rtt=48.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=53921 sport=80 flags=SA seq=376 win=4128 rtt=52.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=27379 sport=80 flags=SA seq=377 win=4128 rtt=50.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=41919 sport=80 flags=SA seq=378 win=4128 rtt=54.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=11503 sport=80 flags=SA seq=379 win=4128 rtt=50.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=45252 sport=80 flags=SA seq=380 win=4128 rtt=55.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=48621 sport=80 flags=SA seq=381 win=4128 rtt=50.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=41784 sport=80 flags=SA seq=382 win=4128 rtt=54.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=27637 sport=80 flags=SA seq=383 win=4128 rtt=51.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=10231 sport=80 flags=SA seq=384 win=4128 rtt=47.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=8518 sport=80 flags=SA seq=385 win=4128 rtt=51.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=48402 sport=80 flags=SA seq=386 win=4128 rtt=47.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=46797 sport=80 flags=SA seq=387 win=4128 rtt=51.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=25492 sport=80 flags=SA seq=388 win=4128 rtt=49.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=46786 sport=80 flags=SA seq=389 win=4128 rtt=45.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=65471 sport=80 flags=SA seq=390 win=4128 rtt=52.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=39509 sport=80 flags=SA seq=391 win=4128 rtt=48.7 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=4755 sport=80 flags=SA seq=392 win=4128 rtt=45.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=46302 sport=80 flags=SA seq=393 win=4128 rtt=49.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=48476 sport=80 flags=SA seq=394 win=4128 rtt=47.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=61011 sport=80 flags=SA seq=395 win=4128 rtt=43.7 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=25514 sport=80 flags=SA seq=396 win=4128 rtt=51.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=33742 sport=80 flags=SA seq=397 win=4128 rtt=47.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=24101 sport=80 flags=SA seq=398 win=4128 rtt=52.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=3065 sport=80 flags=SA seq=399 win=4128 rtt=50.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=12859 sport=80 flags=SA seq=400 win=4128 rtt=45.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=60125 sport=80 flags=SA seq=401 win=4128 rtt=43.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=53262 sport=80 flags=SA seq=402 win=4128 rtt=49.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=17232 sport=80 flags=SA seq=403 win=4128 rtt=46.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=42366 sport=80 flags=SA seq=404 win=4128 rtt=44.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=64918 sport=80 flags=SA seq=405 win=4128 rtt=49.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=16289 sport=80 flags=SA seq=406 win=4128 rtt=46.7 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=21307 sport=80 flags=SA seq=407 win=4128 rtt=52.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=14991 sport=80 flags=SA seq=408 win=4128 rtt=49.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=17223 sport=80 flags=SA seq=409 win=4128 rtt=48.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=42725 sport=80 flags=SA seq=410 win=4128 rtt=51.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=6931 sport=80 flags=SA seq=411 win=4128 rtt=48.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=7332 sport=80 flags=SA seq=412 win=4128 rtt=45.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=21474 sport=80 flags=SA seq=413 win=4128 rtt=51.7 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=49254 sport=80 flags=SA seq=414 win=4128 rtt=49.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=8720 sport=80 flags=SA seq=415 win=4128 rtt=45.7 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=20560 sport=80 flags=SA seq=416 win=4128 rtt=52.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=11345 sport=80 flags=SA seq=417 win=4128 rtt=50.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=8989 sport=80 flags=SA seq=418 win=4128 rtt=48.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=41943 sport=80 flags=SA seq=419 win=4128 rtt=45.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=36971 sport=80 flags=SA seq=420 win=4128 rtt=49.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=54267 sport=80 flags=SA seq=421 win=4128 rtt=47.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=44899 sport=80 flags=SA seq=422 win=4128 rtt=54.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=7789 sport=80 flags=SA seq=423 win=4128 rtt=50.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=1051 sport=80 flags=SA seq=424 win=4128 rtt=47.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=24233 sport=80 flags=SA seq=425 win=4128 rtt=53.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=9709 sport=80 flags=SA seq=426 win=4128 rtt=49.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=31468 sport=80 flags=SA seq=427 win=4128 rtt=46.7 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=61810 sport=80 flags=SA seq=428 win=4128 rtt=53.7 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=10963 sport=80 flags=SA seq=429 win=4128 rtt=50.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=25381 sport=80 flags=SA seq=430 win=4128 rtt=47.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=54871 sport=80 flags=SA seq=431 win=4128 rtt=53.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=44829 sport=80 flags=SA seq=432 win=4128 rtt=48.7 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=7394 sport=80 flags=SA seq=433 win=4128 rtt=47.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=4615 sport=80 flags=SA seq=434 win=4128 rtt=52.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=5125 sport=80 flags=SA seq=435 win=4128 rtt=49.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=39551 sport=80 flags=SA seq=436 win=4128 rtt=47.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=14164 sport=80 flags=SA seq=437 win=4128 rtt=43.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=380 sport=80 flags=SA seq=438 win=4128 rtt=49.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=12023 sport=80 flags=SA seq=439 win=4128 rtt=46.7 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=57082 sport=80 flags=SA seq=440 win=4128 rtt=43.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=29390 sport=80 flags=SA seq=441 win=4128 rtt=48.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=38425 sport=80 flags=SA seq=442 win=4128 rtt=46.7 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=35319 sport=80 flags=SA seq=443 win=4128 rtt=43.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=13956 sport=80 flags=SA seq=444 win=4128 rtt=49.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=50040 sport=80 flags=SA seq=445 win=4128 rtt=47.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=23982 sport=80 flags=SA seq=446 win=4128 rtt=52.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=42385 sport=80 flags=SA seq=447 win=4128 rtt=50.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=7485 sport=80 flags=SA seq=448 win=4128 rtt=47.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=50677 sport=80 flags=SA seq=449 win=4128 rtt=52.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=42669 sport=80 flags=SA seq=450 win=4128 rtt=47.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=33262 sport=80 flags=SA seq=451 win=4128 rtt=45.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=23377 sport=80 flags=SA seq=452 win=4128 rtt=50.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=31264 sport=80 flags=SA seq=453 win=4128 rtt=46.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=28484 sport=80 flags=SA seq=454 win=4128 rtt=44.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=24678 sport=80 flags=SA seq=455 win=4128 rtt=50.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=16919 sport=80 flags=SA seq=456 win=4128 rtt=47.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=30431 sport=80 flags=SA seq=457 win=4128 rtt=45.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=23165 sport=80 flags=SA seq=458 win=4128 rtt=49.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=63805 sport=80 flags=SA seq=459 win=4128 rtt=48.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=60149 sport=80 flags=SA seq=460 win=4128 rtt=45.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=39191 sport=80 flags=SA seq=461 win=4128 rtt=50.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=12789 sport=80 flags=SA seq=462 win=4128 rtt=48.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=15049 sport=80 flags=SA seq=463 win=4128 rtt=45.7 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=13692 sport=80 flags=SA seq=464 win=4128 rtt=51.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=27916 sport=80 flags=SA seq=465 win=4128 rtt=49.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=42131 sport=80 flags=SA seq=466 win=4128 rtt=53.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=50752 sport=80 flags=SA seq=467 win=4128 rtt=50.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=14240 sport=80 flags=SA seq=468 win=4128 rtt=47.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=53574 sport=80 flags=SA seq=469 win=4128 rtt=52.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=3485 sport=80 flags=SA seq=470 win=4128 rtt=47.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=3335 sport=80 flags=SA seq=471 win=4128 rtt=45.7 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=62074 sport=80 flags=SA seq=472 win=4128 rtt=51.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=44563 sport=80 flags=SA seq=473 win=4128 rtt=49.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=37404 sport=80 flags=SA seq=474 win=4128 rtt=47.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=45355 sport=80 flags=SA seq=475 win=4128 rtt=52.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=41058 sport=80 flags=SA seq=476 win=4128 rtt=47.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=39261 sport=80 flags=SA seq=477 win=4128 rtt=44.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=37657 sport=80 flags=SA seq=478 win=4128 rtt=50.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=47262 sport=80 flags=SA seq=479 win=4128 rtt=48.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=34382 sport=80 flags=SA seq=480 win=4128 rtt=54.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=28235 sport=80 flags=SA seq=481 win=4128 rtt=52.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=22102 sport=80 flags=SA seq=482 win=4128 rtt=48.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=37888 sport=80 flags=SA seq=483 win=4128 rtt=54.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=8958 sport=80 flags=SA seq=484 win=4128 rtt=52.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=64976 sport=80 flags=SA seq=485 win=4128 rtt=48.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=27408 sport=80 flags=SA seq=486 win=4128 rtt=53.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=41772 sport=80 flags=SA seq=487 win=4128 rtt=42.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=56614 sport=80 flags=SA seq=488 win=4128 rtt=41.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=22446 sport=80 flags=SA seq=489 win=4128 rtt=38.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=25046 sport=80 flags=SA seq=490 win=4128 rtt=42.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=6026 sport=80 flags=SA seq=491 win=4128 rtt=40.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=24782 sport=80 flags=SA seq=492 win=4128 rtt=35.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=6755 sport=80 flags=SA seq=493 win=4128 rtt=41.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=51142 sport=80 flags=SA seq=494 win=4128 rtt=39.7 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=52196 sport=80 flags=SA seq=495 win=4128 rtt=37.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=51777 sport=80 flags=SA seq=496 win=4128 rtt=41.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=5320 sport=80 flags=SA seq=497 win=4128 rtt=39.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=13103 sport=80 flags=SA seq=498 win=4128 rtt=37.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=2556 sport=80 flags=SA seq=499 win=4128 rtt=43.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=35843 sport=80 flags=SA seq=500 win=4128 rtt=39.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=54778 sport=80 flags=SA seq=501 win=4128 rtt=35.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=38508 sport=80 flags=SA seq=502 win=4128 rtt=48.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=56749 sport=80 flags=SA seq=503 win=4128 rtt=38.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=43389 sport=80 flags=SA seq=504 win=4128 rtt=36.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=50407 sport=80 flags=SA seq=505 win=4128 rtt=41.7 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=10863 sport=80 flags=SA seq=506 win=4128 rtt=38.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=63787 sport=80 flags=SA seq=507 win=4128 rtt=36.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=43896 sport=80 flags=SA seq=508 win=4128 rtt=42.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=8099 sport=80 flags=SA seq=509 win=4128 rtt=40.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=36381 sport=80 flags=SA seq=510 win=4128 rtt=36.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=51812 sport=80 flags=SA seq=511 win=4128 rtt=42.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=61599 sport=80 flags=SA seq=512 win=4128 rtt=38.5 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=59873 sport=80 flags=SA seq=513 win=4128 rtt=36.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=11914 sport=80 flags=SA seq=514 win=4128 rtt=43.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=3951 sport=80 flags=SA seq=515 win=4128 rtt=40.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=6408 sport=80 flags=SA seq=516 win=4128 rtt=37.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=39367 sport=80 flags=SA seq=517 win=4128 rtt=42.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=46183 sport=80 flags=SA seq=518 win=4128 rtt=39.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=52319 sport=80 flags=SA seq=519 win=4128 rtt=36.3 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=17748 sport=80 flags=SA seq=520 win=4128 rtt=43.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=1201 sport=80 flags=SA seq=521 win=4128 rtt=39.0 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=8030 sport=80 flags=SA seq=522 win=4128 rtt=36.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=55344 sport=80 flags=SA seq=523 win=4128 rtt=40.8 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=34934 sport=80 flags=SA seq=524 win=4128 rtt=38.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=40225 sport=80 flags=SA seq=525 win=4128 rtt=52.1 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=14465 sport=80 flags=SA seq=526 win=4128 rtt=50.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=39844 sport=80 flags=SA seq=527 win=4128 rtt=48.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=54749 sport=80 flags=SA seq=528 win=4128 rtt=53.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=30630 sport=80 flags=SA seq=529 win=4128 rtt=50.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=20761 sport=80 flags=SA seq=530 win=4128 rtt=48.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=30085 sport=80 flags=SA seq=531 win=4128 rtt=52.6 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=10613 sport=80 flags=SA seq=532 win=4128 rtt=50.9 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=39707 sport=80 flags=SA seq=533 win=4128 rtt=47.2 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=52205 sport=80 flags=SA seq=534 win=4128 rtt=53.7 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=40673 sport=80 flags=SA seq=535 win=4128 rtt=50.4 ms
+
+len=44 ip=222.10.10.1 ttl=254 id=34542 sport=80 flags=SA seq=536 win=4128 rtt=48.3 ms
+
+--- 222.10.10.1 hping statistic ---
+
+543 packets transmitted, 537 packets received, 2% packet loss
+
+round-trip min/avg/max = 23.9/43.9/57.1 ms

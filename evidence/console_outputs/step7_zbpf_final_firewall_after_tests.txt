@@ -1,0 +1,152 @@
+### COMMAND: terminal length 0
+terminal length 0
+
+firewall#
+### COMMAND: show policy-map type inspect zone-pair
+show policy-map type inspect zone-pair
+
+policy exists on zp OUT_TO_IN
+
+Zone-pair: OUT_TO_IN
+
+Service-policy inspect : OUT_TO_IN_POLICY
+
+Class-map: ICMP_TO_SERVER (match-all)
+
+Match: access-group name ZBF_TO_SERVER
+
+Match: protocol icmp
+
+Inspect
+
+Packet inspection statistics [process switch:fast switch]
+
+icmp packets: [0:14]
+
+Session creations since subsystem startup or last reset 2
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [1:1:0]
+
+Last session created 00:04:43
+
+Last statistic reset never
+
+Last session creation rate 0
+
+Maxever session creation rate 2
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Class-map: HTTP_TO_SERVER (match-all)
+
+Match: access-group name ZBF_TO_SERVER
+
+Match: protocol http
+
+Inspect
+
+Packet inspection statistics [process switch:fast switch]
+
+tcp packets: [0:15]
+
+Session creations since subsystem startup or last reset 5
+
+Current session counts (estab/half-open/terminating) [0:0:0]
+
+Maxever session counts (estab/half-open/terminating) [0:1:0]
+
+Last session created 00:04:09
+
+Last statistic reset never
+
+Last session creation rate 0
+
+Maxever session creation rate 5
+
+Last half-open session total 0
+
+TCP reassembly statistics
+
+received 0 packets out-of-order; dropped 0
+
+peak memory usage 0 KB; current usage: 0 KB
+
+peak queue length 0
+
+Class-map: class-default (match-any)
+
+Match: any
+
+Drop
+
+2054 packets, 49248 bytes
+
+policy exists on zp OUTSIDE_TO_SELF
+
+Zone-pair: OUTSIDE_TO_SELF
+
+Service-policy inspect : DROP_TO_SELF
+
+Class-map: class-default (match-any)
+
+Match: any
+
+Drop
+
+30 packets, 816 bytes
+
+policy exists on zp INSIDE_TO_SELF
+
+Zone-pair: INSIDE_TO_SELF
+
+Service-policy inspect : DROP_TO_SELF
+
+Class-map: class-default (match-any)
+
+Match: any
+
+Drop
+
+18 packets, 1152 bytes
+
+firewall#
+### COMMAND: show zone-pair security
+show zone-pair security
+
+Zone-pair name OUT_TO_IN
+
+Source-Zone OUTSIDE  Destination-Zone INSIDE
+
+service-policy OUT_TO_IN_POLICY
+
+Zone-pair name OUTSIDE_TO_SELF
+
+Source-Zone OUTSIDE  Destination-Zone self
+
+service-policy DROP_TO_SELF
+
+Zone-pair name INSIDE_TO_SELF
+
+Source-Zone INSIDE  Destination-Zone self
+
+service-policy DROP_TO_SELF
+
+firewall#
+### COMMAND: write memory
+write memory
+
+Building configuration...
+
+[OK]
+
+firewall#
