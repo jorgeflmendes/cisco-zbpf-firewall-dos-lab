@@ -28,6 +28,8 @@ SAAR / Advanced Network Security and Architectures at Instituto Superior Tecnico
 
 ## Architecture
 
+![Campus Topology](docs/report/relatorio_tex_assets/topologia_campus.jpg)
+
 ```mermaid
 flowchart LR
 PR1["PR1\n10.1.1.0/24"] --> FW["Cisco IOS ZBPF firewall"]
