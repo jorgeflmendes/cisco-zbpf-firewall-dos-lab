@@ -1,12 +1,12 @@
 # Cisco ZBPF Firewall and DoS Mitigation Lab
 
-A reproducible GNS3 network-security lab for Cisco Zone-Based Policy Firewall, campus segmentation, NAT, SSH-only firewall administration, and DoS mitigation evidence.
+> A reproducible GNS3 network-security lab for Cisco Zone-Based Policy Firewall, campus segmentation, NAT, SSH-only firewall administration, and DoS mitigation evidence.
 
 [![GNS3](https://img.shields.io/badge/GNS3-lab-orange)](https://www.gns3.com/)
 [![Academic](https://img.shields.io/badge/Academic-SAAR%202025%2F2026-blue)](#academic-context)
 
-[!WARNING]
-This repository documents controlled academic network-security lab work. Run the commands and scenarios only in isolated environments where you have authorization. Licensed appliance images, course handouts, raw packet captures, and local lab state are intentionally excluded.
+> [!WARNING]
+> This repository documents controlled academic network-security lab work. Run the commands and scenarios only in isolated environments where you have authorization. Licensed appliance images, course handouts, raw packet captures, and local lab state are intentionally excluded.
 
 ## Overview
 
