@@ -1,23 +1,16 @@
-# Architecture Notes - Cisco ZBPF Firewall and DoS Mitigation Lab
+# Architecture
 
-## Lab Topology
+The campus firewall connects PR1 (`10.1.1.0/24`), PR2 (`10.2.2.0/24`), DMZ (`172.16.10.0/24`), and OUT (`203.0.113.0/24`). `configs/campus-zbpf.cfg.template` configures the interfaces, NAT, zones, ACLs, class maps, policy maps, and zone pairs.
 
-Two GNS3 scenarios are represented: a campus segmentation topology with PR1/PR2/DMZ/OUT zones, and a two-zone OUTSIDE/INSIDE topology for ICMP and TCP SYN flood mitigation.
+| Source | Destination | Services |
+| --- | --- | --- |
+| PR1, PR2 | OUT | ICMP, HTTP, HTTPS, DNS |
+| PR1, PR2 | DMZ | ICMP, web, mail, DNS |
+| OUT | DMZ | ICMP, web, SMTP, DNS |
+| DMZ | OUT | ICMP, SMTP, DNS |
 
-## Evidence Flow
+All other new flows are dropped. Return traffic is permitted by ZBPF state inspection.
 
-Router console outputs, Nmap probes, screenshots, and Wireshark captures were reduced to report figures and text summaries. Raw captures are excluded.
+## Flood controls
 
-## Publication Boundary
-
-The repository keeps report source and selected reviewed evidence. It deliberately excludes:
-
-- Cisco IOS/GNS3 appliance images
-- raw PCAP files
-- course PDFs and private handouts
-- local GNS3 project identifiers
-- temporary debug logs
-
-## Reproduction Assumptions
-
-The lab was executed in GNS3 using Cisco/GNS3 appliances and Linux containers. Re-running the full topology requires local access to those appliances and the original lab guide.
+`configs/dos-mitigation.cfg` applies policing to ICMP and HTTP traffic and uses a three-second TCP SYN wait time for inspected HTTP sessions. Run it only on the isolated OUTSIDE/INSIDE topology.

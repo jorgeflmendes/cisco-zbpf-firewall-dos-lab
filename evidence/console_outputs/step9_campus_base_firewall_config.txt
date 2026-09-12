@@ -143,8 +143,8 @@ FW-CAMPUS(config)#
 ip domain-name saar.lab
 
 FW-CAMPUS(config)#
-### COMMAND: username admin privilege 15 secret saarpass
-username admin privilege 15 secret saarpass
+### COMMAND: username admin privilege 15 secret <REDACTED-LAB-PASSWORD>
+username admin privilege 15 secret <REDACTED-LAB-PASSWORD>
 
 FW-CAMPUS(config)#
 ### COMMAND: crypto key generate rsa modulus 1024
@@ -395,7 +395,7 @@ show running-config | include hostname|ip nat|access-list 10|ip ssh
 
 hostname FW-CAMPUS
 
-username admin privilege 15 secret 5 $1$eG.G$WF./haMxryna.To.lKy4w/
+username admin privilege 15 secret 5 <REDACTED-IOS-SECRET-HASH>
 
 ip ssh version 2
 

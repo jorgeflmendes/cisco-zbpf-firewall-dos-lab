@@ -1,0 +1,203 @@
+hostname FW-CAMPUS
+no ip domain-lookup
+ip routing
+ip domain-name saar.local
+
+username admin privilege 15 secret 0 {{ADMIN_PASSWORD}}
+ip ssh version 2
+line vty 0 4
+ login local
+ transport input ssh
+
+zone security PR1
+zone security PR2
+zone security DMZ
+zone security OUT
+
+interface FastEthernet0/0
+ description PR1
+ ip address 10.1.1.254 255.255.255.0
+ ip nat inside
+ zone-member security PR1
+ no shutdown
+
+interface FastEthernet0/1
+ description PR2
+ ip address 10.2.2.254 255.255.255.0
+ ip nat inside
+ zone-member security PR2
+ no shutdown
+
+interface FastEthernet1/0
+ description DMZ
+ ip address 172.16.10.254 255.255.255.0
+ zone-member security DMZ
+ no shutdown
+
+interface FastEthernet2/0
+ description OUT
+ ip address 203.0.113.254 255.255.255.0
+ ip nat outside
+ zone-member security OUT
+ no shutdown
+
+access-list 10 permit 10.0.0.0 0.255.255.255
+ip nat inside source list 10 interface FastEthernet2/0 overload
+
+ip access-list extended ACL_DMZ_TO_OUT
+ permit icmp 172.16.10.0 0.0.0.255 any
+ permit tcp 172.16.10.0 0.0.0.255 any eq smtp
+ permit tcp 172.16.10.0 0.0.0.255 any eq domain
+ permit udp 172.16.10.0 0.0.0.255 any eq domain
+
+ip access-list extended ACL_OUT_TO_DMZ
+ permit icmp any host 172.16.10.10
+ permit icmp any host 172.16.10.20
+ permit icmp any host 172.16.10.30
+ permit tcp any host 172.16.10.10 eq www
+ permit tcp any host 172.16.10.10 eq 443
+ permit tcp any host 172.16.10.20 eq smtp
+ permit tcp any host 172.16.10.30 eq domain
+ permit udp any host 172.16.10.30 eq domain
+
+ip access-list extended ACL_PR_TO_DMZ
+ permit icmp 10.0.0.0 0.255.255.255 host 172.16.10.10
+ permit icmp 10.0.0.0 0.255.255.255 host 172.16.10.20
+ permit icmp 10.0.0.0 0.255.255.255 host 172.16.10.30
+ permit tcp 10.0.0.0 0.255.255.255 host 172.16.10.10 eq www
+ permit tcp 10.0.0.0 0.255.255.255 host 172.16.10.10 eq 443
+ permit tcp 10.0.0.0 0.255.255.255 host 172.16.10.20 eq smtp
+ permit tcp 10.0.0.0 0.255.255.255 host 172.16.10.20 eq pop3
+ permit tcp 10.0.0.0 0.255.255.255 host 172.16.10.20 eq 143
+ permit tcp 10.0.0.0 0.255.255.255 host 172.16.10.30 eq domain
+ permit udp 10.0.0.0 0.255.255.255 host 172.16.10.30 eq domain
+
+ip access-list extended ACL_PR_TO_OUT
+ permit icmp 10.0.0.0 0.255.255.255 any
+ permit tcp 10.0.0.0 0.255.255.255 any eq www
+ permit tcp 10.0.0.0 0.255.255.255 any eq 443
+ permit tcp 10.0.0.0 0.255.255.255 any eq domain
+ permit udp 10.0.0.0 0.255.255.255 any eq domain
+
+ip access-list extended ACL_TO_SELF_SSH
+ permit tcp any any eq 22
+
+ip access-list extended ACL_DST_WEB
+ permit ip any host 172.16.10.10
+ip access-list extended ACL_DST_MAIL
+ permit ip any host 172.16.10.20
+ip access-list extended ACL_DST_DNS
+ permit ip any host 172.16.10.30
+ip access-list extended ACL_PROTO_WEB
+ permit tcp any any eq www
+ permit tcp any any eq 443
+ip access-list extended ACL_PROTO_MAIL_FULL
+ permit tcp any any eq smtp
+ permit tcp any any eq pop3
+ permit tcp any any eq 143
+ip access-list extended ACL_PROTO_SMTP
+ permit tcp any any eq smtp
+ip access-list extended ACL_PROTO_DNS
+ permit tcp any any eq domain
+ permit udp any any eq domain
+ip access-list extended ACL_PROTO_ICMP
+ permit icmp any any
+ip access-list extended ACL_DST_DMZ_SERVERS
+ permit ip any host 172.16.10.10
+ permit ip any host 172.16.10.20
+ permit ip any host 172.16.10.30
+
+class-map type inspect match-any CM_PR_TO_OUT
+ match access-group name ACL_PR_TO_OUT
+class-map type inspect match-any CM_PR_TO_DMZ
+ match access-group name ACL_PR_TO_DMZ
+class-map type inspect match-any CM_TO_SELF_SSH
+ match access-group name ACL_TO_SELF_SSH
+class-map type inspect match-any CM_OUT_TO_DMZ
+ match access-group name ACL_OUT_TO_DMZ
+class-map type inspect match-any CM_DMZ_TO_OUT
+ match access-group name ACL_DMZ_TO_OUT
+class-map type inspect match-any CM_PROTO_WEB
+ match access-group name ACL_PROTO_WEB
+class-map type inspect match-any CM_PROTO_MAIL_FULL
+ match access-group name ACL_PROTO_MAIL_FULL
+class-map type inspect match-any CM_PROTO_SMTP
+ match access-group name ACL_PROTO_SMTP
+class-map type inspect match-any CM_PROTO_DNS
+ match access-group name ACL_PROTO_DNS
+class-map type inspect match-any CM_PROTO_ICMP
+ match access-group name ACL_PROTO_ICMP
+class-map type inspect match-all CM_TO_WEB_NESTED
+ match access-group name ACL_DST_WEB
+ match class-map CM_PROTO_WEB
+class-map type inspect match-all CM_TO_MAIL_FULL_NESTED
+ match access-group name ACL_DST_MAIL
+ match class-map CM_PROTO_MAIL_FULL
+class-map type inspect match-all CM_TO_MAIL_SMTP_NESTED
+ match access-group name ACL_DST_MAIL
+ match class-map CM_PROTO_SMTP
+class-map type inspect match-all CM_TO_DNS_NESTED
+ match access-group name ACL_DST_DNS
+ match class-map CM_PROTO_DNS
+class-map type inspect match-all CM_TO_DMZ_ICMP_NESTED
+ match access-group name ACL_DST_DMZ_SERVERS
+ match class-map CM_PROTO_ICMP
+class-map type inspect match-any CM_PR_TO_DMZ_NESTED
+ match class-map CM_TO_WEB_NESTED
+ match class-map CM_TO_MAIL_FULL_NESTED
+ match class-map CM_TO_DNS_NESTED
+ match class-map CM_TO_DMZ_ICMP_NESTED
+class-map type inspect match-any CM_OUT_TO_DMZ_NESTED
+ match class-map CM_TO_WEB_NESTED
+ match class-map CM_TO_MAIL_SMTP_NESTED
+ match class-map CM_TO_DNS_NESTED
+ match class-map CM_TO_DMZ_ICMP_NESTED
+
+policy-map type inspect PM_PR_TO_OUT
+ class type inspect CM_PR_TO_OUT
+  inspect
+ class class-default
+  drop log
+policy-map type inspect PM_PR_TO_DMZ
+ class type inspect CM_PR_TO_DMZ_NESTED
+  inspect
+ class class-default
+  drop log
+policy-map type inspect PM_TO_SELF
+ class type inspect CM_TO_SELF_SSH
+  inspect
+ class class-default
+  drop log
+policy-map type inspect PM_OUT_TO_DMZ
+ class type inspect CM_OUT_TO_DMZ_NESTED
+  inspect
+ class class-default
+  drop log
+policy-map type inspect PM_DMZ_TO_OUT
+ class type inspect CM_DMZ_TO_OUT
+  inspect
+ class class-default
+  drop log
+
+zone-pair security PR1_TO_OUT source PR1 destination OUT
+ service-policy type inspect PM_PR_TO_OUT
+zone-pair security PR2_TO_OUT source PR2 destination OUT
+ service-policy type inspect PM_PR_TO_OUT
+zone-pair security PR1_TO_DMZ source PR1 destination DMZ
+ service-policy type inspect PM_PR_TO_DMZ
+zone-pair security PR2_TO_DMZ source PR2 destination DMZ
+ service-policy type inspect PM_PR_TO_DMZ
+zone-pair security OUT_TO_DMZ source OUT destination DMZ
+ service-policy type inspect PM_OUT_TO_DMZ
+zone-pair security DMZ_TO_OUT source DMZ destination OUT
+ service-policy type inspect PM_DMZ_TO_OUT
+zone-pair security PR1_TO_SELF source PR1 destination self
+ service-policy type inspect PM_TO_SELF
+zone-pair security PR2_TO_SELF source PR2 destination self
+ service-policy type inspect PM_TO_SELF
+zone-pair security DMZ_TO_SELF source DMZ destination self
+ service-policy type inspect PM_TO_SELF
+zone-pair security OUT_TO_SELF source OUT destination self
+ service-policy type inspect PM_TO_SELF
+
+end

@@ -1,109 +1,66 @@
-# Cisco ZBPF Firewall and DoS Mitigation Lab
+# Cisco ZBPF Firewall and Flood Mitigation
 
-> A reproducible GNS3 network-security lab for Cisco Zone-Based Policy Firewall, campus segmentation, NAT, SSH-only firewall administration, and DoS mitigation evidence.
 
-[![GNS3](https://img.shields.io/badge/GNS3-lab-orange)](https://www.gns3.com/)
-[![Academic](https://img.shields.io/badge/Academic-SAAR%202025%2F2026-blue)](#academic-context)
+Cisco IOS Zone-Based Policy Firewall configurations for a segmented campus and a separate controlled flood-mitigation scenario.
 
 > [!WARNING]
-> This repository documents controlled academic network-security lab work. Run the commands and scenarios only in isolated environments where you have authorization. Licensed appliance images, course handouts, raw packet captures, and local lab state are intentionally excluded.
+> Run flood-generation tools only in an isolated topology you own or are authorized to test.
 
-## Overview
+## What it covers
 
-This repository packages the SAAR Lab 1.2 firewall work as a portfolio-quality network-security lab. It documents a Cisco Zone-Based Policy Firewall deployment for a segmented campus network and a separate DoS mitigation scenario using inspection, policing, and TCP half-open session controls.
+- PR1, PR2, DMZ, OUT and firewall self zones.
+- Stateful ZBPF policies built from ACLs, class maps, nested class maps, policy maps and zone pairs.
+- NAT overload for private networks and controlled access to DMZ services.
+- SSH administration through the self zone.
+- ICMP and TCP SYN policing, plus a reduced TCP SYN wait time.
 
-The repository is organized for public review: report source, architecture notes, selected evidence, CI-safe validation, and publication hygiene files are kept separate from generated or restricted lab artefacts.
-
-## Academic Context
-
-SAAR / Advanced Network Security and Architectures at Instituto Superior Tecnico. The lab focuses on Cisco IOS firewall policy design, validation with Nmap and packet captures, and defensible technical reporting.
-
-## Key Features
-
-- Campus topology with PR1, PR2, DMZ, OUT, and firewall self zones.
-- Cisco ZBPF policy design using ACLs, class maps, nested class maps, policy maps, and zone pairs.
-- NAT overload validation for private zones and controlled DMZ service exposure.
-- SSH-only administrative access validation from all zones.
-- ICMP flood and TCP SYN flood analysis with policing and TCP half-open mitigation.
-
-## Architecture
-
-![Campus Topology](docs/report/relatorio_tex_assets/topologia_campus.jpg)
+## Topology
 
 ```mermaid
 flowchart LR
-PR1["PR1\n10.1.1.0/24"] --> FW["Cisco IOS ZBPF firewall"]
+PR1["PR1\n10.1.1.0/24"] --> FW["Cisco IOS firewall"]
 PR2["PR2\n10.2.2.0/24"] --> FW
-DMZ["DMZ services\nWeb / Mail / DNS"] --> FW
-OUT["OUT zone\n203.0.113.0/24"] --> FW
-ATTACKER["DoS attacker"] --> DOSFW["ZBPF DoS policy"] --> SERVER["Inside server"]
-FW --> EVIDENCE["Nmap / console / Wireshark summaries"]
-DOSFW --> EVIDENCE
+DMZ["DMZ\nWeb, Mail and DNS"] --> FW
+OUT["OUT\n203.0.113.0/24"] --> FW
+ATTACKER["Flood source"] --> DOSFW["DoS policy"] --> SERVER["Protected server"]
 ```
 
-See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for system boundaries, evidence flow, and publication caveats.
+The address plan and allowed service matrix are in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
-## Tech Stack
-
-- GNS3
-- Cisco IOS / Cisco 7200-style routing
-- Zone-Based Policy Firewall
-- Nmap
-- Wireshark / tshark summaries
-- PDF Report
-
-## Repository Structure
+## Layout
 
 ```text
-.
-|-- docs/
-|   |-- ARCHITECTURE.md
-|   `-- report/
-|-- evidence/
-|-- CONTRIBUTING.md
-|-- SECURITY.md
-`-- README.md
+configs/     campus and flood-mitigation Cisco IOS configurations
+scripts/     configuration rendering helpers
+docs/        topology notes
+evidence/    selected console and packet summaries
 ```
 
-- `docs/report/` - Final PDF report extract and selected figures.
-- `docs/ARCHITECTURE.md` - Topology, evidence flow, and publication boundary.
-- `evidence/` - Reviewed console outputs, Nmap results, screenshots, and capture summaries.
+## Requirements
 
-## Getting Started
+- GNS3 with a Cisco IOS image that supports ZBPF.
+- A campus topology with PR1, PR2, DMZ and OUT networks.
+- An isolated attacker/protected-server pair for the policing scenario.
 
-Full lab reproduction requires a local GNS3 environment with the corresponding Cisco/Linux appliances and the original lab topology. Those resources are not redistributed here.
+## Quick start
 
-## Evidence Policy
+Render the campus configuration with a local administrator password, then load it on the firewall:
 
-Evidence under `evidence/` is curated and text-based where possible. Raw captures (`.pcap`, `.pcapng`), VM images, IOS/ASAv images, GNS3 project IDs, large generated artefacts, and private course PDFs are not included. The report references course material instead of vendoring it.
+```bash
+ADMIN_PASSWORD=... python3 scripts/render_config.py \
+  configs/campus-zbpf.cfg.template campus-zbpf.cfg
+```
 
-## Security and Ethics
+Load `configs/dos-mitigation.cfg` only on the separate OUTSIDE/INSIDE test firewall.
 
-This is an authorized educational network-security project. Do not target third-party systems, production networks, or public infrastructure. See [SECURITY.md](SECURITY.md) for scope and reporting guidance.
+## Verification
 
-## Limitations
+- PR1 and PR2 can use the permitted services towards OUT and DMZ.
+- OUT can reach only the exposed DMZ services.
+- Unrequested traffic towards PR networks is dropped.
+- NAT translations appear for private-to-OUT flows.
+- The flood policy increments its policing counters under controlled ICMP and TCP SYN traffic.
 
-- Full reproduction requires GNS3 and Cisco-compatible lab appliances.
-- Raw packet captures and licensed appliance images are intentionally not included.
-- The repository documents lab validation rather than providing a one-command topology rebuild.
+## Safety
 
-## Roadmap
-
-- Add sanitized topology export metadata if redistribution is safe.
-- Add optional scripts to regenerate selected text evidence from a running lab.
-- Add rendered report build instructions for local LaTeX environments.
-
-## Usage Note
-
-This repository is published as an academic portfolio and reproducibility artefact for SAAR laboratory work. Course guides, network appliance images, and third-party materials may be subject to separate terms.
-
-## References
-
-- [Instituto Superior Tecnico](https://tecnico.ulisboa.pt/)
-- [GNS3](https://www.gns3.com/)
-- [Wireshark](https://www.wireshark.org/)
-- Project-specific lab guides and course slides are cited inside the report source.
-
-## Topics
-
-cybersecurity, network-security, cisco, gns3, zbpf, firewall, dos-mitigation, nmap, wireshark, academic-project
+Do not commit passwords, captures, IOS images, VM disks or local GNS3 project files. See [SECURITY.md](SECURITY.md).
